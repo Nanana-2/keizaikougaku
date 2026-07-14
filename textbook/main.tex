@@ -1,0 +1,84 @@
+% 経済工学Ⅰ 講義ノート(教科書版)
+% コンパイル: lualatex main.tex (2回) または latexmk -lualatex main.tex
+\documentclass[a4paper,11pt,book]{jlreq}
+
+\usepackage{luatexja-fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black,
+  pdftitle={経済工学I 講義ノート},pdfauthor={}}
+
+% ---- 定理環境 ----
+\theoremstyle{definition}
+\newtheorem{definition}{定義}[chapter]
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{example}[definition]{例}
+\newtheorem{remark}[definition]{注意}
+
+% ---- ボックス環境 ----
+\newtcolorbox{keypoint}[1][]{%
+  colback=blue!5!white,colframe=blue!50!black,
+  title={#1},fonttitle=\bfseries,breakable}
+\newtcolorbox{exercise}[1][]{%
+  colback=green!5!white,colframe=green!40!black,
+  title={#1},fonttitle=\bfseries,breakable}
+\newtcolorbox{answerbox}[1][解答と解説]{%
+  colback=orange!5!white,colframe=orange!60!black,
+  title={#1},fonttitle=\bfseries,breakable}
+
+% ---- 数式マクロ ----
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\title{\Huge 経済工学Ⅰ 講義ノート\\[1ex]\Large ---金融工学入門---}
+\author{講義:室町 幸雄(東京都立大学 経済経営学部)\\LaTeX編集版}
+\date{2026年度 Sセメスター}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\chapter*{まえがき}
+本書は,2026年度に東京大学工学部で開講された「経済工学Ⅰ」(担当:室町幸雄
+先生,東京都立大学経済経営学部)の講義資料(全12回)および演習問題・解答を,
+体系的な教科書の形に再構成したものである.原資料はスライド形式であったため,
+箇条書きの内容を文章として書き下し,数式の導出過程や演習問題の考え方を含む
+解説を補った.内容の取捨選択は原則として行っておらず,講義で扱われた事項は
+すべて収録することを目指した.
+
+各章は講義1回分に対応する.章末には当該回の演習問題とその解答・解説を収録した.
+
+\tableofcontents
+
+\mainmatter
+\input{chapters/ch01}
+\input{chapters/ch02}
+\input{chapters/ch03}
+\input{chapters/ch04}
+\input{chapters/ch05}
+\input{chapters/ch06}
+\input{chapters/ch07}
+\input{chapters/ch08}
+\input{chapters/ch09}
+\input{chapters/ch10}
+\input{chapters/ch11}
+\input{chapters/ch12}
+
+\end{document}

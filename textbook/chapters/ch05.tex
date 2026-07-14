@@ -1,0 +1,1009 @@
+% 第5章 現代ポートフォリオ理論(1)(資料5 + Markowitz補足)
+\chapter{現代ポートフォリオ理論 (1):分散投資と平均分散モデル}
+
+本章から3章にわたり,\textbf{現代ポートフォリオ理論} (Modern Portfolio Theory)
+を学ぶ.本章では,ポートフォリオの収益率の定式化,分散投資によるリスク低減効果
+(分散投資効果),そしてリスク性資産のみからなる場合の平均分散モデル
+(Markowitzのポートフォリオ選択問題)を扱う.
+
+\section{投資における時間の推移と収益率}
+
+\subsection{価格変化と組み替えの考え方}
+
+ポートフォリオ運用では,「価格変化」と「組み替え(リバランス)」が繰り返される.
+2資産(債券価格 $B_t$,株価 $S_t$;保有量 $b_t$, $\Theta_t$)のケースで考えると,
+時間の流れは
+\[
+\underbrace{t-1 \to t}_{\text{価格変化(保有量は不変)}}
+\;\to\;
+\underbrace{t}_{\text{組み替え}}
+\;\to\;
+\underbrace{t \to t+1}_{\text{価格変化(保有量は不変)}}
+\;\to\;
+\underbrace{t+1}_{\text{組み替え}}
+\;\to\;\cdots
+\]
+となる.すなわち,時刻 $t$ の価格を参考にポートフォリオを組み替え,次の価格変化の
+間は保有量は不変である.価格変化と組み替えは,同時刻で表示していても
+“同時”ではないことに注意する(取引コストは無視する).
+
+\subsection{個別資産とポートフォリオの収益率}
+
+\begin{itemize}
+\item 資産数:$N$
+\item 資産 $j$ の価格:$P_j(t)$(単位量当たりの価格)
+\item 資産 $j$ の保有量:$x_j$(一期間の間で不変と考える)
+\item ポートフォリオの価格:$V_P(t)$
+\item 資産 $j$ の保有比率:$w_j(t) = x_j P_j(t)/V_P(t)$
+\end{itemize}
+
+このとき,ポートフォリオの(算術)収益率は
+\begin{align}
+R_P(t) &= \frac{V_P(t) - V_P(t-1)}{V_P(t-1)}
+= \frac{1}{V_P(t-1)}\sum_{j=1}^{N} x_j\bigl(P_j(t) - P_j(t-1)\bigr)\notag\\
+&= \sum_{j=1}^{N}\frac{x_j P_j(t-1)}{V_P(t-1)}\times
+\frac{P_j(t)-P_j(t-1)}{P_j(t-1)}
+= \sum_{j=1}^{N} w_j(t-1)\, R_j(t)
+\label{eq:port-return}
+\end{align}
+となる.すなわち,\textbf{ポートフォリオの収益率は,構成資産の収益率の保有比率に
+よる加重平均}である.ここで $R_j(t)$ と $R_P(t)$ は算術収益率である.対数収益率
+では,このようにうまく表現できない(これが,ポートフォリオの最適化で算術収益率が
+使われる理由である).
+
+\section{分散投資効果の例}
+
+リスクを標準偏差(または分散)で測り,分散投資の効果を2つのケースで確認する.
+いずれも,ある金額(例えば100億円)を持っている人が投資先を増やしていく
+(1件当たりの投資額は減っていく)ことを想定する.
+
+\subsection{ケース1:独立な収益率}
+
+$N$ 銘柄の資産への投資について,次を仮定する.
+\begin{enumerate}
+\item すべての投資先の収益率 $R_j$, $j=1,\dots,N$ は,同じ分布に従う
+($\E[R_j]=\mu$, $\Var[R_j]=\sigma^2$).
+\item すべての投資先の収益率 $R_j$ は互いに独立である.
+\item すべての投資先への投資比率(保有比率)は同じとする.投資比率の和は1
+なので,$w_j = 1/N$ となる.
+\item ポートフォリオの収益率は,全投資先の収益率の(投資比率による)加重平均
+\eqref{eq:port-return}で与えられる.
+\item リスクは収益率の標準偏差で測る.
+\end{enumerate}
+
+このとき,ポートフォリオの収益率は
+\[
+R_p = \sum_{j=1}^{N} w_j R_j = \frac{1}{N}\sum_{j=1}^{N} R_j
+\]
+であり,期待値と分散は
+\begin{align}
+\E[R_p] &= \E\Bigl[\frac{1}{N}\sum_{j=1}^{N}R_j\Bigr]
+= \frac{1}{N}\sum_{j=1}^{N}\E[R_j] = \frac{1}{N}\sum_{j=1}^{N}\mu = \mu,\\
+\Var[R_p] &= \Var\Bigl[\frac{1}{N}\sum_{j=1}^{N}R_j\Bigr]
+= \frac{1}{N^2}\Var\Bigl[\sum_{j=1}^{N}R_j\Bigr]
+= \frac{1}{N^2}\sum_{j=1}^{N}\Var[R_j]
+= \frac{\sigma^2}{N}
+\end{align}
+となる.ここで,期待値の計算の等号は常に成り立つ(期待値の線形性)が,分散の
+計算で「和の分散 $=$ 分散の和」とした等号は常に成り立つものではなく,
+\emph{無相関だから}成り立つことに注意する.したがって,ポートフォリオのリスクは
+\begin{equation}
+\sigma_p \equiv \sqrt{\Var[R_p]} = \frac{\sigma}{\sqrt{N}}
+\;\longrightarrow\; 0 \qquad (N\to\infty).
+\end{equation}
+投資先の数 $N$ を増やすとリスクは $1/\sqrt{N}$ のオーダーで減少し,ゼロに
+漸近する.
+
+\subsection{ケース2:共通成分がある収益率}
+
+ケース1の仮定1, 2を次のように変更する(他の仮定はそのまま).
+
+\begin{itemize}
+\item[1'.] 投資先の収益率 $R_j$, $j=1,\dots,N$ は
+\begin{equation}
+R_j = \beta R + \varepsilon_j
+\end{equation}
+で与えられる.ただし,$R$ と $\varepsilon_j$ はそれぞれ互いに独立な確率変数で,
+$\varepsilon_j$ と $\varepsilon_k$($j\neq k$)も独立とする.また
+\[
+\E[R] = \mu,\quad \Var[R] = \sigma^2,\qquad
+\E[\varepsilon_j] = 0,\quad \Var[\varepsilon_j] = \sigma_\varepsilon^2.
+\]
+\end{itemize}
+
+このとき,
+\[
+R_p = \sum_{j=1}^{N}\frac{1}{N}R_j
+= \beta R + \frac{1}{N}\sum_{j=1}^{N}\varepsilon_j
+\]
+なので,
+\begin{align}
+\E[R_p] &= \beta\E[R] + \frac{1}{N}\sum_{j=1}^{N}\E[\varepsilon_j] = \beta\mu,\\
+\Var[R_p] &= \beta^2\Var[R] + \frac{1}{N^2}\sum_{j=1}^{N}\Var[\varepsilon_j]
+= \beta^2\sigma^2 + \frac{\sigma_\varepsilon^2}{N}
+\end{align}
+となる(ここでも分散の等号は独立性による).よって
+\begin{equation}
+\sigma_p = \sqrt{\beta^2\sigma^2 + \frac{\sigma_\varepsilon^2}{N}}
+\;\longrightarrow\; \beta\sigma \qquad (N\to\infty).
+\end{equation}
+
+\subsection{システマティック・リスクとアンシステマティック・リスク}
+
+\begin{keypoint}[分散投資効果]
+\begin{itemize}
+\item リスクのうち,「投資先ごとに独立な成分」(\textbf{アンシステマティック・
+リスク})は,投資先を分散させる($N$を増やす)につれて低下し,$N\to\infty$ では
+ゼロに漸近する.
+\item リスクのうち,「投資先に共通な成分」(\textbf{システマティック・リスク})は,
+いくら投資先を分散させても低下しない.「投資先に共通な成分」の大きさを示すのが
+$\beta$ である.
+\end{itemize}
+このように,投資先を分散することでリスクが低減することを\textbf{分散投資効果}と
+いう.ここで示した例は分散投資効果の一端であり,実はより幅広い効果がある
+(次節以降).
+\end{keypoint}
+
+\section{個別資産の収益率とポートフォリオ}
+
+本節では,少数の将来シナリオを使った説明を行う(前節とは切り離して考える).
+
+\subsection{ケース1:2つのシナリオ}
+
+\begin{example}[基礎データ]
+将来のシナリオI, II(発生確率各50\%)に対する3資産の収益率を次のように設定する.
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+ & I & II & 期待値 & 標準偏差\\
+\midrule
+発生確率 & 50\% & 50\% & &\\
+資産A & 30\% & 10\% & 20\% & 10.0\%\\
+資産B & 50\% & 10\% & 30\% & 20.0\%\\
+資産C & 10\% & 50\% & 30\% & 20.0\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+資産Bと資産Cは,期待値と標準偏差(リスク)でみると区別できない(無差別である).
+このとき,「Aが50\%,Bが50\%」のポートフォリオ$\alpha$と,「Aが50\%,Cが50\%」
+のポートフォリオ$\beta$の,リターンとリスクはどうなるか.
+\end{example}
+
+計算の内訳を$\alpha$で示す.収益率(確率変数)を $R_A, R_B$ とすると,
+ポートフォリオ$\alpha$の収益率は(算術収益率で)
+\[
+R_\alpha = \frac{R_A + R_B}{2}
+\qquad\Bigl(R_\alpha = \sum_i w_i R_i,\ \sum_i w_i = 1\Bigr)
+\]
+であり,リターンは
+\[
+\E[R_\alpha] = 0.5\times\frac{0.3+0.5}{2} + 0.5\times\frac{0.1+0.1}{2} = 0.25,
+\]
+収益率の分散($=$リスク$^2$)は
+\[
+\Var[R_\alpha] = 0.5\Bigl(\frac{0.3+0.5}{2}-0.25\Bigr)^2
++ 0.5\Bigl(\frac{0.1+0.1}{2}-0.25\Bigr)^2 = 0.15^2.
+\]
+ポートフォリオ$\beta$も同様に計算すると,結果は次のとおりである.
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+ & I & II & 期待値 & 標準偏差\\
+\midrule
+発生確率 & 50\% & 50\% & &\\
+$\alpha$(A50\%+B50\%) & 40\% & 10\% & 25\% & 15.0\%\\
+$\beta$(A50\%+C50\%) & 20\% & 30\% & 25\% & 5.0\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item リターンは同じだが,リスク(収益率の標準偏差)は違う.
+\item ポートフォリオ$\alpha$のリスクは,AとBのリスクの平均値と同じである.
+\item リスク回避的な人ならば,ポートフォリオ$\beta$を選択する.
+\end{itemize}
+
+構成比率を変えても同じことが起きる.例えば A 20\%・B(C) 80\% では
+$\alpha$:期待値28\%・標準偏差18\%,$\beta$:期待値28\%・標準偏差14\%となり,
+A 80\%・B(C) 20\% では$\alpha$:期待値22\%・標準偏差12\%,$\beta$:期待値22\%・
+標準偏差4\%となる.構成比率を連続的に変えて(リスク,期待収益率)平面上に軌跡を
+描くと,$\alpha$(A+B)は直線を描く一方,$\beta$(A+C)は左側に折れ込む軌跡と
+なり,リターンが同じ場合,ポートフォリオ$\beta$の方が常にリスクが低い.
+特にA+Cでは,ある比率でリスクがちょうど0になる点も現れる.
+
+\subsection{なぜリスク量が変わるのか}
+
+\begin{itemize}
+\item 資産Aと資産Bは,収益率が\textbf{同じ方向}に動く(Aの収益率が高いときはBも
+高く,低いときはBも低い).そのためポートフォリオ$\alpha$は,良い時は良いが,
+悪い時は悪い(収益率の変動性が高い).
+\item 資産Aと資産Cは,収益率が\textbf{逆の方向}に動く.そのためポートフォリオ
+$\beta$は,各資産がお互いにカバーしあうので,比較的安定した収益が得られる
+(収益率の変動性が低い).
+\end{itemize}
+
+この「同時的な動き方」を示す尺度が,\textbf{相関係数}である.
+
+\subsection{共分散と相関係数}
+
+\begin{definition}[共分散と相関係数]
+確率変数 $X, Y$ に対して,\textbf{共分散}を
+\begin{equation}
+\Cov[X,Y] = C[X,Y] = \E\bigl[(X-\E[X])(Y-\E[Y])\bigr],
+\end{equation}
+\textbf{相関係数}を
+\begin{equation}
+\Corr[X,Y] = \rho[X,Y]
+= \frac{\Cov[X,Y]}{\sqrt{\Var[X]}\sqrt{\Var[Y]}}
+= \E\Biggl[\Bigl(\frac{X-\E[X]}{\sqrt{\Var[X]}}\Bigr)
+\Bigl(\frac{Y-\E[Y]}{\sqrt{\Var[Y]}}\Bigr)\Biggr]
+\end{equation}
+と定義する.相関係数は標準偏差でスケーリングされた共分散であり,
+\begin{equation}
+-1 \leq \rho[X,Y] \leq 1
+\end{equation}
+を満たす.
+\end{definition}
+
+\subsection{ケース2:4つのシナリオ}
+
+\begin{example}
+シナリオを4つに増やし,資産Aとの相関係数が異なる3つの資産B, C, Dを考える.
+\begin{center}
+\small
+\begin{tabular}{lccccccc}
+\toprule
+ & I & II & III & IV & 平均 & 標準偏差 & 相関係数\footnotemark\\
+\midrule
+発生確率 & 25\% & 25\% & 25\% & 25\% & & &\\
+資産A & 30\% & 30\% & 10\% & 10\% & 20.0\% & 10.00\% & 1.0\\
+資産B & 50\% & 50\% & 10\% & 10\% & 30.0\% & 20.00\% & 1.0\\
+資産C & 10\% & 10\% & 50\% & 50\% & 30.0\% & 20.00\% & $-1.0$\\
+資産D & 50\% & 10\% & 50\% & 10\% & 30.0\% & 20.00\% & 0.0\\
+\bottomrule
+\end{tabular}
+\end{center}
+\footnotetext{資産Aの収益率との相関係数.}
+資産AとB, C, Dをそれぞれ組み合わせて構成比率を変えると,(リスク,期待収益率)
+平面上に,A+Bは直線,A+Cはリスク0の点を通る折れ線,A+Dはその中間の
+左に膨らんだ曲線の軌跡を描く.
+\end{example}
+
+\begin{keypoint}
+リターンが同じ場合,\textbf{相関係数の低い資産と組み合わせるほど,ポートフォリオの
+リスクは小さくなる}.構成比率を動かして得られる点の集合を\textbf{投資機会集合}と
+呼ぶ.なお,相関係数が $\pm 1$ になることは稀(普通はない)ので,A+Dのような
+カーブになるのが一般的である.
+\end{keypoint}
+
+\subsection{相関とリスクの関係:2資産での確認}
+
+\textbf{設定.}資産Aの収益率 $\tilde R_A$,資産Bの収益率 $\tilde R_B$ について
+\[
+\E[\tilde R_A] = \mu_A,\ \Var[\tilde R_A] = \sigma_A^2,\qquad
+\E[\tilde R_B] = \mu_B,\ \Var[\tilde R_B] = \sigma_B^2,\qquad
+\rho[\tilde R_A, \tilde R_B] = \rho_{AB}
+\]
+とし,資産Aへの投資比率を $x$($0\leq x\leq 1$),ポートフォリオの収益率を
+$\tilde R_P = x\tilde R_A + (1-x)\tilde R_B$ とする.
+
+\textbf{ポートフォリオの収益率の分散.}
+\begin{align}
+\sigma_P^2 = \Var[\tilde R_P]
+&= \Var[x\tilde R_A + (1-x)\tilde R_B]\notag\\
+&= x^2\sigma_A^2 + 2x(1-x)\sigma_A\sigma_B\rho_{AB} + (1-x)^2\sigma_B^2\notag\\
+&\leq x^2\sigma_A^2 + 2x(1-x)\sigma_A\sigma_B + (1-x)^2\sigma_B^2
+= \bigl(x\sigma_A + (1-x)\sigma_B\bigr)^2,
+\end{align}
+ここで不等号は $\rho_{AB}\leq 1$ による.
+
+\textbf{ポートフォリオの収益率の標準偏差.}
+\begin{equation}
+\sigma_P = \sqrt{x^2\sigma_A^2 + 2x(1-x)\sigma_A\sigma_B\rho_{AB}
++ (1-x)^2\sigma_B^2}
+\;\leq\; x\sigma_A + (1-x)\sigma_B.
+\end{equation}
+等号が成り立つのは $\rho_{AB}=1$ のときで,そのとき
+$\sigma_P = x\sigma_A + (1-x)\sigma_B$,すなわちポートフォリオのリスクは各資産の
+リスクの加重平均値になる.
+
+\subsection{一般の $n$ 資産への拡張}
+
+\begin{keypoint}[相関係数とポートフォリオのリスク]
+$x_j$ を資産 $j$ への投資比率($\sum_{j=1}^n x_j = 1$)とする.
+\begin{itemize}
+\item 全資産の収益率が「相関係数 $=1$」の場合:
+\[
+\sigma_P = \sum_{j=1}^{n} x_j\sigma_j \quad(\text{構成資産のリスクの加重平均}).
+\]
+\item それ以外の(1つでも相関係数 $\neq 1$ の資産がある)場合:
+\[
+\sigma_P < \sum_{j=1}^{n} x_j\sigma_j.
+\]
+\end{itemize}
+一方,収益率の期待値は必ず加重平均値になる:
+$\mu_P = \sum_{j=1}^{n} x_j\mu_j$(期待値の線形性より).
+\end{keypoint}
+
+すなわち,\textbf{分散投資効果}により,さまざまな資産に投資することで,
+ポートフォリオのリスクは(各構成資産のリスクの加重平均値よりも)小さくなる.
+ポートフォリオ選択問題では,このような分散投資効果(分散投資によるリスクの
+低減効果)をトコトン追求して,自身にとって最適なポートフォリオを導出する.
+
+\subsection{どのポートフォリオを選ぶべきか:無差別曲線}
+
+投資機会集合の中から,自分にとって最も望ましいポートフォリオ,すなわち
+\textbf{自分の期待効用を最大にするポートフォリオ}を選ぶ.実際には数値的に
+求めればよいが,ここではグラフィカルに考える.
+
+\paragraph{無差別曲線の概形:指数効用の場合.}
+\textbf{無差別曲線}とは,(ここでは)期待効用が一定値となるカーブのことである.
+\begin{enumerate}
+\item 指数効用関数 $u(w) = -e^{-aw}$($a>0$)を使用する.
+\item $W \sim N(\mu, \sigma^2)$ を仮定する(ここでは平均と標準偏差で評価する
+ので,正規分布を想定する).
+\end{enumerate}
+すると,正規分布のモーメント母関数より,期待効用は
+\begin{equation}
+\E[u(W)] = -\E[e^{-aW}] = -e^{-a\E[W] + \frac{a^2}{2}\Var[W]}
+= -e^{-a\mu + \frac{a^2}{2}\sigma^2}
+\end{equation}
+となる.期待効用 $=$ 一定となるとき,$-a\mu + \frac{a^2}{2}\sigma^2 = $ 一定,
+すなわち
+\[
+\mu = \frac{a}{2}\sigma^2 + \text{定数}
+\]
+となり,\textbf{$\mu$ は $\sigma$ の二次関数(かつ $\sigma$ の二次項の係数は正)}
+である.つまり$(\sigma,\mu)$平面上で,無差別曲線は下に凸の右上がりの放物線で
+あり,左上にある無差別曲線ほど期待効用は高い.
+(これだけでは一般性はないが,例として.)
+
+\paragraph{最適ポートフォリオの選択.}
+$(\sigma,\mu)$平面上に,期待効用の値 $u_1 < u_2 < u_3$ に対応する無差別曲線群と
+投資機会集合を重ねて描くと,期待効用が最大になるのは,
+\textbf{ポートフォリオの投資機会集合と無差別曲線の接点}である.この接点の
+ポートフォリオが(この投資家にとっての)最適ポートフォリオとなる.
+
+\begin{remark}[無リスクポートフォリオの存在について]
+相関係数 $=-1$ の資産の組み合わせで無リスクポートフォリオができることを示す図が
+あった.数理的には,図に示したように無リスクポートフォリオを作れる.そして,
+無リスクポートフォリオを作ったら,その価格は無リスク資産と同一である(後で紹介
+するとおり,無リスク資産は市場に唯一つであり,価格の異なる複数の無リスク資産が
+市場に存在してはいけない.これはデリバティブの価格付けの考え方の基礎にもなって
+いる).そのため,この無リスクポートフォリオは無リスク資産そのものになる.
+
+なお,普通は,相関係数 $=-1$ となる\emph{異なる}資産は存在しない.ある資産と
+完全に真逆の動きをする資産は,もとの資産の空売りである.そして,資産の保有量と
+同量を空売りすると,結局何も投資していないことになる.
+\end{remark}
+
+\section{補足:最小分散ポートフォリオ(Markowitz)}
+
+本節は,配布資料「最小分散ポートフォリオ(Markowitz)」に基づき,一期間の
+平均分散モデルによる最小分散ポートフォリオの算出などを扱う.ここではリスク性
+資産のみからなる場合(Markowitzのポートフォリオ選択問題)を扱う.
+
+\subsection{設定}
+
+$N$ 個のリスク性資産からなるポートフォリオを考える.資産 $i$($i=1,\dots,N$)の
+収益率を確率変数 $R_i$,$\bm{R} = (R_1,\dots,R_N)^\top$ を $N$ 次元確率変数
+ベクトルとし,$\bm{R}$ の期待値ベクトル
+$\bm{\mu} = (\mu_1,\dots,\mu_N)^\top = (\E[R_1],\dots,\E[R_N])^\top$ と
+分散共分散行列 $\bm{\Sigma} = (\sigma_{ij})_{i,j=1,\dots,N}$,
+$\sigma_{ij} = \Cov(R_i,R_j)$ は既知とする.$\bm{e} = (1,\dots,1)^\top$ とすると,
+平均分散モデルにおける\textbf{最小分散ポートフォリオ}
+$\bm{x} = (x_1,\dots,x_N)^\top$($x_i$ は資産 $i$ への投資比率)は
+\begin{equation}
+\hat{\bm{x}} = \argmin_{\bm{x}\in\mathcal{R}^N}
+\frac{1}{2}\bm{x}^\top\bm{\Sigma}\bm{x}
+\label{eq:mk-problem}
+\end{equation}
+で与えられる.ただし,$\alpha$ を定数として,制約条件
+\begin{align}
+\bm{\mu}^\top\bm{x} &= \alpha,
+\label{eq:mk-c1}\\
+\bm{e}^\top\bm{x} &= 1
+\label{eq:mk-c2}
+\end{align}
+を満たし,$N$ 次実対称行列 $\bm{\Sigma}$ は正定値と仮定する.また,$\bm{\mu}$ と
+$\bm{e}$ は線形独立と仮定する.
+
+\begin{remark}
+\eqref{eq:mk-c1}はポートフォリオの収益率の期待値が $\alpha$ であること,
+\eqref{eq:mk-c2}は $\bm{x}$ が投資比率であることを示している.
+\end{remark}
+
+\subsection{最小分散ポートフォリオの導出}
+
+Lagrange未定乗数法を用いる.Lagrange未定乗数を $\lambda_1, \lambda_2$ として,
+Lagrange関数を
+\begin{equation}
+L = \frac{1}{2}\bm{x}^\top\bm{\Sigma}\bm{x}
+- \lambda_1(\bm{\mu}^\top\bm{x} - \alpha)
+- \lambda_2(\bm{e}^\top\bm{x} - 1)
+\end{equation}
+とすると,求める解 $\hat{\bm{x}}$ は
+\begin{align}
+\frac{\partial L}{\partial x_i}
+&= \frac{\partial}{\partial x_i}\Biggl[\frac{1}{2}\sum_{j,k=1}^{N}
+\sigma_{jk}x_j x_k - \lambda_1\Bigl(\sum_{j=1}^N \mu_j x_j - \alpha\Bigr)
+- \lambda_2\Bigl(\sum_{j=1}^N x_j - 1\Bigr)\Biggr]\notag\\
+&= \sum_{k=1}^{N}\sigma_{ik}x_k - \lambda_1\mu_i - \lambda_2 = 0,
+\qquad i=1,\dots,N,
+\label{eq:mk-foc}\\
+\frac{\partial L}{\partial\lambda_1}
+&= -(\bm{\mu}^\top\bm{x} - \alpha) = 0,\\
+\frac{\partial L}{\partial\lambda_2}
+&= -(\bm{e}^\top\bm{x} - 1) = 0
+\end{align}
+を満たす.\eqref{eq:mk-foc}をベクトル表記で
+\begin{equation}
+\frac{\partial L}{\partial\bm{x}}
+= \bm{\Sigma}\bm{x} - \lambda_1\bm{\mu} - \lambda_2\bm{e} = 0
+\end{equation}
+と書き直すと,$\bm{\Sigma}$ は正定値と仮定したので逆行列 $\bm{\Sigma}^{-1}$ が
+存在し,最小分散ポートフォリオは
+\begin{equation}
+\hat{\bm{x}} = \bm{\Sigma}^{-1}(\lambda_1\bm{\mu} + \lambda_2\bm{e})
+\label{eq:mk-x-lambda}
+\end{equation}
+で与えられる.ただし,$\lambda_1,\lambda_2$ が未知変数なので,
+\eqref{eq:mk-x-lambda}はまだ具体的な最小分散ポートフォリオを示していない.
+
+そこで,未知数 $\lambda_1,\lambda_2$ を求める.\eqref{eq:mk-x-lambda}を制約条件に
+代入すると,
+\begin{align}
+\bm{\mu}^\top\hat{\bm{x}} - \alpha
+&= \lambda_1\bm{\mu}^\top\bm{\Sigma}^{-1}\bm{\mu}
++ \lambda_2\bm{\mu}^\top\bm{\Sigma}^{-1}\bm{e} - \alpha = 0,\\
+\bm{e}^\top\hat{\bm{x}} - 1
+&= \lambda_1\bm{e}^\top\bm{\Sigma}^{-1}\bm{\mu}
++ \lambda_2\bm{e}^\top\bm{\Sigma}^{-1}\bm{e} - 1 = 0
+\end{align}
+となる.ここで
+\begin{equation}
+a = \bm{\mu}^\top\bm{\Sigma}^{-1}\bm{\mu},\qquad
+b = \bm{\mu}^\top\bm{\Sigma}^{-1}\bm{e} = \bm{e}^\top\bm{\Sigma}^{-1}\bm{\mu},\qquad
+c = \bm{e}^\top\bm{\Sigma}^{-1}\bm{e}
+\label{eq:mk-abc}
+\end{equation}
+とおくと,上の2式は
+\begin{equation}
+\begin{pmatrix} a & b\\ b & c\end{pmatrix}
+\begin{pmatrix}\lambda_1\\ \lambda_2\end{pmatrix}
+= \begin{pmatrix}\alpha\\ 1\end{pmatrix}
+\end{equation}
+と書けるので,$d = ac - b^2$ として
+\begin{equation}
+\begin{pmatrix}\lambda_1\\ \lambda_2\end{pmatrix}
+= \frac{1}{d}\begin{pmatrix} c & -b\\ -b & a\end{pmatrix}
+\begin{pmatrix}\alpha\\ 1\end{pmatrix}
+\end{equation}
+が得られる\footnote{$\bm{\mu}$ と $\bm{e}$ は線形独立なので
+$d = ac - b^2 \neq 0$ が成り立つ.もしも線形従属ならば,任意の $\alpha$ に対して
+$(a,b) = \alpha(b,c)$ でなければならない.もしも $\bm{\Sigma}$ が正定値であれば
+$a>0$ かつ $c>0$,さらに
+$(b\bm{\mu}-a\bm{e})^\top\bm{\Sigma}^{-1}(b\bm{\mu}-a\bm{e}) = ad > 0$ より
+$d>0$ となる.ここでは $\bm{\Sigma}$ を正定値と仮定したが,$\bm{\Sigma}$ は必ず
+実対称行列で非負定値(半正定値)になるものの,正定値になるとは限らない.
+正定値行列は正則,すなわち逆行列をもつ.}.これを\eqref{eq:mk-x-lambda}に
+代入すると,具体的な最小分散ポートフォリオ
+\begin{equation}
+\hat{\bm{x}} = \hat{\bm{x}}(\alpha)
+= \bm{\Sigma}^{-1}\Bigl(\frac{c\alpha - b}{d}\bm{\mu}
++ \frac{a - b\alpha}{d}\bm{e}\Bigr)
+= \bm{g} + \alpha\bm{h}
+= (1-\alpha)\bm{g} + \alpha(\bm{g}+\bm{h})
+\label{eq:mk-solution}
+\end{equation}
+が得られる.ただし,
+\begin{equation}
+\bm{g} = \frac{a\bm{\Sigma}^{-1}\bm{e} - b\bm{\Sigma}^{-1}\bm{\mu}}{d},
+\qquad
+\bm{h} = \frac{c\bm{\Sigma}^{-1}\bm{\mu} - b\bm{\Sigma}^{-1}\bm{e}}{d}
+\label{eq:mk-gh}
+\end{equation}
+である.
+
+\subsection{最小分散ポートフォリオの解の意味}
+
+\eqref{eq:mk-solution}より,最小分散ポートフォリオ $\hat{\bm{x}}$ は $\bm{g}$ と
+$\bm{h}$ の線形結合(あるいは $\bm{g}$ と $\bm{g}+\bm{h}$ の分点)として表現
+される.\eqref{eq:mk-abc}より,$\bm{g}$ と $\bm{h}$ の分子はそれぞれ
+\begin{align}
+\bm{\mu}^\top(a\bm{\Sigma}^{-1}\bm{e} - b\bm{\Sigma}^{-1}\bm{\mu})
+&= ab - ba = 0,\\
+\bm{\mu}^\top(c\bm{\Sigma}^{-1}\bm{\mu} - b\bm{\Sigma}^{-1}\bm{e})
+&= ca - b^2 = d
+\end{align}
+を満たすので,
+\begin{equation}
+\bm{\mu}^\top\bm{g} = 0,\qquad \bm{\mu}^\top\bm{h} = 1
+\end{equation}
+が得られる.これより,
+\begin{itemize}
+\item $\bm{g}$ は期待収益率0のポートフォリオ,
+\item $\bm{h}$(および $\bm{g}+\bm{h}$)は期待収益率1のポートフォリオ,
+\end{itemize}
+である.最小分散ポートフォリオは $\bm{g}$ と $\bm{h}$ の線形結合
+\eqref{eq:mk-solution}で表現され,二つのポートフォリオ $\bm{g}$ と
+$\bm{h}'\equiv\bm{g}+\bm{h}$ の混合比率はポートフォリオの期待収益率 $\alpha$ に
+依存する.また,期待収益率 $\mu$ を与えると最小分散ポートフォリオ $\hat{\bm{x}}$
+は一意に決まることもわかる.
+
+\subsection{最小分散境界}
+
+次に,\textbf{最小分散境界}を求める.\eqref{eq:mk-solution},\eqref{eq:mk-gh}
+より,最小分散ポートフォリオの分散 $\hat\sigma^2$ は
+\begin{align}
+\hat\sigma^2 = \Var[\bm{R}^\top\hat{\bm{x}}]
+= \hat{\bm{x}}^\top\bm{\Sigma}\hat{\bm{x}}
+&= (\bm{g}+\alpha\bm{h})^\top\bm{\Sigma}(\bm{g}+\alpha\bm{h})\notag\\
+&= \bm{g}^\top\bm{\Sigma}\bm{g}
++ (\bm{h}^\top\bm{\Sigma}\bm{g} + \bm{g}^\top\bm{\Sigma}\bm{h})\alpha
++ \bm{h}^\top\bm{\Sigma}\bm{h}\,\alpha^2
+\end{align}
+である.\eqref{eq:mk-abc},\eqref{eq:mk-gh}などより,
+\begin{equation}
+\bm{g}^\top\bm{\Sigma}\bm{g} = \frac{a}{d},\qquad
+\bm{h}^\top\bm{\Sigma}\bm{g} = \bm{g}^\top\bm{\Sigma}\bm{h} = -\frac{b}{d},\qquad
+\bm{h}^\top\bm{\Sigma}\bm{h} = \frac{c}{d}
+\end{equation}
+となるので,これらを代入すると
+\begin{equation}
+\hat\sigma^2 = \frac{a - 2b\alpha + c\alpha^2}{d}
+\label{eq:mk-frontier}
+\end{equation}
+が得られる.あるいは,\eqref{eq:mk-frontier}を二次曲線の標準形に変形すると,
+\begin{equation}
+\frac{\hat\sigma^2}{\bigl(\frac{1}{\sqrt{c}}\bigr)^2}
+- \frac{\bigl(\alpha - \frac{b}{c}\bigr)^2}{\bigl(\frac{\sqrt{d}}{c}\bigr)^2} = 1,
+\qquad \hat\sigma > 0
+\label{eq:mk-hyperbola}
+\end{equation}
+が得られる.\eqref{eq:mk-hyperbola}は,最小分散境界(すなわち最小分散
+ポートフォリオのリスク $\hat\sigma$ と期待収益率 $\alpha$)が
+$(\sigma,\alpha)$ 平面上で\textbf{双曲線}を描くことを示している.これは,
+二次曲線の分類(本節末尾の付録A)における判別式が
+\begin{equation}
+\delta \equiv \det\bm{Q} = -c\times\frac{c^2}{ac-b^2} = -\frac{c^3}{d} < 0
+\end{equation}
+となることからわかる.
+
+\subsection{大域的最小分散ポートフォリオ}
+
+\eqref{eq:mk-hyperbola}より,分散が最小になるのは期待収益率が
+$\alpha^* = b/c$ のときで,このときの分散は $(\sigma^*)^2 = 1/c$,そして
+\eqref{eq:mk-solution}より\textbf{大域的最小分散ポートフォリオ}
+(global minimum variance portfolio) $\hat{\bm{x}}^*$ は
+\begin{equation}
+\hat{\bm{x}}^* = \bm{g} + \frac{b}{c}\bm{h}
+= \frac{ac\,\bm{\Sigma}^{-1}\bm{e} - b^2\bm{\Sigma}^{-1}\bm{e}}{dc}
+= \frac{1}{c}\bm{\Sigma}^{-1}\bm{e}
+\end{equation}
+で与えられる.
+
+\subsection{最小分散ポートフォリオの性質}
+
+\subsubsection{二資産分離定理}
+
+Markowitzの問題でも次の\textbf{二資産分離定理}が成り立つ.
+
+\begin{theorem}[二資産分離定理]
+最小分散ポートフォリオは,任意の2つの異なる最小分散ポートフォリオの線形結合で
+表現できる.
+\label{thm:two-fund}
+\end{theorem}
+
+このことは,$\alpha_1\neq\alpha_2$ として,期待収益率 $\mu_1$ の最小分散
+ポートフォリオ $\hat{\bm{x}}_1$ と期待収益率 $\mu_2$ の最小分散ポートフォリオ
+$\hat{\bm{x}}_2$ を選ぶと,
+\[
+\hat{\bm{x}}_1 = \bm{g} + \mu_1\bm{h},\qquad
+\hat{\bm{x}}_2 = \bm{g} + \mu_2\bm{h}
+\]
+と書けるので,期待収益率 $\mu$ の最小分散ポートフォリオ $\hat{\bm{x}}(\mu)$ が
+\begin{equation}
+\hat{\bm{x}}(\mu) = \frac{\mu_2 - \mu}{\mu_2 - \mu_1}\hat{\bm{x}}_1
++ \frac{\mu - \mu_1}{\mu_2 - \mu_1}\hat{\bm{x}}_2
+\end{equation}
+と表現できることから明らかである.
+
+\subsubsection{ポートフォリオ間の共分散}
+
+\begin{theorem}
+期待収益率 $\mu_1$ の最小分散ポートフォリオ $\hat{\bm{x}}_1$ と期待収益率
+$\mu_2$ の最小分散ポートフォリオ $\hat{\bm{x}}_2$ の収益率をそれぞれ
+$R(\hat{\bm{x}}_1), R(\hat{\bm{x}}_2)$ とすると,その共分散は
+\begin{equation}
+C\bigl(R(\hat{\bm{x}}_1), R(\hat{\bm{x}}_2)\bigr)
+= \frac{c}{d}\Bigl(\mu_1 - \frac{b}{c}\Bigr)\Bigl(\mu_2 - \frac{b}{c}\Bigr)
++ \frac{1}{c}
+\label{eq:mk-cov}
+\end{equation}
+で与えられる.
+\label{thm:mk-cov}
+\end{theorem}
+
+\begin{proof}
+$\hat{\bm{x}}_1 = \bm{g}+\mu_1\bm{h}$, $\hat{\bm{x}}_2 = \bm{g}+\mu_2\bm{h}$ と
+書けるので,
+\begin{align*}
+C\bigl(R(\hat{\bm{x}}_1), R(\hat{\bm{x}}_2)\bigr)
+&= \hat{\bm{x}}_1^\top\bm{\Sigma}\hat{\bm{x}}_2
+= (\bm{g}+\mu_1\bm{h})^\top\bm{\Sigma}(\bm{g}+\mu_2\bm{h})\\
+&= \frac{a}{d} + (\mu_1+\mu_2)\Bigl(-\frac{b}{d}\Bigr) + \mu_1\mu_2\frac{c}{d}
+= \frac{c}{d}\mu_1\mu_2 - (\mu_1+\mu_2)\frac{c}{d}\cdot\frac{b}{c}
++ \frac{b^2}{dc} - \frac{b^2}{dc} + \frac{a}{d}\\
+&= \frac{c}{d}\Bigl(\mu_1-\frac{b}{c}\Bigr)\Bigl(\mu_2-\frac{b}{c}\Bigr)
++ \frac{ac-b^2}{dc}
+= \frac{c}{d}\Bigl(\mu_1-\frac{b}{c}\Bigr)\Bigl(\mu_2-\frac{b}{c}\Bigr)
++ \frac{1}{c}.\qedhere
+\end{align*}
+\end{proof}
+
+特に,$\hat{\bm{x}}_1 = \hat{\bm{x}}_2 = \hat{\bm{x}}$ とすると,
+\begin{equation}
+V[R(\hat{\bm{x}})]
+= \frac{c}{d}\Bigl(\E[R(\hat{\bm{x}})] - \frac{b}{c}\Bigr)^2 + \frac{1}{c}
+\label{eq:mk-var}
+\end{equation}
+より,次の定理が得られる.
+
+\begin{theorem}
+任意の最小分散ポートフォリオ $\hat{\bm{x}}$ において,
+\begin{equation}
+V[R(\hat{\bm{x}})] \geq \frac{1}{c}
+\end{equation}
+が成り立つ.等号は $\hat{\bm{x}} = \hat{\bm{x}}^*$(大域的最小分散
+ポートフォリオ)でのみ成り立つ.
+\end{theorem}
+
+\subsubsection{ゼロベータポートフォリオ}
+
+定理\ref{thm:mk-cov}で,$\hat{\bm{x}}_1(\mu_1) = \hat{\bm{x}}(\mu)$,
+$\hat{\bm{x}}(\mu) \neq \hat{\bm{x}}^*$ を固定して関数
+$f(\mu_2) = C\bigl(R(\hat{\bm{x}}), R(\hat{\bm{x}}(\mu_2))\bigr)$ を考えると,
+$f(\mu_2)$ は単調関数なので,$f(\mu_2) = 0$ を満たす $\mu_2 = \mu^o$ および
+その最小分散ポートフォリオ $\hat{\bm{x}}^o \equiv \hat{\bm{x}}(\mu^o)$ は一意に
+決まる.さらに $f(\mu^o) = C(R(\hat{\bm{x}}), R(\hat{\bm{x}}^o)) = 0$ より,
+\eqref{eq:mk-cov}は
+\begin{equation}
+0 = \frac{c}{d}\Bigl(\mu-\frac{b}{c}\Bigr)\Bigl(\mu^o-\frac{b}{c}\Bigr)
++ \frac{1}{c}
+\end{equation}
+となるので,$\mu^o$ は $\mu$ を用いて
+\begin{equation}
+\mu^o = \frac{b}{c} - \frac{d}{c^2}\Bigl(\mu - \frac{b}{c}\Bigr)^{-1}
+= \frac{b}{c} - \frac{d}{c(c\mu - b)}
+\label{eq:mk-muo}
+\end{equation}
+と書ける.\eqref{eq:mk-muo}より,
+\begin{equation}
+\mu - \mu^o = \mu - \frac{b}{c} + \frac{d}{c(c\mu-b)}
+= \frac{c(\mu-\frac{b}{c})^2 + \frac{d}{c}}{c\mu - b}
+= d\,\frac{\frac{c}{d}(\mu-\frac{b}{c})^2 + \frac{1}{c}}{c\mu - b}
+\end{equation}
+となるが,\eqref{eq:mk-var}より
+$V[R(\hat{\bm{x}})] = \frac{c}{d}(\mu-\frac{b}{c})^2 + \frac{1}{c}$ なので,
+\begin{equation}
+\mu - \mu^o = \frac{d}{c\mu - b}\,V[R(\hat{\bm{x}})]
+\label{eq:mk-mu-muo}
+\end{equation}
+が得られる.また,定理\ref{thm:two-fund}より,任意の最小分散ポートフォリオ
+$\hat{\bm{x}}'$ は $\hat{\bm{x}}$ と $\hat{\bm{x}}^o$ の線形結合で表現できるので,
+実数 $\beta$ を用いて
+\begin{equation}
+\hat{\bm{x}}' = \beta\hat{\bm{x}} + (1-\beta)\hat{\bm{x}}^o
+\end{equation}
+と表現すると,
+\begin{equation}
+\E[R(\hat{\bm{x}}')]
+= \bm{\mu}^\top\bigl(\beta(\bm{g}+\mu\bm{h}) + (1-\beta)(\bm{g}+\mu^o\bm{h})\bigr)
+= \beta\mu + (1-\beta)\mu^o = \mu^o + \beta(\mu - \mu^o)
+\end{equation}
+と表現できる.一方,\eqref{eq:mk-cov}と\eqref{eq:mk-muo}より,
+$\mu' \equiv \E[R(\hat{\bm{x}}')]$ は
+\begin{equation}
+\mu' = \frac{b}{c} - \frac{d}{c(c\mu-b)} + \frac{d}{c\mu-b}
+C\bigl(R(\hat{\bm{x}}'),R(\hat{\bm{x}})\bigr)
+= \mu^o + \frac{d}{c\mu-b}C\bigl(R(\hat{\bm{x}}'),R(\hat{\bm{x}})\bigr)
+\end{equation}
+となるので,\eqref{eq:mk-mu-muo}を用いて
+\begin{equation}
+\mu' = \mu^o + \frac{d}{c\mu-b}V[R(\hat{\bm{x}})]\times
+\frac{C\bigl(R(\hat{\bm{x}}'),R(\hat{\bm{x}})\bigr)}{V[R(\hat{\bm{x}})]}
+= \mu^o + (\mu-\mu^o)\times
+\frac{C\bigl(R(\hat{\bm{x}}'),R(\hat{\bm{x}})\bigr)}{V[R(\hat{\bm{x}})]}.
+\end{equation}
+よって,次の定理が成り立つ.
+
+\begin{theorem}
+大域的最小分散ポートフォリオ $\hat{\bm{x}}^*$ を除く最小分散ポートフォリオ
+$\hat{\bm{x}}$ に対して,
+\begin{equation}
+C\bigl(R(\hat{\bm{x}}), R(\hat{\bm{x}}^o)\bigr) = 0
+\end{equation}
+を満たす最小分散ポートフォリオ $\hat{\bm{x}}^o$ が存在し,一意に定まる.さらに,
+任意の最小分散ポートフォリオ $\hat{\bm{x}}'$ は,$\hat{\bm{x}}$ と
+$\hat{\bm{x}}^o$ の線形結合で表現できて,期待収益率は
+\begin{equation}
+\E[R(\hat{\bm{x}}')] = \beta\,\E[R(\hat{\bm{x}})] + (1-\beta)\E[R(\hat{\bm{x}}^o)],
+\qquad
+\beta = \frac{C\bigl(R(\hat{\bm{x}}'),R(\hat{\bm{x}})\bigr)}{V[R(\hat{\bm{x}})]}
+\end{equation}
+で与えられる.
+\label{thm:zero-beta}
+\end{theorem}
+
+定理\ref{thm:zero-beta}の $\hat{\bm{x}}$ と $\hat{\bm{x}}^o$ は,一方が効率的
+フロンティア上にあり,もう一方は効率的フロンティア上にない.これは,
+\eqref{eq:mk-muo}より,$\mu$ と $\mu^o$ がともに $b/c$ を上回る($=$効率的
+フロンティア上にある)ことはないことからわかる.$\hat{\bm{x}}^o$ を,
+$\hat{\bm{x}}$ に関する\textbf{ゼロベータポートフォリオ} (zero-beta portfolio)
+という.次の定理も重要である.
+
+\begin{theorem}
+大域的最小分散ポートフォリオ $\hat{\bm{x}}^*$ を除く最小分散ポートフォリオ
+$\hat{\bm{x}}$ に関するゼロベータポートフォリオ $\hat{\bm{x}}^o$ の期待収益率は,
+$(\sigma,\mu)$ 平面上の最小分散境界上の $\hat{\bm{x}}$ における接線と $\mu$ 軸との
+切片に等しい.
+\label{thm:zero-beta-tangent}
+\end{theorem}
+
+\begin{proof}
+最小分散境界を表す双曲線\eqref{eq:mk-hyperbola}に陰関数定理を使うと,接線の
+傾きは
+\begin{equation}
+m(\hat{\bm{x}}) = \frac{\dd \E[R(\hat{\bm{x}})]}{\dd V[R(\hat{\bm{x}})]}
+\cdot\frac{\dd V[R(\hat{\bm{x}})]}{\dd\sigma[R(\hat{\bm{x}})]}
+= \frac{d\,\sigma[R(\hat{\bm{x}})]}{c\,\E[R(\hat{\bm{x}})] - b}
+\end{equation}
+となるので,接線と $\mu$ 軸との切片は,\eqref{eq:mk-mu-muo}などより
+\begin{align}
+\E[R(\hat{\bm{x}})] - m(\hat{\bm{x}})\,\sigma[R(\hat{\bm{x}})]
+&= \E[R(\hat{\bm{x}})] - \frac{d\,\sigma[R(\hat{\bm{x}})]}
+{c\E[R(\hat{\bm{x}})]-b}\times\sigma[R(\hat{\bm{x}})]
+= \E[R(\hat{\bm{x}})] - \frac{d\,V[R(\hat{\bm{x}})]}{c\E[R(\hat{\bm{x}})]-b}\notag\\
+&= \E[R(\hat{\bm{x}})] - \frac{c(\mu-\frac{b}{c})^2 + \frac{d}{c}}
+{c\E[R(\hat{\bm{x}})]-b}
+= \E[R(\hat{\bm{x}}^o)]
+\end{align}
+となるが,これはゼロベータポートフォリオ $\hat{\bm{x}}^o$ の期待収益率に等しい
+ことを示している.
+\end{proof}
+
+なお,ゼロベータポートフォリオは無リスク資産がない場合に拡張したCAPMの議論
+(ゼロベータCAPMという)において使われる(本節末尾の付録B参照).
+
+\subsection*{付録A:二次曲線の分類(一部のみ)}
+
+$a,b,c,d,e,h$ を定数とする二次形式
+\begin{equation}
+f(x,y) \equiv ax^2 + 2hxy + by^2 + 2dx + 2ey + c
+\end{equation}
+において,
+\begin{equation}
+\bm{A} \equiv \begin{pmatrix} a & h & d\\ h & b & e\\ d & e & c\end{pmatrix},
+\qquad
+\bm{Q} \equiv \begin{pmatrix} a & h\\ h & b\end{pmatrix}
+\end{equation}
+とおく.$\det\bm{A} \neq 0$ のとき,二次曲線 $f(x,y)=0$ の表す図形は,
+$\det\bm{Q}$ の符号により
+\begin{equation}
+\begin{cases}
+\det\bm{Q} > 0 & \longrightarrow\ \text{楕円}\\
+\det\bm{Q} = 0 & \longrightarrow\ \text{放物線}\\
+\det\bm{Q} < 0 & \longrightarrow\ \text{双曲線}
+\end{cases}
+\end{equation}
+に分類される.典型的な方程式として,楕円は
+$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$($a>0$, $b>0$),放物線は $y=x^2$,
+双曲線は $y = 1/x$ があり,それぞれの $\delta \equiv \det\bm{Q}$ の符号を確認
+されたい.
+
+\subsection*{付録B:ゼロベータCAPM}
+
+定理\ref{thm:zero-beta-tangent}の最小分散ポートフォリオ $\hat{\bm{x}}^*$
+(訂正:任意の最小分散ポートフォリオ $\hat{\bm{x}}$)に対応する $(\sigma,\mu)$
+平面上の点を点M とし,任意のリスク性資産Aを示す点 $(\sigma_A,\mu_A)$ を点Aと
+する.ただし,点Mと点Aは一致しないものとする.ポートフォリオ $\hat{\bm{x}}$ と
+リスク性資産Aからなるポートフォリオ P が $(\sigma,\mu)$ 平面上に描くカーブを
+双曲線AMと呼ぶと,双曲線AMは,定理\ref{thm:zero-beta-tangent}の接線および
+リスク性資産からなるポートフォリオの最小分散境界と点Mで接する\footnote{双曲線AM
+は必ず点Mを通るが,もしも点Mでリスク性資産からなるポートフォリオの最小分散境界と
+交差するならば,最小分散ポートフォリオよりも効率的なポートフォリオが存在する
+ことになるため,矛盾が生じる.}.これをもとに,以下では
+\begin{enumerate}
+\item 双曲線AMを求める.
+\item 双曲線AMの接線の傾きを求める.
+\item 点Mにおける曲線AMの接線が定理\ref{thm:zero-beta-tangent}の接線と一致する
+ための条件を求める.
+\end{enumerate}
+の手順で議論する.
+
+ポートフォリオPの収益率を $R_P$,$\mu_P = \E[R_P]$,
+$\sigma_P = \sqrt{V[R_P]}$,リスク性資産Aの収益率を $R_A$,ポートフォリオPの
+リスク性資産Aへの投資比率を $w$ とすると,
+\begin{align}
+R_P &= (1-w)R_M + wR_A,\\
+\mu_P &= \E[R_P] = (1-w)\mu_M + w\mu_A,\\
+\sigma_P^2 &= V[R_P] = (1-w)^2\sigma_M^2 + 2(1-w)w\sigma_{AM} + w^2\sigma_A^2,
+\qquad \sigma_{AM} = C(R_M,R_A) = \rho_{AM}\sigma_M\sigma_A
+\end{align}
+であり,
+\begin{equation}
+\sigma_P = \sqrt{(1-w)^2\sigma_M^2 + 2(1-w)w\sigma_{AM} + w^2\sigma_A^2}
+\end{equation}
+である.
+
+次に,双曲線AM上の点Pで接線を考えると,その傾きは
+\begin{equation}
+\frac{\dd\mu_P}{\dd\sigma_P} = \frac{\dd\mu_P/\dd w}{\dd\sigma_P/\dd w}
+\end{equation}
+であり,
+\begin{equation}
+\frac{\dd\mu_P}{\dd w} = \mu_A - \mu_M,
+\end{equation}
+また,
+\begin{equation}
+\frac{\dd\sigma_P^2}{\dd w} = 2\sigma_P\frac{\dd\sigma_P}{\dd w}
+= -2(1-w)\sigma_M^2 + 2(1-2w)\sigma_{AM} + 2w\sigma_A^2
+\end{equation}
+より
+\begin{equation}
+\frac{\dd\sigma_P}{\dd w}
+= \frac{-(1-w)\sigma_M^2 + (1-2w)\sigma_{AM} + w\sigma_A^2}{\sigma_P}
+\end{equation}
+なので,
+\begin{equation}
+\frac{\dd\mu_P}{\dd\sigma_P}
+= \frac{\sigma_P(\mu_A - \mu_M)}
+{-(1-w)\sigma_M^2 + (1-2w)\sigma_{AM} + w\sigma_A^2}
+\end{equation}
+が得られる.
+
+ここで,点Mでは $w=0$ なので,点Mにおける双曲線AMの接線の傾きは
+\begin{equation}
+\left.\frac{\dd\mu_P}{\dd\sigma_P}\right|_{w=0}
+= \frac{\sigma_M(\mu_A - \mu_M)}{\sigma_{AM} - \sigma_M^2}
+\end{equation}
+であるが,点Mにおける接線は1つに限られるので,この傾きは
+定理\ref{thm:zero-beta-tangent}の接線の傾きと一致しなければならない.ゆえに,
+\begin{equation}
+\frac{\sigma_M(\mu_A-\mu_M)}{\sigma_{AM}-\sigma_M^2}
+= \frac{\E[R(\hat{\bm{x}})] - \E[R(\hat{\bm{x}}^o)]}{\sigma[R(\hat{\bm{x}})]}
+= \frac{\mu_M - \E[R(\hat{\bm{x}}^o)]}{\sigma_M}
+\end{equation}
+である.よって,
+\begin{align}
+\mu_A &= \mu_M + \frac{\mu_M - \E[R(\hat{\bm{x}}^o)]}{\sigma_M}
+\cdot\frac{\sigma_{AM}-\sigma_M^2}{\sigma_M}
+= \E[R(\hat{\bm{x}}^o)]
++ \frac{\mu_M - \E[R(\hat{\bm{x}}^o)]}{\sigma_M^2}\sigma_{AM}\notag\\
+&= \E[R(\hat{\bm{x}}^o)] + \frac{\sigma_{AM}}{\sigma_M^2}
+\bigl(\mu_M - \E[R(\hat{\bm{x}}^o)]\bigr)
+= \E[R(\hat{\bm{x}}^o)] + \frac{\sigma_A\rho_{AM}}{\sigma_M}
+\bigl(\mu_M - \E[R(\hat{\bm{x}}^o)]\bigr)
+\label{eq:zero-beta-capm}
+\end{align}
+が得られる.\eqref{eq:zero-beta-capm}は,CAPMにおける証券市場線を示す式
+\begin{equation}
+\mu_A = r + \frac{\sigma_{AM}}{\sigma_M^2}(\mu_M - r)
+= r + \frac{\sigma_A\rho_{AM}}{\sigma_M}(\mu_M - r)
+\end{equation}
+における無リスク金利 $r$ を $\E[R(\hat{\bm{x}}^o)]$ に置き換えた式に相当し,
+CAPMの $\beta$ に対応するのは
+$\sigma_{AM}/\sigma_M^2 = \sigma_A\rho_{AM}/\sigma_M$ である.これらの議論を
+\textbf{ゼロベータCAPM}という.
+
+\begin{remark}
+ゼロベータCAPMは定理\ref{thm:zero-beta-tangent}に基づくので,リスク性資産のみ
+からなる任意の最小分散ポートフォリオ $\hat{\bm{x}}$(ただし,大域的最小分散
+ポートフォリオ $\hat{\bm{x}}^*$ を除く)に対して適用できて,CAPMの無リスク金利
+$r$ に相当する $\E[R(\hat{\bm{x}}^o)]$ も $\hat{\bm{x}}$ に応じて異なる.
+\end{remark}
+
+\begin{remark}
+もしもCAPMと対応させるべく $\hat{\bm{x}}$ として市場ポートフォリオを選択すれば,
+それに対応する $\E[R(\hat{\bm{x}}^o)]$ が無リスク金利 $r$ の役割を果たすことに
+なる.その意味で,\eqref{eq:zero-beta-capm}は無リスク資産が存在しない場合の
+CAPMの拡張になっている.
+\end{remark}
+
+\begin{remark}
+しかし,定理\ref{thm:zero-beta-tangent}の接線が効率的フロンティアになるわけでは
+なく,また,その接線上のポートフォリオが効率的ポートフォリオになるわけでもない.
+\end{remark}
+
+% ---------------- 演習問題 ----------------
+\section{演習問題}
+
+\begin{exercise}[問題1]
+分散投資効果のケース1の設定(すべての投資先の収益率は同じ分布に従い互いに独立,
+投資比率はすべて $1/N$,ポートフォリオの収益率は加重平均,リスクは標準偏差)で,
+設定1と2を以下のように変更する.
+\begin{itemize}
+\item[1''.] 投資先の収益率 $R_j$, $j=1,\dots,N$ は次の式で与えられる:
+\[
+R_j = \beta_j R + \varepsilon_j.
+\]
+ただし,$R$ と $\varepsilon_j$ は互いに独立な確率変数で,$\varepsilon_j$ と
+$\varepsilon_k$ も互いに独立とする.また
+$\E[R]=\mu$, $\Var[R]=\sigma^2$, $\E[\varepsilon_j]=0$,
+$\Var[\varepsilon_j]=\sigma_\varepsilon^2$ とする.
+\end{itemize}
+このとき,ポートフォリオの収益率の期待値と標準偏差を求めよ.
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}ケース2との違いは,共通因子 $R$ への感応度 $\beta_j$ が
+\emph{銘柄ごとに異なる}ことである.計算の構造はケース2と同じで,共通成分と
+固有成分に分けて期待値・分散を計算する.
+
+\medskip
+\textbf{解答.}ポートフォリオの収益率は
+\[
+R_p = \sum_{j=1}^{N}\frac{1}{N}R_j
+= \frac{1}{N}\sum_{j=1}^{N}\beta_j R + \frac{1}{N}\sum_{j=1}^{N}\varepsilon_j.
+\]
+期待値は(期待値の線形性より,これは常に成り立つ等号)
+\[
+\E[R_p] = \frac{1}{N}\sum_{j=1}^{N}\beta_j\,\E[R]
++ \frac{1}{N}\sum_{j=1}^{N}\E[\varepsilon_j]
+= \Bigl(\frac{1}{N}\sum_{j=1}^{N}\beta_j\Bigr)\mu.
+\]
+分散は,$R$ と $\varepsilon_j$ たちがすべて独立(無相関)であることから
+\[
+\Var[R_p] = \Bigl(\frac{1}{N}\sum_{j=1}^{N}\beta_j\Bigr)^2\sigma^2
++ \frac{1}{N^2}\sum_{j=1}^{N}\sigma_\varepsilon^2
+= \Bigl(\frac{1}{N}\sum_{j=1}^{N}\beta_j\Bigr)^2\sigma^2
++ \frac{\sigma_\varepsilon^2}{N}
+\]
+となる(「和の分散 $=$ 分散の和」は常に成り立つ等号ではなく,無相関だから
+成り立つ).よって標準偏差は
+\[
+\sigma_p = \sqrt{\bar\beta^2\sigma^2 + \frac{\sigma_\varepsilon^2}{N}},
+\qquad
+\bar\beta \equiv \frac{1}{N}\sum_{j=1}^{N}\beta_j.
+\]
+\end{answerbox}
+
+\begin{exercise}[問題2]
+問題1で,$N$ を無限に大きくしていくと,リスクはある値に近付いていく(モデルで
+与えている平均,分散,係数などはすべて既知とする).このとき,極めて多様な資産が
+存在して,それらを極めて上手に組み合わせれば,$N$ を無限大にした極限で,全体の
+リスクをゼロにすることができる.そのような理想的な極限を考えるとき,(リスクで
+なく)期待収益率はどうなるか.
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}問題1の結果で $N\to\infty$ の極限をとる.リスクの極限値は
+$\bar\beta$(ベータの平均)に依存するので,「リスクをゼロにする組み合わせ」とは
+$\bar\beta\to 0$ とすることに他ならない.そのとき期待収益率がどうなるかを見る.
+
+\medskip
+\textbf{解答.}問題1の結果より,
+\[
+\sigma_p = \sqrt{\bar\beta^2\sigma^2 + \frac{\sigma_\varepsilon^2}{N}}
+\;\xrightarrow{N\to\infty}\; |\bar\beta|\,\sigma
+\qquad\Bigl(\text{ただし }
+\bar\beta = \frac{1}{N}\sum_{j=1}^N\beta_j \xrightarrow{N\to\infty}
+\beta < \infty \text{ とする}\Bigr).
+\]
+この結果は,$\beta_j$ の組み合わせ次第でリスクを低減できることを示唆している.
+例えば,$\beta_j$ の符号が異なる資産を非常にうまく組み合わせれば,$\bar\beta$ を
+0に近付けることもできる.
+
+では,その場合,期待収益率はどうなるか.$\bar\beta$ を0に漸近させれば全体の
+リスクを0にできるが,そのとき
+\[
+\E[R_p] = \bar\beta\,\mu \;\longrightarrow\; 0
+\]
+より,\textbf{期待収益率もゼロになる}.
+
+この場合,期待収益率が0で,リスク($=$変動性)も0なので,本来は確率変数である
+はずの収益率自体が0になっていく.すなわち,
+\textbf{リスクをとらなければリターンも得られない}ことを示唆している.
+\end{answerbox}

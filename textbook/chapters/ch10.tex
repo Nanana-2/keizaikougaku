@@ -1,0 +1,698 @@
+% 第10章 デリバティブの価格付け(2)(資料10)
+\chapter{デリバティブの価格付け (2):複製と二項モデル}
+
+本章では,前章で導入した「複製」の考え方を,原資産価格の変動モデルとして最も
+単純な\textbf{二項モデル}に適用し,デリバティブの無裁定価格を導出する.複製に
+使う資産の組み合わせによって,いくつかの方法がある:
+\begin{enumerate}
+\item 複製と二項モデル (1):\textbf{Arrow-Debreu証券}による複製.
+\item 複製と二項モデル (2):\textbf{市場性資産}(リスク性資産と無リスク資産)に
+よる複製.一般にはこの方法が使われる.
+\item 複製と二項モデル (3):\textbf{三項モデル}(ややadvancedな内容を含む.
+講義ではスキップされた).
+\end{enumerate}
+どの資産を使って複製するかで,いろいろなやり方が考えられる.複製に使う資産の
+組み合わせから表現の違いが生まれ,それが「〇〇法」「☓☓法」といった名称の違いを
+生み出す.一方で,\emph{組み合わせてはいけない資産}(適切な複製ができなくなる
+資産の組み合わせ)もある(第3節の三項モデルで見る).
+
+ここで現れる\textbf{リスク中立確率}と\textbf{リスク中立化法}は,デリバティブ
+価格理論の中心概念であり,次章の多期間二項モデル(CRRモデル),さらに第12章の
+Black-Scholesモデルへとつながっていく.
+
+\section{複製と二項モデル (1):Arrow-Debreu証券による複製}
+
+\subsection{二項モデル}
+
+\begin{definition}[二項モデル]
+将来の原資産価格の変動を,二項分岐するツリー(binomial tree)モデルで表現した
+もの.
+\end{definition}
+
+多期間の二項ツリーでは,$\bigcirc$印の格子(ノード)で状態を表現し,ノードを
+接続して,時間の進行に伴う状態変化を示す($p$:上昇確率,$1-p$:下落確率,
+$u$:上昇ファクター,$d$:下落ファクター.詳細は次章).
+
+応用として,三項分岐するツリー(trinomial tree)モデルもある(本章第3節).
+また,ツリーのノードは必ずしも再結合しなくてもよい(ただし取り扱いが面倒であり,
+本講義では扱わない).
+
+本節ではまず一期間(離散時間・離散状態)の二項分岐モデルを考える.
+\begin{itemize}
+\item 現在($t=0$)の株価は $S$.
+\item 満期($t=1$)には,株価は上昇して $uS$ になるか,下落して $dS$ になるか,
+将来は2状態のみ.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.0,
+  node/.style={draw, circle, minimum size=8mm, inner sep=1pt}]
+\node[node] (S) at (0,0) {$S$};
+\node[node] (uS) at (3.2,1.1) {$uS$};
+\node[node] (dS) at (3.2,-1.1) {$dS$};
+\draw[-{Stealth}] (S) -- (uS) node[midway, above, sloped]{\small $p$};
+\draw[-{Stealth}] (S) -- (dS) node[midway, below, sloped]{\small $1-p$};
+\node at (0,-2) {\small $t=0$};
+\node at (3.2,-2) {\small $t=1$(満期)};
+\end{tikzpicture}
+\caption{一期間二項モデルにおける原資産価格の変動.}
+\label{fig:one-period-binomial}
+\end{figure}
+
+\subsection{Arrow-Debreu証券の定義とペイオフ}
+
+\begin{definition}[Arrow-Debreu証券]
+将来のある状態に達したときのみ1円受け取れる証券を
+\textbf{Arrow-Debreu証券}(AD証券と略)という.状態数は任意で可.
+\end{definition}
+
+上の二項モデルでは,将来の状態数は2つなので,AD証券の数は2つである.
+\begin{itemize}
+\item $AD(u)$ 証券:株価\emph{上昇}時のみ1円受け取れるAD証券.
+その現在価格を $\pi_u$ とする.
+将来CFは,上昇時1円・下落時0円である.
+\item $AD(d)$ 証券:株価\emph{下落}時のみ1円受け取れるAD証券.
+その現在価格を $\pi_d$ とする.
+将来CFは,上昇時0円・下落時1円である.
+\end{itemize}
+なお,状態が連続なモデルでは,Diracの$\delta$関数を使って考える.
+
+\subsection{AD証券によるデリバティブの複製}
+
+満期 $t=1$ に,上昇時 $P(u)$,下落時 $P(d)$ のペイオフを支払うデリバティブを,
+AD証券で複製する.
+
+複製ポートフォリオは,「$AD(u)$ 証券を $P(u)$ 単位,$AD(d)$ 証券を $P(d)$ 単位の
+保有(ロング)」である.実際,このポートフォリオは上昇時に $P(u)$ 円,下落時に
+$P(d)$ 円を受け取るので,デリバティブのペイオフと完全に一致する.その複製
+ポートフォリオの現在価値は
+\[
+P(u)\,\pi_u + P(d)\,\pi_d
+\]
+である.よって,無裁定より,\textbf{デリバティブの価格}は
+\begin{equation}
+V = P(u)\,\pi_u + P(d)\,\pi_d
+\label{eq:ad-price}
+\end{equation}
+である.
+
+すべての状態に対するAD証券の価格(\textbf{AD価格}と略)が既知ならば,
+デリバティブの複製ポートフォリオを同様に表現できて,価格付けは容易に行える.
+
+\begin{definition}[完備市場]
+すべての(デリバティブを含む)証券が自己充足なポートフォリオで複製可能な市場を
+\textbf{完備市場}という.\emph{完全市場とは別}の概念である.
+\end{definition}
+
+すべての証券価格が一意に確定するためには,すべての状態のAD価格が一意に決定
+されていることが必要である.
+\begin{itemize}
+\item AD価格が未知の状態があれば,価格付けできない証券が生じる.
+\item AD価格が一意に決まらなければ,価格が一意に決まらない証券が生じる
+($=$裁定機会が存在し,無裁定の前提を使えなくなる).
+\end{itemize}
+
+\subsection{無リスク割引債とAD価格}
+
+無リスクの割引債の複製ポートフォリオは,\textbf{すべてのAD証券を一単位ずつ持つ}
+ことである(どのような状態になっても1円受け取れる,ということ).よって,
+無リスクの割引債価格 $V$ は
+\begin{equation}
+V = \pi_u + \pi_d
+\end{equation}
+であり,無リスクの金利を $r$ とすると
+\begin{equation}
+r = \frac{1}{V} - 1 = \frac{1}{\pi_u + \pi_d} - 1
+\end{equation}
+である.
+
+しかし,\textbf{AD価格が市場で観測できることは極めて稀}である.そのため,この
+価格付け手法を使うには,AD価格を市場のデータ(市場性資産の価格)から推定しな
+ければならない.その方法の概念を次に示す.
+
+\subsection{市場性資産からのAD価格の推定}
+
+価格が既知の2つのリスク証券を考える.証券 $i$ の $k$ 状態におけるペイオフを
+$C(i,k)$ とし,リスク証券1(現在価格 $P_1$,ペイオフ $C(1,u)$, $C(1,d)$)と
+リスク証券2(現在価格 $P_2$,ペイオフ $C(2,u)$, $C(2,d)$)があるとする.
+「AD証券によるリスク証券1と2の複製」を式で表現すると,
+\begin{equation}
+P_1 = C(1,u)\,\pi_u + C(1,d)\,\pi_d,\qquad
+P_2 = C(2,u)\,\pi_u + C(2,d)\,\pi_d,
+\end{equation}
+すなわち
+\begin{equation}
+\begin{pmatrix} P_1\\ P_2\end{pmatrix}
+= \begin{pmatrix} C(1,u) & C(1,d)\\ C(2,u) & C(2,d)\end{pmatrix}
+\begin{pmatrix}\pi_u\\ \pi_d\end{pmatrix}.
+\end{equation}
+この連立方程式が意味のある一意の解 $(\pi_u, \pi_d)$ を持てばよい.そのためには,
+$C(\cdot,\cdot)$ の行列が正則(逆行列を持つ)であればよい.
+
+以上の話は,\textbf{状態数が3以上でも同じ}である.株価上昇時を $u$,株価下落時を
+$d$,株価中庸時を $m$ で表して,
+\begin{equation}
+\begin{pmatrix} P_1\\ P_2\\ P_3\end{pmatrix}
+= \begin{pmatrix}
+C(1,u) & C(1,m) & C(1,d)\\
+C(2,u) & C(2,m) & C(2,d)\\
+C(3,u) & C(3,m) & C(3,d)
+\end{pmatrix}
+\begin{pmatrix}\pi_u\\ \pi_m\\ \pi_d\end{pmatrix}
+\end{equation}
+が意味のある一意の解 $(\pi_u,\pi_m,\pi_d)$ を持てばよい($C(\cdot,\cdot)$ の
+行列が正則であればよい).このとき,状態ごとのペイオフが
+$(C(u), C(m), C(d))$ で与えられるデリバティブの価格は
+\begin{equation}
+C(u)\,\pi_u + C(m)\,\pi_m + C(d)\,\pi_d
+\end{equation}
+である.
+
+\begin{remark}
+「現実の上昇確率,下落確率が(明示的に)価格式に含まれないが?」という疑問が
+生じるかもしれない.しかし,\textbf{価格式が現実の上昇・下落確率を含まねば
+ならない理由は,ない}のである(この点は次節でさらに掘り下げる).
+\end{remark}
+
+\section{複製と二項モデル (2):市場性資産による複製}
+
+本節では,市場性資産である\textbf{無リスク資産と原資産(リスク性資産)}による
+複製を考える.一般には,この方法が使われる.
+
+\subsection{リスク性資産と無リスク資産による複製}
+
+離散時間,離散状態の二項分岐するモデルを考える.
+\begin{itemize}
+\item リスク性資産の将来価格は2状態(上昇 $uS$ or 下落 $dS$,$u\neq d$).
+\item 複製には,(上記の)リスク性資産と無リスク資産を使う.
+\item 無リスク資産は,$t=1$ での価値が必ず $(1+r)$ 倍になる資産(現在価格1円).
+収益率が確定的なので,将来の状態数は1つだけである.
+\end{itemize}
+
+デリバティブのペイオフ(関数)は,上昇時 $P(u)$,下落時 $P(d)$ とする.複製
+ポートフォリオをリスク性資産 $\Delta$ 単位,無リスク資産 $B$ 単位とする.
+「満期($t=1$)での複製」を式で書くと,
+\begin{equation}
+\begin{cases}
+\Delta\,uS + B(1+r) = P(u),\\
+\Delta\,dS + B(1+r) = P(d),
+\end{cases}
+\qquad\text{すなわち}\quad
+\begin{pmatrix} uS & 1+r\\ dS & 1+r\end{pmatrix}
+\begin{pmatrix}\Delta\\ B\end{pmatrix}
+= \begin{pmatrix}P(u)\\ P(d)\end{pmatrix}.
+\label{eq:replication-system}
+\end{equation}
+
+この連立方程式を解くと($u\neq d$ ならば解けて),
+\begin{equation}
+\Delta = \frac{1}{S}\,\frac{P(u) - P(d)}{u - d},
+\qquad
+B = \frac{1}{1+r}\,\frac{u\,P(d) - d\,P(u)}{u - d}
+\label{eq:delta-B}
+\end{equation}
+となり,これで複製ポートフォリオ $(\Delta, B)$ が得られた($u=d$ ならば,
+そもそも二項モデルにならないので考えなくてよい).
+
+デリバティブ価格 $V$ は複製ポートフォリオの $t=0$ の価格なので,
+\begin{equation}
+V = S\times\Delta + B\times 1
+= \frac{P(u)-P(d)}{u-d} + \frac{1}{1+r}\,\frac{uP(d) - dP(u)}{u-d}
+= \frac{(1+r-d)\,P(u) - (1+r-u)\,P(d)}{(u-d)(1+r)}.
+\label{eq:binomial-price}
+\end{equation}
+
+\subsection{ヨーロピアンコールオプションの数値例}
+
+\begin{example}[数値例:一期間二項モデルのコール]
+次の設定を考える.
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+$S = 40$ & 現在価格\\
+$t = 1$ & 満期\\
+$K = 40$ & 行使価格\\
+$p = 0.5$ & 上昇確率\\
+$1-p = 0.5$ & 下落確率\\
+$u = 1.5$ & 上昇ファクター\\
+$d = 0.5$ & 下落ファクター\\
+\bottomrule
+\end{tabular}
+\end{center}
+満期の原資産価格は,上昇時 $uS = 60$,下落時 $dS = 20$ であり,コール
+オプションのペイオフは上昇時 $\max(uS-K,0) = 20$,下落時 $\max(dS-K,0) = 0$
+である.
+
+無リスク資産の利回りを $r = 0.25$($=25\%$),現在価格は1とする.コール
+オプションを原資産 $\Delta$ 単位,無リスク資産 $B$ 単位で複製できたとすると,
+次の式が成り立つ:
+\[
+\begin{cases}
+60\Delta + 1.25B = 20 & \text{(上昇したとき)},\\
+20\Delta + 1.25B = 0 & \text{(下落したとき)}.
+\end{cases}
+\]
+この連立方程式を解くと,
+\[
+\Delta = 0.5,\qquad B = -8
+\]
+(複製ポートフォリオが得られた.$B<0$ は無リスク資産の空売り$=$借入である).
+コールオプションの現在価値は($=$複製ポートフォリオの現在価値)
+\[
+C_0 = \Delta S + B = 0.5\times 40 - 8 = 12.
+\]
+\end{example}
+
+式\eqref{eq:binomial-price}の価格式は,デリバティブの種類にあわせて $P(u)$ と
+$P(d)$ を表現すれば,さまざまなデリバティブの価格の算出に使える.ただし,
+わずか2状態しか考えていないので,かなり大雑把な価格評価になる.
+
+\subsection{価格式の意味}
+
+価格式\eqref{eq:binomial-price}は次のように書ける:
+\begin{equation}
+C_0 = \frac{\dfrac{1+r-d}{u-d}\,P(u)
++ \Bigl(1 - \dfrac{1+r-d}{u-d}\Bigr)P(d)}{1+r}.
+\label{eq:price-meaning}
+\end{equation}
+\begin{itemize}
+\item 分子は,$q = \dfrac{1+r-d}{u-d}$ を\textbf{上昇確率}と解釈したときの,
+コールオプションの満期 $t=1$ におけるペイオフの\emph{期待値}に相当する
+($1-q$ が下落確率).
+\item 分母は,無リスク資産の利回りによる現在価値への\emph{割引}に相当する.
+\end{itemize}
+
+\subsection{リスク中立確率}
+
+前項の「上昇確率」
+\begin{equation}
+q = \frac{1+r-d}{u-d}
+\label{eq:q-def}
+\end{equation}
+とは何か.「確率」であるためには $0 \leq q \leq 1$ でなければならない.
+そのための条件は
+\[
+0 < \frac{1+r-d}{u-d} < 1,
+\qquad\text{すなわち}\qquad
+d < 1+r < u
+\]
+である(上の式の不等号が等号の場合,上昇確率は0か1になる.これは不確実性が
+ないことを意味するので,等号は考えない).
+
+\begin{definition}[リスク中立確率]
+この $q$ を\textbf{リスク中立(な上昇)確率}と呼ぶ.
+\end{definition}
+
+一般に,$q \neq p$ である($q$ と $p$ が一致する理由は,ない).
+
+\subsection{リスク中立化法}
+
+リスク中立確率を使った期待値を $\E^Q[\,\cdot\,]$ と書くと,
+\begin{equation}
+C_0 = \frac{\dfrac{1+r-d}{u-d}\times P(u)
++ \Bigl(1-\dfrac{1+r-d}{u-d}\Bigr)\times P(d)}{1+r}
+= \frac{\E^Q[C_1]}{1+r}.
+\label{eq:risk-neutral-method}
+\end{equation}
+ただし,$C_1$ はデリバティブの $t=1$ での価値($=$ペイオフ)である.
+
+\begin{keypoint}[リスク中立化法]
+コールオプションの現在価値は,満期におけるペイオフの(リスク中立確率下の)
+期待値を,無リスク資産の利回りで現在価値に割り引いた値に等しい.実は,上記は
+一般的に成立し,この方法による現在価値算出方法は\textbf{リスク中立化法}と
+呼ばれている.
+\end{keypoint}
+
+\subsection{なぜ「リスク中立」と呼ばれるのか}
+
+\paragraph{(1) この確率のもとでは,すべての資産の期待収益率が無リスク資産の
+収益率と一致する.}
+式\eqref{eq:risk-neutral-method}を変形すると,
+\begin{equation}
+\frac{\E^Q[C_1]}{C_0} = 1 + r.
+\end{equation}
+この式は,一期間後のペイオフを $C_1$ とするデリバティブの期待収益率が,この
+確率 $Q$ の下では常に $r$ になることを示している.
+
+\paragraph{(2) 期待収益率のチェック.}
+確率 $Q$ の下で,期待収益率をチェックする.
+
+\textbf{例:原資産の期待収益率}は,
+\begin{align*}
+\frac{1+r-d}{u-d}\times\frac{uS}{S}
++ \Bigl(1-\frac{1+r-d}{u-d}\Bigr)\times\frac{dS}{S} - 1
+&= \frac{1+r-d}{u-d}\,u + \frac{u-1-r}{u-d}\,d - 1\\
+&= \frac{(1+r)(u-d)}{u-d} - 1 = r.
+\end{align*}
+
+\textbf{例:コールオプションの期待収益率}は,例えば $dS < K < uS$ のとき,
+ペイオフは $P(u) = uS-K$, $P(d) = 0$ で,価格は
+$C_0 = \frac{1+r-d}{u-d}\cdot\frac{uS-K}{1+r}$ なので,
+\[
+\frac{\E^Q[C_1]}{C_0} - 1
+= \frac{\dfrac{1+r-d}{u-d}(uS-K) + \Bigl(1-\dfrac{1+r-d}{u-d}\Bigr)\times 0}
+{\dfrac{1+r-d}{u-d}\cdot\dfrac{uS-K}{1+r}} - 1
+= (1+r) - 1 = r.
+\]
+プットオプションについても同様に確認できる(各自でチェックせよ).
+
+\paragraph{(3) リスク回避的な世界ではありえないこと.}
+投資家がリスク回避的な場合,「市場のすべての資産の期待収益率が(リスクの大きさに
+かかわらず)等しい」ことはありえない.
+\begin{itemize}
+\item 合理的な投資家は,リスク性資産へ投資するとき,内在するリスクに見合う分の
+超過収益を要求する.
+\item もしすべての資産の期待収益率が等しいならば,リスクの高い資産に投資する人は
+存在せず,リスクが高い資産は市場から駆逐される.その結果,リスクの大きさが
+異なる資産は市場に共存できなくなる.
+\end{itemize}
+理論上,「リスクによらず期待収益率が無リスク資産と等しくなる」ことが起こり得る
+のは,\textbf{投資家がリスク中立的な場合のみ}である.リスク中立な投資家の世界
+では,投資家はリスクの大きさを考えずに投資を行う.その世界では,期待収益率が
+等しく,かつ,異なる大きさのリスクを持つ資産が共存し得る.
+
+\paragraph{(4) リスク中立化法は「技術」である.}
+このため,確率 $Q$ は\textbf{リスク中立確率}と呼ばれている.
+
+\begin{keypoint}[リスク中立化法の正しい理解]
+\begin{itemize}
+\item 現実の投資家がリスク中立的だ,と言っているわけではない.全投資家がリスク
+中立な世界を考えると,証券の現在価格が満期におけるペイオフの割引現在価値の
+期待値で表現できる,というだけに過ぎない.
+\item 極端な言い方をすれば,リスク中立化法は簡単に価格付けを行うための
+\emph{技術}に過ぎない.リスク中立的な世界を考えれば,価格(現在価値)を
+\[
+V = \frac{\E^Q[C_1]}{1+r}
+\]
+という非常にシンプルな計算で算出できる.
+\item 注意:$\dfrac{\E^P[C_1]}{1+r}$($\E^P[\,\cdot\,]$ は\emph{現実の}確率での
+期待値)が価格(現在価値)になる理由は,ない.
+\end{itemize}
+\end{keypoint}
+
+\subsection{確実性等価原理との対応関係(Advanced)}
+
+第4章の確実性等価原理(考え方B:財の調整項としてのリスク・プレミアム)を
+再掲する($W$, $w$ は証券価値 or 証券から得られるキャッシュとする).効用関数
+$u$ を使い,$u(w^*) = \E[u(W)]$ を満たす定数 $w^*$ を求め,$W$ の現在価値を
+$w^*/(1+r)$ とする.すなわち,
+\begin{enumerate}
+\item 効用関数の値が期待効用と同じ値になる富 $w^*$ を求め,
+\item その富を安全利子率 $r$ を使って割り引くことで,現在価値を求める.
+\end{enumerate}
+
+これによると,$W$ の価格 $p(W)$ は
+\[
+p(W) = \frac{w^*}{1+r} = \frac{u^{-1}(\E[u(W)])}{1+r}.
+\]
+ここで,\textbf{リスク中立的な投資家}の効用関数 $u$ を考えると,
+$u(w) = aw + b$(一次関数)で,逆関数は $u^{-1}(x) = (x-b)/a$ である.すると,
+リスク中立的な投資家にとっての $p(W)$ は
+\[
+p(W) = \frac{u^{-1}(\E[u(W)])}{1+r}
+= \frac{u^{-1}(a\,\E[W] + b)}{1+r}
+= \frac{\E[W]}{1+r}
+\]
+となる.この式は,リスク中立化法と同じ形である(\emph{違うのは確率だけ}).
+すなわち,状態の発生確率を $P\to Q$ に変更することで,リスク中立的な投資家の
+世界と同じ(確実性等価原理に沿った)価格評価を行えるようにしているのである.
+第4章で予告した「分布の変換」の発想が,ここで実現している.
+
+\subsection{リスクの市場価格を見てみると}
+
+\textbf{リスクの市場価格}は
+\[
+\lambda = \frac{\mu - r}{\sigma}
+\]
+である($\mu$ は期待収益率,$\sigma$ は収益率の標準偏差).
+
+\begin{keypoint}
+一般に,\textbf{原資産のリスクの市場価格と,その原資産の上に書かれた任意の
+デリバティブのリスクの市場価格は,等しい}.問題10-1では,具体例で確認する.
+\end{keypoint}
+
+「なぜ等しいか?」は少し難しい話になるので,この講義では略し,解釈だけ示す:
+リスクの市場価格は,個々の資産のリスクに対する市場の評価でなく,
+「\emph{原資産に内在する変動性}」に対する市場の評価なので,値は共通なのである.
+これはCAPMの理論とも整合的である(リスクは収益率の標準偏差で測る).
+
+\subsection{マルチンゲール確率(Advanced:講義ではスキップ)}
+
+時刻 $t$ の無リスク資産の価格を $B(t)$ とすると,$1+r = B(1)/B(0)$ である.
+時刻 $t$ のデリバティブの価格を $C(t)$ とすると,デリバティブの満期 $t=1$ の
+ペイオフ関数は $C(1)$ で表現できる.リスク中立化法の式を書き直すと,
+\begin{equation}
+C(0) = \frac{\E^Q[C(1)]}{1+r} = \frac{B(0)}{B(1)}\E^Q[C(1)]
+\qquad\Longleftrightarrow\qquad
+\frac{C(0)}{B(0)} = \E^Q\Bigl[\frac{C(1)}{B(1)}\Bigr].
+\end{equation}
+右の式は,リスク中立確率 $Q$ のもとで,\textbf{相対価格 $C(t)/B(t)$ が
+マルチンゲールである}ことを示している.
+
+\begin{remark}[マルチンゲール]
+$t < s$ で,$\E[X(s)\,|\,\mathcal{F}_t] = X(t)$(時刻 $t$ の条件付期待値が
+$X(t)$ に等しい)を満たす確率過程 $X(t)$ を\textbf{マルチンゲール}という.
+$\mathcal{F}_t$ は時刻 $t$ までの情報である.
+\end{remark}
+
+リスク中立確率は,相対価格 $C(t)/B(t)$ をマルチンゲールにする確率
+(\textbf{マルチンゲール確率}と呼ばれる)である.リスク中立化法は,リスク性資産
+$S(t)$ の無リスク資産 $B(t)$ に対する相対価格 $S(t)/B(t)$ をマルチンゲールに
+する確率($=$リスク中立確率)のもとで成立する次式(上式を一般化したもの)
+\begin{equation}
+\frac{C(0)}{B(0)} = \E^Q\Bigl[\frac{C(t)}{B(t)}\Bigr]
+= \frac{\E^Q[C(t)]}{(1+r)^t}
+\end{equation}
+を使った価格付け手法である.上の式の最後の等号では,無リスク金利 $r$ が一定と
+仮定している(1年を1期間とする離散時間モデルであることも仮定している).より
+一般的に扱う場合は,最後の式を除く.
+
+\section{複製と二項モデル (3):三項モデルと複製可能性
+(Advanced:講義ではスキップ)}
+
+本節の内容はかなりadvancedであり,講義ではスキップされた(参考として収録する).
+三項モデルを通して,\textbf{非完備性}と\textbf{複製可能性}を考える.
+
+\subsection{三項モデルの設定}
+
+次の三項モデルを考える.
+\begin{itemize}
+\item リスク性資産の将来の価格は,(u) 上昇する $uS$,(d) 下落する $dS$,
+(m) あまり変わらない $mS$,の3状態(それぞれ確率 $p_u$, $p_d$, $p_m$).
+\item 複製には,(上記の)リスク性資産と無リスク資産を使う.
+\item 無リスク資産は,$t=1$ の状態によらず価値が $(1+r)$ 倍になる.
+\end{itemize}
+
+デリバティブのペイオフ関数は,状態ごとに $P(u)$, $P(m)$, $P(d)$ とする.
+複製ポートフォリオを,リスク性資産 $\Delta$ 単位,無リスク資産 $B$ 単位とする.
+複製の意味を式で書くと,
+\begin{equation}
+\begin{cases}
+\Delta\,uS + B(1+r) = P(u) & (1)\\
+\Delta\,mS + B(1+r) = P(m) & (2)\\
+\Delta\,dS + B(1+r) = P(d) & (3)
+\end{cases}
+\qquad\text{すなわち}\quad
+\begin{pmatrix} uS & 1+r\\ mS & 1+r\\ dS & 1+r\end{pmatrix}
+\begin{pmatrix}\Delta\\ B\end{pmatrix}
+= \begin{pmatrix}P(u)\\ P(m)\\ P(d)\end{pmatrix}.
+\label{eq:trinomial-system}
+\end{equation}
+
+\subsection{複製可能条件}
+
+連立方程式\eqref{eq:trinomial-system}は,未知数2つ($\Delta$, $B$)に対して
+条件式が3つあるので,\textbf{解 $(\Delta, B)$ が存在しない場合もある}.解が
+存在するためには,条件式の1つが他の2つの条件式の線形結合で書けなければならない
+($=$「条件式の1つが無意味」が条件).その必要十分条件は,
+\begin{equation}
+\Delta = \frac{1}{S}\,\frac{P(u)-P(d)}{u-d}
+= \frac{1}{S}\,\frac{P(u)-P(m)}{u-m}
+= \frac{1}{S}\,\frac{P(m)-P(d)}{m-d}
+\label{eq:replicability}
+\end{equation}
+である.上の式が満たされないと,\eqref{eq:trinomial-system}の(1)--(3)のどれかが
+成立しないので,このデリバティブは複製不可となる.すなわち,
+式\eqref{eq:replicability}は\textbf{複製可能条件}を示している.
+
+ここで,ファクター $(u,d,m)$ はマーケットを表現するモデルの設定である.一方,
+ペイオフ $(P(u), P(m), P(d))$ はデリバティブ次第である.つまり,
+\textbf{デリバティブによって,自己充足なポートフォリオで複製できたり,複製
+できなかったりする}.これは市場が\textbf{非完備}であることを意味している.
+
+\subsection{複製可能条件を満たすとき}
+
+複製可能条件を満たすとき,複製ポートフォリオは((1)--(3)のうち2つを連立した
+ときの解として)
+\begin{align}
+\Delta &= \frac{1}{S}\frac{P(u)-P(d)}{u-d}
+= \frac{1}{S}\frac{P(u)-P(m)}{u-m}
+= \frac{1}{S}\frac{P(m)-P(d)}{m-d},\\
+B &= -\frac{1}{1+r}\frac{dP(u)-uP(d)}{u-d}
+= -\frac{1}{1+r}\frac{mP(u)-uP(m)}{u-m}
+= -\frac{1}{1+r}\frac{dP(m)-mP(d)}{m-d}
+\end{align}
+となり(符号の取り方は\eqref{eq:delta-B}と同値),価格は一意に決まり,
+二項モデルのときの価格に等しくなる:
+\begin{align}
+V = S\Delta + B
+&= \frac{(1+r-d)P(u) - (1+r-u)P(d)}{(u-d)(1+r)}\notag\\
+&= \frac{(1+r-m)P(u) - (1+r-u)P(m)}{(u-m)(1+r)}
+= \frac{(1+r-d)P(m) - (1+r-m)P(d)}{(m-d)(1+r)}.
+\end{align}
+\textbf{複製可能条件を満たさないとき,無裁定価格は存在しない.}
+
+\subsection{リスク中立確率は一意に決まらない}
+
+では,非完備市場では一意な価格付けを一切できないのか.今度は,複製可能条件の
+成立・不成立は問わずに,リスク中立確率について考える(状態数よりも少ない資産で
+複製すると,無理が生じるのである).
+
+リスク性資産自身にリスク中立化法の式を適用すると,
+\begin{equation}
+S = \frac{q_u\,uS + q_m\,mS + q_d\,dS}{1+r}
+\qquad\Longleftrightarrow\qquad
+1 + r = q_u u + q_m m + q_d d,
+\end{equation}
+確率なので
+\begin{equation}
+q_u + q_m + q_d = 1,\qquad q_u > 0,\ q_m > 0,\ q_d > 0
+\end{equation}
+である.マーケットのモデル $(u,m,d)$ が与えられたとき,上記の条件を満たす
+リスク中立確率 $(q_u, q_m, q_d)$ は\textbf{複数(無数に)存在}する
+(二項モデルでは一意に決まったのと対照的である).
+
+あるリスク中立確率 $(q_u, q_m, q_d)$ が与えられたときの価格は,
+\begin{align}
+\frac{\E[C_1]}{1+r}
+&= \frac{q_u P(u) + q_m P(m) + q_d P(d)}{1+r}\notag\\
+&= \underbrace{\frac{(1+r-d)P(u) - (1+r-u)P(d)}{(1+r)(u-d)}}_{\text{二項モデルの
+ときの価格}}
++ \frac{u\bigl(P(m)-P(d)\bigr) + m\bigl(P(d)-P(u)\bigr)
++ d\bigl(P(u)-P(m)\bigr)}{(1+r)(u-d)}\,q_m
+\label{eq:trinomial-price}
+\end{align}
+と書ける.
+\begin{itemize}
+\item 価格は確率 $q_m$ に依存する.
+\item 複製可能条件\eqref{eq:replicability}を満たすとき,第2項はゼロになる.
+$\to$ 価格は $q_m$ に依存せず,二項モデルのときの価格と等しくなる
+(複製可能条件を満たすと二項モデルに縮退するので,当然である).
+\end{itemize}
+
+\subsection{3資産による複製:完備化}
+
+無リスク資産,リスク性資産 $S$,\emph{別のリスク証券} $V$ の3資産で複製を
+考える.リスク証券 $V$ の満期の価値は,状態 $u,m,d$ に応じて $aV, bV, cV$ と
+する.デリバティブのペイオフ関数は $(P(u), P(m), P(d))$ である.
+
+複製ポートフォリオを,リスク性資産 $\Delta$ 単位,リスク証券 $\gamma$ 単位,
+無リスク資産 $B$ 単位とする.複製の意味を式で書くと,
+\begin{equation}
+\begin{cases}
+\Delta\,uS + \gamma\,aV + B(1+r) = P(u) & (4)\\
+\Delta\,mS + \gamma\,bV + B(1+r) = P(m) & (5)\\
+\Delta\,dS + \gamma\,cV + B(1+r) = P(d) & (6)
+\end{cases}
+\qquad\text{すなわち}\quad
+\begin{pmatrix} uS & aV & 1+r\\ mS & bV & 1+r\\ dS & cV & 1+r\end{pmatrix}
+\begin{pmatrix}\Delta\\ \gamma\\ B\end{pmatrix}
+= \begin{pmatrix}P(u)\\ P(m)\\ P(d)\end{pmatrix}.
+\end{equation}
+この連立方程式が解 $(\Delta,\gamma,B)$ を持てば複製可能である.左辺の行列が
+正則であればよい.
+
+得られた解 $(\Delta,\gamma,B)$ は複製ポートフォリオを表現しており,
+デリバティブの価格は複製ポートフォリオの現在価値なので,
+\begin{equation}
+\Delta\times S + \gamma\times V + B\times 1
+\end{equation}
+である.
+
+\begin{keypoint}
+\textbf{状態数と等しい数の(線形独立な)資産があれば,自己充足なポートフォリオに
+よる複製が可能}である.ここで展開した三項モデルの話は,より一般化した
+$N$項モデルにも通用する.
+\end{keypoint}
+
+% ---------------- 演習問題 ----------------
+\section{演習問題}
+
+\begin{exercise}[問題10-1]
+本文の数値例($S=40$, $K=40$, $p=0.5$, $u=1.5$, $d=0.5$, $r=0.25$)において,
+(a) 原資産,(b) ヨーロピアンコールオプション,(c) ヨーロピアンプット
+オプションのリスクの市場価格をそれぞれ算出し,比較しなさい.
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}各資産について,\emph{現実の確率} $p=0.5$ のもとでの期待収益率
+$\mu$ と収益率の標準偏差 $\sigma$ を計算し,リスクの市場価格
+\[
+\lambda = \frac{\mu - r}{\sigma}
+\]
+を求める.収益率は(満期の価値 $-$ 現在価格)/現在価格 で計算する.
+
+\medskip
+\textbf{(a) 株式で計算.}
+現在価格40,満期の価値は60(確率0.5)または20(確率0.5)なので,収益率は
+$+0.5$ または $-0.5$ である.
+\[
+\mu = 0.5\times 0.5 + 0.5\times(-0.5) = 0,
+\qquad
+\sigma^2 = 0.5\times 0.5^2 + 0.5\times(-0.5)^2 = 0.5^2
+\ \therefore\ \sigma = 0.5.
+\]
+よって
+\[
+\lambda = \frac{0 - 0.25}{0.5} = -0.5.
+\]
+
+\medskip
+\textbf{(b) ヨーロピアン・コールオプションで計算.}
+現在価格12(本文の数値例),満期の価値は20(確率0.5)または0(確率0.5)
+なので,収益率は $(20-12)/12 = 2/3$ または $(0-12)/12 = -1$ である.
+\[
+\mu = 0.5\times\frac{20-12}{12} + 0.5\times\frac{0-12}{12} = -\frac{1}{6},
+\]
+\[
+\sigma^2 = 0.5\Bigl(\frac{20-12}{12}+\frac{1}{6}\Bigr)^2
++ 0.5\Bigl(\frac{0-12}{12}+\frac{1}{6}\Bigr)^2 = \Bigl(\frac{5}{6}\Bigr)^2
+\ \therefore\ \sigma = \frac{5}{6}.
+\]
+よって
+\[
+\lambda = \frac{-1/6 - 0.25}{5/6} = -0.5.
+\]
+
+\medskip
+\textbf{(c) ヨーロピアン・プットオプションで計算.}
+まず価格は
+\[
+P_0 = \frac{K - dS}{u-d}\cdot\frac{u-1-r}{1+r}
+= \frac{40 - 0.5\times 40}{1.5-0.5}\times\frac{1.5-1-0.25}{1+0.25} = 4.
+\]
+満期の価値は0(上昇時,確率0.5)または20(下落時,確率0.5)なので,収益率は
+$(0-4)/4 = -1$ または $(20-4)/4 = 4$ である.
+\[
+\mu = 0.5\times\frac{0-4}{4} + 0.5\times\frac{20-4}{4} = 1.5,
+\]
+\[
+\sigma^2 = 0.5\,(-1-1.5)^2 + 0.5\,(4-1.5)^2 = 2.5^2
+\ \therefore\ \sigma = 2.5\ (\text{符号に注意:下記}).
+\]
+プット価格は,原資産価格(やコール価格)の確率的変動に関して\emph{逆に}動く
+ので,(連続時間モデルで言えば標準ブラウン運動の前に付く)ボラティリティ関数は
+\emph{負}とみなす.すなわち $\sigma = -2.5$ として
+\[
+\lambda = \frac{1.5 - 0.25}{-2.5} = -0.5.
+\]
+
+\medskip
+\textbf{比較とポイント.}原資産,コール,プットの価格からそれぞれ算出した
+リスクの市場価格は,\textbf{どれも等しく $-0.5$} である.本文で述べたとおり,
+リスクの市場価格は「原資産に内在する変動性」に対する市場の評価なので,同じ
+原資産の上に書かれたデリバティブすべてに共通の値になる.デリバティブの無裁定
+価格は,原資産と同じリスクの市場価格を持つように付けられた価格である,という
+見方ができる.
+\end{answerbox}

@@ -1,0 +1,799 @@
+% 第12章 ブラック・ショールズ・モデル(資料12 + BS公式導出補足)
+\chapter{ブラック・ショールズ・モデル}
+
+最終章では,連続時間モデルによるデリバティブの価格付け,すなわち
+\textbf{ブラック・ショールズ(BS)モデル}を学ぶ.離散時間の二項モデル(CRR)から
+連続時間モデルへ移行し,ヨーロピアン・オプションの解析的な価格公式
+(Black-Scholesの公式)を導出する.また,デリバティブのリスク管理に使われる
+\textbf{グリークス} (Greeks) と,通貨・金利デリバティブへの応用の考え方を扱う.
+
+\section{ブラック・ショールズ(BS)モデル}
+
+\subsection{前提}
+
+\begin{itemize}
+\item 完全市場(第9章参照)を仮定する.
+\item 安全資産の利回り $r$($=$無リスク金利)は期間を通して一定とする.
+\end{itemize}
+さらに,簡単化のために以下を仮定する(これらの仮定は緩和可能である).
+\begin{itemize}
+\item 市場には,1つのリスク性資産($=$原資産)と無リスク資産だけが存在する
+(ということは,複製はこれら2資産を使って考える).
+\item リスク性資産に配当はない.
+\end{itemize}
+以下では,\textbf{リスク中立確率のもとで},連続時間モデルで考える(連続時間
+なので,ほんの一瞬の間の変化を考える).
+
+\subsection{モデルの定式化}
+
+Black-Scholes(-Merton) モデルでは,微小時間 $\Delta t$ における瞬間的な収益率が,
+\[
+\text{期待値 } r\Delta t \quad
+(\text{リスク中立確率下の議論なので } r \neq \mu),\qquad
+\text{分散 } \sigma^2\Delta t
+\]
+の正規分布に従う,と仮定する.$\Delta$ で増分を表すと,
+\[
+\frac{\Delta S(t)}{S(t)} \sim N(r\Delta t,\ \sigma^2\Delta t),
+\qquad \Delta S(t) = S(t+\Delta t) - S(t).
+\]
+無限小時間 $dt$ における式として表現すると,
+\[
+\frac{\dd S(t)}{S(t)} \sim N(r\,\dd t,\ \sigma^2\dd t),
+\qquad \dd S(t) = S(t+\dd t) - S(t).
+\]
+しかも,瞬間的な収益率は時系列的に独立と仮定する.
+
+これを,以下のように表現する:
+\begin{equation}
+\frac{\dd S(t)}{S(t)} = r\,\dd t + \sigma\,\dd W(t).
+\label{eq:bs-sde}
+\end{equation}
+\begin{itemize}
+\item 左辺は,無限小時間 $dt$ における瞬間的な収益率を表す.
+\item 右辺第1項は,期待収益率 $r$ による $dt$ 間の増分を表す.
+\item 右辺第2項は,$dt$ 間の収益率の確率的な増分(変動)を表す.変動の大きさは
+$\sigma$ で調整する.
+\end{itemize}
+
+\begin{definition}[標準ブラウン運動]
+$W(t)$ は\textbf{標準ブラウン運動}と呼ばれている確率過程で,次の性質をもつ.
+\begin{itemize}
+\item $\dd W(t) = W(t+\dd t) - W(t)$:標準ブラウン運動の無限小増分.
+\item 無限小増分 $\dd W(t)$ は正規分布 $N(0,\,\dd t)$ に従う
+($\Rightarrow \E[\dd W(t)] = 0$).
+\item 互いに背反な時間区間の無限小増分は,独立.
+\item $W(0) = 0$, a.s.
+\end{itemize}
+\end{definition}
+
+\begin{example}[問1]
+式\eqref{eq:bs-sde}が $\dd S(t)/S(t) \sim N(r\,\dd t, \sigma^2\dd t)$ を満たす
+ことを確認せよ.
+
+\textbf{解.}(1) 期待値と分散を計算する:
+\[
+\E\Bigl[\frac{\dd S(t)}{S(t)}\Bigr] = r\,\dd t + \sigma\E[\dd W(t)] = r\,\dd t,
+\qquad
+\Var\Bigl[\frac{\dd S(t)}{S(t)}\Bigr] = \sigma^2\Var[\dd W(t)] = \sigma^2\dd t.
+\]
+(2) 右辺 $r\,\dd t + \sigma\,\dd W(t)$ は,正規分布に従う確率変数
+$\dd W(t)$ の1次式なので正規分布に従う.よって
+$\dd S(t)/S(t) \sim N(r\,\dd t, \sigma^2\dd t)$ である.
+\end{example}
+
+\begin{example}[問2]
+では,$W(t)$ はどのような分布に従うか?
+
+\textbf{解.}(1)
+\[
+W(t) = \int_0^t \dd W(s)
+= \lim_{n\to\infty}\sum_{i=1}^{n}
+\Bigl[W\Bigl(\frac{it}{n}\Bigr) - W\Bigl(\frac{(i-1)t}{n}\Bigr)\Bigr]
+\]
+と表現して,互いに背反な時間区間の増分の和に分解する.各増分は独立に
+$N(0, t/n)$ に従う.(2) 正規分布の再生性(独立な正規変数の和は正規分布)を
+使うと,$W(t) \sim N(0,\,t)$ が得られる.
+\end{example}
+
+\subsection{単純な積分ではうまくいかない}
+
+式\eqref{eq:bs-sde}はリスク性資産価格の\emph{瞬間的な増分}の分布を示す式で
+あって,将来時点 $t$ の価格 $S(t)$ の分布を示してはいない.単純に積分しても
+有益な情報は出てこない:
+\[
+\dd S(t) = rS(t)\,\dd t + \sigma S(t)\,\dd W(t)
+\]
+\[
+\int_0^T \dd S(t) = r\int_0^T S(t)\,\dd t + \sigma\int_0^T S(t)\,\dd W(t)
+\]
+\[
+S(T) = S(0) + r\int_0^T S(t)\,\dd t + \sigma\int_0^T S(t)\,\dd W(t).
+\]
+被積分関数に確率過程 $S(t)$ が含まれたままなので,$S(T)$ の分布が上の式から
+直接得られることはない.
+
+そこで,算術収益率でなく,\textbf{対数収益率}で考えてみる(結果から言うと,
+この方針をとるとうまくいく).瞬間的な対数収益率は
+$\dd\log S(t) = \log S(t+\dd t) - \log S(t)$ である.$\dd\log S(t)$ はどのような
+分布に従うか.結果を先取りすると,$\dd\log S(t) \sim N(r\,\dd t, \sigma^2\dd t)$
+には\emph{ならない}.やりたいことは,$f(t,S) = \log S$ の微小増分
+$\dd f(t,S(t))$ を求めることである.このように,微小増分 $\dd S(t)$ の分布が
+既知のとき,微小増分 $\dd f(t, S(t))$ の分布がどうなるかを考える時のツールが
+\textbf{伊藤の公式}である.詳しく言うと,ある確率過程が与えられたとき,その
+確率過程を含む汎関数(関数の関数)がどのように書けるか,を示す公式である.
+
+\subsection{伊藤の公式}
+
+$\dd S(t) = S(t)(r\,\dd t + \sigma\,\dd W(t))$ は既知とする.二変数関数
+$f(t, S(t))$ を考え,無限小時間 $dt$ における微小増分 $\dd f(t,S(t))$ を考える.
+2変数関数のテーラー展開を使うと,
+\begin{equation}
+\dd f(t,S(t)) = \frac{\partial f}{\partial t}\dd t
++ \frac{\partial f}{\partial S}\dd S(t)
++ \frac{1}{2}\frac{\partial^2 f}{\partial t^2}(\dd t)^2
++ \frac{\partial^2 f}{\partial t\,\partial S}\dd t\,\dd S(t)
++ \frac{1}{2}\frac{\partial^2 f}{\partial S^2}(\dd S(t))^2 + \cdots.
+\end{equation}
+ここで $\dd S(t) = S(t)(r\,\dd t + \sigma\,\dd W(t))$ を代入して整理すると,
+\begin{align}
+\dd f(t,S(t))
+&= \frac{\partial f}{\partial t}\dd t
++ \frac{\partial f}{\partial S}S(t)\bigl(r\,\dd t + \sigma\,\dd W(t)\bigr)
++ \frac{1}{2}\frac{\partial^2 f}{\partial S^2}S(t)^2
+\bigl(r\,\dd t + \sigma\,\dd W(t)\bigr)^2 + \cdots\notag\\
+&= \Bigl(\frac{\partial f}{\partial t} + rS(t)\frac{\partial f}{\partial S}\Bigr)
+\dd t + \sigma S(t)\frac{\partial f}{\partial S}\dd W(t)
++ \frac{1}{2}\sigma^2 S(t)^2\frac{\partial^2 f}{\partial S^2}(\dd W(t))^2
++ (\text{高次項}).
+\end{align}
+1次より高いオーダー($(\dd t)^2$, $\dd t\,\dd W(t)$ 等)を無視すると,最後に
+$(\dd W(t))^2$ の項が残る.
+
+\begin{keypoint}[$(\dd W(t))^2 = \dd t$:このページが肝心!]
+重要:$\dd W(t)$ のオーダーは $(\dd t)^{0.5}$ である.実際,
+\[
+\Var[\dd W(t)] = \E\bigl[(\dd W(t) - \E[\dd W(t)])^2\bigr]
+= \E[(\dd W(t))^2] = \dd t,
+\]
+であり,さらに($N(0,\dd t)$ の4次モーメント $3(\dd t)^2$ を使うと)
+\begin{align*}
+\Var[(\dd W(t))^2]
+&= \E\bigl[((\dd W(t))^2 - \E[(\dd W(t))^2])^2\bigr]
+= \E\bigl[((\dd W(t))^2 - \dd t)^2\bigr]\\
+&= \E[(\dd W(t))^4] - 2\,\dd t\,\E[(\dd W(t))^2] + (\dd t)^2
+= 3(\dd t)^2 - (\dd t)^2 = 2(\dd t)^2.
+\end{align*}
+よって $(\dd W(t))^2$ は平均 $\dd t$,分散 $2(\dd t)^2$ である.分散は $\dd t$ の
+2次項なので無視すると,\textbf{$(\dd W(t))^2 = \dd t$ とみなせる}.
+\end{keypoint}
+
+上記を使い,$\dd t$ と $\dd W(t)$(一次)より高次の項を無視すると,
+\begin{equation}
+\dd f(t,S(t))
+= \Bigl(\frac{\partial f}{\partial t} + rS(t)\frac{\partial f}{\partial S}
++ \frac{1}{2}\sigma^2S(t)^2\frac{\partial^2 f}{\partial S^2}\Bigr)\dd t
++ \sigma S(t)\frac{\partial f}{\partial S}\,\dd W(t).
+\label{eq:ito}
+\end{equation}
+この式を\textbf{伊藤の公式}という.
+
+\subsection{対数価格の確率微分方程式と $S(T)$ の分布}
+
+$f(t,S(t)) = \log S(t)$ として伊藤の公式\eqref{eq:ito}を用いると,
+$\partial f/\partial t = 0$, $\partial f/\partial S = 1/S$,
+$\partial^2 f/\partial S^2 = -1/S^2$ より
+\begin{equation}
+\dd\log S(t)
+= \Bigl(r - \frac{1}{2}\sigma^2\Bigr)\dd t + \sigma\,\dd W(t)
+\label{eq:dlogS}
+\end{equation}
+となる.すなわち,
+$\dd S(t)/S(t) = r\,\dd t + \sigma\,\dd W(t)$
+($\dd S(t) = rS(t)\dd t + \sigma S(t)\dd W(t)$)と違い,
+\eqref{eq:dlogS}は\textbf{右辺の $\dd t$ 項の係数と $\dd W(t)$ 項の係数が定数
+(確定関数)}である.そのため,両辺を時間積分した結果が明確に書ける.
+
+そこで,以後は Black-Scholesモデルとして
+\begin{equation}
+\dd\log S(t) = \Bigl(r - \frac{1}{2}\sigma^2\Bigr)\dd t + \sigma\,\dd W(t)
+\end{equation}
+を考える.両辺積分すると
+\[
+\log\frac{S(T)}{S(0)} = \Bigl(r - \frac{1}{2}\sigma^2\Bigr)T + \sigma W(T)
+\]
+となるので,
+\begin{equation}
+S(T) = S(0)\exp\Bigl\{\Bigl(r - \frac{1}{2}\sigma^2\Bigr)T + \sigma W(T)\Bigr\},
+\qquad T \geq 0.
+\label{eq:ST}
+\end{equation}
+
+\begin{keypoint}[BSモデルの特徴]
+\begin{itemize}
+\item $S(0) > 0$ ならば,常に $S(T) > 0$.
+\item $\log S(T)$ は正規分布
+$N\bigl(\log S(0) + (r-\sigma^2/2)T,\ \sigma^2 T\bigr)$ に従う.
+$\Rightarrow$ $S(T)$ は\textbf{対数正規分布}に従う.
+\end{itemize}
+\end{keypoint}
+
+\section{BSモデルによるオプション価格公式の導出}
+
+\subsection{方針}
+
+ヨーロピアン・コール・オプションとプット・オプションの価格式が,BSモデルでは
+どのように表現されるかを導出したい.
+
+(過去の資料の方針)手掛かりは,多期間二項モデルで得られたCRRの公式と,前述の
+BSモデルに関する数式である.離散時間モデル(CRR)から連続時間モデル(BS)へ
+移行する.そこで使うロジックは:満期を固定し,期間分割数を $n\to\infty$ とした
+とき,多期間二項モデルがBSモデルに収束するようにパラメータを設定すれば,CRRの
+公式はBSモデルの下でのオプション価格式に収束するはず,というものである.
+
+(この資料の方針)せっかく\textbf{リスク中立化法}を学んだので,それを使用する.
+すなわち,「リスク中立確率の下における将来キャッシュフローの割引現在価値の
+期待値が,証券(デリバティブ)の現在の価格になる」ことを使う.
+
+\subsection{連続時間モデルのリスク中立化法}
+
+これを連続時間モデルで表現すると,金利 $r$ が一定のとき,
+\begin{equation}
+C_0 = \E^Q\bigl[e^{-rT}f(S(T))\bigr] = e^{-rT}\,\E^Q\bigl[f(S(T))\bigr].
+\label{eq:rn-valuation}
+\end{equation}
+ここで,$T$:満期,$S(t)$:時刻 $t$ の原資産価格,$f(\cdot)$:デリバティブの
+ペイオフ関数である.例えばヨーロピアンコールオプションでは
+$f(S(T)) = \max(S(T)-K,\,0)$ である.
+
+\subsection{コールの価格式の導出}
+
+原資産価格 $S(t)$,満期 $T$,行使価格 $K$ のヨーロピアン・コール・オプションの
+現在価値を求める.リスク中立化法を適用すると,
+\begin{equation}
+C_0 = e^{-rT}\E^Q[f(S(T))] = e^{-rT}\E^Q[\max(S(T)-K,\,0)].
+\label{eq:call-rn}
+\end{equation}
+以後の式展開は,配布資料「Black-Scholesモデルによるヨーロピアン・コール・
+オプション価格式」に基づく(以下,本節に全文を収録する).
+
+\paragraph{準備:$\log S(T)$ の密度関数.}
+Black-Scholesモデルでは満期 $T$ の価格 $S(T)$ は,式\eqref{eq:ST}より
+\[
+S(T) = S\exp\Bigl\{\Bigl(r-\frac{\sigma^2}{2}\Bigr)T + \sigma Z^Q(T)\Bigr\}
+\]
+である.ただし $S = S(0)$,$Z^Q(t)$ は確率 $Q$ の下における標準ブラウン運動,
+$r, \sigma$ は定数である.これより
+\[
+X(T) = \log S(T) = \log S + \Bigl(r-\frac{\sigma^2}{2}\Bigr)T + \sigma Z^Q(T)
+\]
+なので,$X(T)$ は平均
+\[
+\mu = \log S + \Bigl(r - \frac{\sigma^2}{2}\Bigr)T,
+\]
+分散 $\sigma^2 T$ の正規分布に従い,$X(T)$ の密度関数は
+\begin{equation}
+f_X(x) = \frac{1}{\sqrt{2\pi T}\,\sigma}\,
+e^{-\frac{(x-\mu)^2}{2\sigma^2T}}
+\end{equation}
+である.そこで\eqref{eq:call-rn}を
+\begin{align}
+C_0 &= e^{-rT}\E^Q\bigl[\max(e^{X(T)} - K,\,0)\bigr]
+= e^{-rT}\int_{-\infty}^{\infty}\max(e^x - K,\,0)\,f_X(x)\,\dd x
+\end{align}
+とすることにする.
+
+\paragraph{積分領域の限定.}
+この積分は $\max(\cdot,\cdot)$ を含むため,積分に寄与するのは
+\[
+\{x : \max(e^x - K, 0) > 0\} = \{x : e^x > K\} = \{x : x > \log K\}
+\]
+の領域だけである.よって
+\begin{align}
+C_0 &= e^{-rT}\int_{\log K}^{\infty}(e^x - K)\,
+\frac{1}{\sqrt{2\pi T}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2T}}\dd x
+= e^{-rT}I_1 - Ke^{-rT}I_2,
+\label{eq:c0-i1i2}
+\end{align}
+\begin{equation}
+I_1 = \int_{\log K}^{\infty}e^x\,
+\frac{1}{\sqrt{2\pi T}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2T}}\dd x,
+\qquad
+I_2 = \int_{\log K}^{\infty}
+\frac{1}{\sqrt{2\pi T}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2T}}\dd x
+\end{equation}
+と書き直す.
+
+\paragraph{$I_2$ の計算.}
+変数変換
+\[
+y = \frac{x - \mu}{\sigma\sqrt{T}}
+\]
+をすると,
+\begin{equation}
+I_2 = \int_{\frac{\log K - \mu}{\sigma\sqrt{T}}}^{\infty}
+\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}\dd y
+= 1 - \Phi\Bigl(\frac{\log K - \mu}{\sigma\sqrt{T}}\Bigr)
+= \Phi\Bigl(\frac{\mu - \log K}{\sigma\sqrt{T}}\Bigr).
+\end{equation}
+ただし,$\Phi(\cdot)$ は標準正規分布の分布関数である.
+
+\paragraph{$I_1$ の計算.}
+まず指数部を平方完成する:
+\begin{align}
+I_1 &= \int_{\log K}^{\infty}\frac{1}{\sqrt{2\pi T}\sigma}
+e^{-\frac{(x-\mu)^2 - 2\sigma^2Tx}{2\sigma^2T}}\dd x
+= \int_{\log K}^{\infty}\frac{1}{\sqrt{2\pi T}\sigma}
+e^{-\frac{x^2 - 2(\mu+\sigma^2T)x + \mu^2}{2\sigma^2T}}\dd x\notag\\
+&= \int_{\log K}^{\infty}\frac{1}{\sqrt{2\pi T}\sigma}
+e^{-\frac{(x-(\mu+\sigma^2T))^2 + \mu^2 - (\mu+\sigma^2T)^2}{2\sigma^2T}}\dd x
+= e^{\frac{(2\mu+\sigma^2T)\sigma^2T}{2\sigma^2T}}
+\int_{\log K}^{\infty}\frac{1}{\sqrt{2\pi T}\sigma}
+e^{-\frac{(x-(\mu+\sigma^2T))^2}{2\sigma^2T}}\dd x.
+\end{align}
+変数変換
+\[
+u = \frac{x - (\mu + \sigma^2 T)}{\sigma\sqrt{T}}
+\]
+を行うと,
+\begin{align}
+I_1 &= e^{\frac{2\mu+\sigma^2T}{2}}
+\int_{\frac{\log K - (\mu+\sigma^2T)}{\sigma\sqrt{T}}}^{\infty}
+\frac{1}{\sqrt{2\pi}}e^{-\frac{u^2}{2}}\dd u
+= e^{\frac{2\mu+\sigma^2T}{2}}
+\Bigl(1 - \Phi\Bigl(\frac{\log K - (\mu+\sigma^2T)}{\sigma\sqrt{T}}\Bigr)\Bigr)
+= e^{\frac{2\mu+\sigma^2T}{2}}
+\Phi\Bigl(\frac{\mu + \sigma^2T - \log K}{\sigma\sqrt{T}}\Bigr)
+\end{align}
+となる.このままでもよいが,$\mu$ をもとの変数で表すと,
+\begin{align}
+\frac{\mu - \log K}{\sigma\sqrt{T}}
+&= \frac{\log\frac{S}{K} + \bigl(r - \frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}},\\
+\frac{\mu + \sigma^2T - \log K}{\sigma\sqrt{T}}
+&= \frac{\log\frac{S}{K} + \bigl(r + \frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}},\\
+\frac{2\mu + \sigma^2 T}{2}
+&= \frac{2\log S + 2\bigl(r-\frac{\sigma^2}{2}\bigr)T + \sigma^2T}{2}
+= \log S + rT
+\end{align}
+となる.
+
+\paragraph{Black-Scholesのコール価格式.}
+以上を\eqref{eq:c0-i1i2}に代入すると,ヨーロピアン・コール・オプションの価格式
+\begin{align}
+C_0 &= S\,\Phi\Biggl(\frac{\log\frac{S}{K}
++ \bigl(r+\frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}}\Biggr)
+- Ke^{-rT}\,\Phi\Biggl(\frac{\log\frac{S}{K}
++ \bigl(r-\frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}}\Biggr)\notag\\
+&= S\,\Phi\Biggl(\frac{\log\frac{S}{K}
++ \bigl(r+\frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}}\Biggr)
+- Ke^{-rT}\,\Phi\Biggl(\frac{\log\frac{S}{K}
++ \bigl(r+\frac{\sigma^2}{2}\bigr)T}{\sigma\sqrt{T}} - \sigma\sqrt{T}\Biggr)
+\label{eq:bs-call}
+\end{align}
+が得られる.
+
+\begin{remark}
+式\eqref{eq:bs-call}の第2項の $\Phi(\cdot)$ は,リスク中立確率 $Q$ の下で満期
+$T$ においてコールが行使される確率である.つまり,第2項は「行使時に支払う
+行使価格の期待割引価値(行使確率を織り込んだもの)」を意味している.
+\end{remark}
+
+\subsection{Black-Scholesの公式}
+
+\begin{keypoint}[Black-Scholesの公式]
+\begin{align}
+V_0^C &= S\,\Phi(a_1) - Ke^{-rT}\,\Phi\bigl(a_1 - \sigma\sqrt{T}\bigr),\notag\\
+V_0^P &= Ke^{-rT}\,\Phi\bigl(-a_1+\sigma\sqrt{T}\bigr) - S\,\Phi(-a_1),\notag\\
+a_1 &= \frac{\log(S/K) + (r + \sigma^2/2)\,T}{\sigma\sqrt{T}}.
+\label{eq:bs-formula}
+\end{align}
+ここまでで求めた,連続時間モデルにおけるヨーロピアン・コール・
+オプションおよびヨーロピアン・プット・オプションの価格式を,
+\textbf{Black-Scholesの公式}(Black-Scholesのオプション価格式)という.
+\end{keypoint}
+
+\paragraph{プット価格式の導出.}
+プット・コール・パリティ($r$ 一定なので $v(t,T) = e^{-r(T-t)}$ となることに
+注意)より,プットオプションの価格は
+\begin{align}
+V_0^P &= V_0^C - S + Ke^{-rT}
+= S\,\Phi(a_1) - Ke^{-rT}\Phi(a_1-\sigma\sqrt{T}) - S + Ke^{-rT}\notag\\
+&= S\bigl(\Phi(a_1) - 1\bigr)
++ Ke^{-rT}\bigl(1 - \Phi(a_1-\sigma\sqrt{T})\bigr)\notag\\
+&= Ke^{-rT}\,\Phi\bigl(-a_1 + \sigma\sqrt{T}\bigr) - S\,\Phi(-a_1)
+\label{eq:bs-put}
+\end{align}
+となる.コール・オプションと同様の計算(省略)をしても導出できる.
+
+\subsection{BS公式による複製ポートフォリオ}
+
+\begin{itemize}
+\item ヨーロピアン・コール・オプションの複製ポートフォリオ:「複製ポート
+フォリオはリスク性資産 $\Delta$ 単位,(一単位あたり1円の)無リスク資産
+$B$ 単位からなる」とすると,価格式\eqref{eq:bs-call}から
+\begin{equation}
+\Delta = \Phi(a_1),\qquad
+B = -Ke^{-rT}\,\Phi\bigl(a_1 - \sigma\sqrt{T}\bigr).
+\end{equation}
+\item ヨーロピアン・プット・オプションの複製ポートフォリオ:同様に,価格式
+\eqref{eq:bs-put}から
+\begin{equation}
+\Delta = -\Phi(-a_1),\qquad
+B = Ke^{-rT}\,\Phi\bigl(-a_1 + \sigma\sqrt{T}\bigr).
+\end{equation}
+\end{itemize}
+
+\subsection{本源的価値と時間価値}
+
+コール価格のグラフ($K=100$, $r=0.1$, $\sigma=0.2$, $T=1$ の例)を原資産価格の
+関数として描くと,満期のペイオフ $\max(S-K,0)$(これを\textbf{本源的価値}と
+いう)より上に位置する滑らかな曲線になる.オプション価格と本源的価値の差を
+\textbf{時間価値}という.
+
+\begin{itemize}
+\item ヨーロピアン\emph{コール}オプションでは,時間価値は正になることが多い.
+\item しかし,ヨーロピアン\emph{プット}オプションでは,ITMが深い(原資産価格が
+十分低い)領域で,オプション価格が本源的価値を\emph{下回る}(時間価値が負に
+なる)ことがある.
+\end{itemize}
+
+\subsection{BS公式の振る舞い}
+
+BS公式は多くの変数に依存するので,振る舞いは複雑である.ここでは
+$V_0^C = V_0^C(S, K, T, \sigma, r)$ について,一つ一つの変数の動きと価格の
+動きをみる(証明・確認は各自で考えること).
+
+\begin{itemize}
+\item 原資産価格 $S$:
+$S \to 0$ で $V_0^C \to 0$,\quad $S\to\infty$ で $V_0^C \to\infty$.
+\item 行使価格 $K$:
+$K \to 0$ で $V_0^C \to S$,\quad $K\to\infty$ で $V_0^C \to 0$.
+\item 満期 $T$:
+$T\to 0$ で $V_0^C \to \max(S-K, 0)$
+($S\geq K$ なら $S-K$ へ,$S<K$ なら0へ),\quad
+$T\to\infty$ で $V_0^C \to S$.
+\item ボラティリティ $\sigma$:
+$\sigma\to 0$ で $V_0^C \to \max(S - Ke^{-rT},\,0)$
+($S\geq Ke^{-rT}$ なら $S - Ke^{-rT}$ へ,$S<Ke^{-rT}$ なら0へ),\quad
+$\sigma\to\infty$ で $V_0^C \to S$.
+\item 無リスク金利 $r$:
+$r\to 0$ で $V_0^C \to V_0^C(S,K,T,\sigma,0)$,\quad
+$r\to\infty$ で $V_0^C \to S$.
+\end{itemize}
+
+\begin{remark}[参考:デリバティブ価格の求め方]
+デリバティブ価格の求め方には,
+\begin{enumerate}
+\item リスク中立化法を使い,(将来キャッシュフローの割引現在価値の)期待値を
+解析的に計算する.
+\item リスク中立化法を使い,期待値をモンテカルロ・シミュレーションで計算する.
+\item 二項モデルのような格子モデルで,期待値を計算する.
+\item 価格関数が満たす偏微分方程式を解き,価格を求める.
+\end{enumerate}
+などがある.本講義では1と3だけを扱った.
+\end{remark}
+
+\section{デリバティブのリスク管理:グリークス (Greeks)}
+
+\subsection{リスクヘッジとリスク感応度}
+
+\begin{itemize}
+\item \textbf{リスク・ヘッジ}とは:ここでいうリスクとは,将来発生しうる価格の
+変動性のこと.そのようなリスクを回避・低減することをリスク・ヘッジという.
+\item \textbf{リスク感応度}:リスクの源泉となる変数が1単位動いたときの価格
+(or 損失額)の変化量.(偏)微分係数で与えることもある(グリークスはこの
+偏微分係数のこと).変数の価格への影響度を示す.
+\end{itemize}
+
+\subsection{グリークス}
+
+オプション価格 $V$ をテーラー展開すると($t$ は時刻,$T$ は満期までの期間で,
+$\dd T = -\dd t$),
+\begin{align}
+&V(S+\dd S,\ K,\ T-\dd t,\ \sigma+\dd\sigma,\ r+\dd r)\notag\\
+&\quad = V(S,K,T,\sigma,r)
++ \frac{\partial V}{\partial S}\dd S
+- \frac{\partial V}{\partial T}\dd t
++ \frac{\partial V}{\partial\sigma}\dd\sigma
++ \frac{\partial V}{\partial r}\dd r
++ \frac{1}{2}\frac{\partial^2V}{\partial S^2}(\dd S)^2 + \cdots.
+\end{align}
+これより,オプション価格の変化は幾つかの偏微分を使って表現できる.
+これらのギリシャ文字で表現されるリスク指標を\textbf{グリークス}という.
+\begin{itemize}
+\item まずは一次の項を考える.実務では,デルタ・ヘッジ(後出)は当たり前の
+ように実施する.
+\item 実務では,ベガ・リスク(後出)と若干の高次のリスクにも着目する.
+\item 二次の項で考慮するのは主にガンマ(後出)である.
+\end{itemize}
+以下ではヨーロピアン・コール・オプション
+$V_0^C = V_0^C(S,K,T,\sigma,r)$ を中心に具体的な式を出す.
+
+\subsection{デルタ($\Delta$),ガンマ($\Gamma$)}
+
+\begin{definition}[デルタ]
+\textbf{デルタ} (Delta) は,原資産価格 $S$ が微小量変化したときの,オプション
+価格の変化率である.オプション価格 $V$ の原資産価格 $S$ に関する偏微分で表現
+される.ヨーロピアン・コールでは
+\begin{equation}
+\Delta = \frac{\partial V_0^C}{\partial S} = \Phi(a_1).
+\end{equation}
+\end{definition}
+
+これは複製ポートフォリオにおける原資産の保有量 $\Delta = \Phi(a_1)$ と同じで
+ある(「デルタ」の別の意味).実際には,オプション価格 $V$ は原資産価格 $S$ の
+非線形関数であり,$\Delta$ は $S$ に依存して時々刻々変化する.ということは,
+\emph{複製ポートフォリオも時々刻々変化する}.
+
+\begin{definition}[ガンマ]
+$\Delta$ の $S$ への依存関係を示すのが\textbf{ガンマ} (Gamma) である:
+\begin{equation}
+\Gamma = \frac{\partial\Delta}{\partial S}
+= \frac{\partial^2 V_0^C}{\partial S^2}
+= \frac{1}{S\sigma\sqrt{T}}\,
+\left.\frac{\dd\Phi(x)}{\dd x}\right|_{x=a_1}
+= \frac{\varphi(a_1)}{S\sigma\sqrt{T}}
+\end{equation}
+($\varphi$ は標準正規密度関数).
+\end{definition}
+
+$K=100$, $r=0.1$, $\sigma=0.2$, $T=1$ の例では,$\Delta$ は原資産価格とともに
+0から1へS字型に増加し,$\Gamma$ はATM付近で最大となる山型になる.
+
+\begin{keypoint}[ガンマとリバランス]
+ガンマはリバランスのタイミングの目安の一つになる.
+\begin{itemize}
+\item ガンマが小さければ,原資産価格が少し変化してもデルタはあまり変化しない
+$\to$ リバランスはやや間隔を空けても大丈夫…かも?
+\item ガンマが大きければ,原資産価格が少し変化するだけでデルタはかなり変化する
+$\to$ リバランスは頻繁に行うほうがよい…かも?
+\end{itemize}
+これらはリバランスに要するコストとの兼ね合いで決める.
+\end{keypoint}
+
+\subsection{セータ($\Theta$)}
+
+\begin{definition}[セータ]
+\textbf{セータ}(シータ,Theta)は,満期 $T$ が微小量変化したときのオプション
+価格の変化率(満期を固定したオプションの価格の,瞬間的な変化率)である:
+\begin{equation}
+\Theta = \frac{\partial V_0^C}{\partial T}
+= \frac{\sigma S}{2\sqrt{T}}\,\left.\frac{\dd\Phi(x)}{\dd x}\right|_{x=a_1}
++ rKe^{-rT}\,\Phi\bigl(a_1 - \sigma\sqrt{T}\bigr)
+= \frac{\sigma S}{2\sqrt{T}}\varphi(a_1)
++ rKe^{-rT}\Phi(a_1-\sigma\sqrt{T}).
+\end{equation}
+\end{definition}
+
+\begin{itemize}
+\item (コール)オプションでは $\Theta > 0$ になる(満期が長いほど価値が高い
+から).
+\item 通常,$\Theta$ は満期付近では小さく,満期の少し手前で上昇し,その後は
+満期から離れるほど低下する.ただし,アットザマネー近くの場合,満期直前まで
+$\Theta$ は大きい値をとる($K=100$, $r=0.1$, $\sigma=0.2$ の例で,$S=98, 100,
+102$ の3ケースの比較が講義で示された).
+\item 満期 $T$ の変化は確定的なので,あらかじめ予測可能・対処可能である.
+\end{itemize}
+
+\subsection{ロー($\rho$),ベガ($\mathcal{V}$)}
+
+\begin{itemize}
+\item \textbf{ロー} (Rho):金利 $r$ が微小量変化したときの,オプション価格の
+変化率.
+\begin{equation}
+\rho = \frac{\partial V_0^C}{\partial r}.
+\end{equation}
+\item \textbf{ベガ} (Vega):ボラティリティ $\sigma$ が微小量変化したときの,
+オプション価格の変化率.
+\begin{equation}
+\nu = \frac{\partial V_0^C}{\partial\sigma}.
+\end{equation}
+\end{itemize}
+
+vega risk は,市場では非常に注目されている(市場では,ボラティリティ $\sigma$ は
+一定でないと認識されているからである).vega の変化,特に vanna
+($\partial\nu/\partial S$)と volga($\partial\nu/\partial\sigma$)も注目
+されている.
+
+\section{通貨・金利デリバティブへの応用}
+
+\subsection{通貨デリバティブへの応用}
+
+為替レートも確率変動するとみなして,Black-Scholesモデルを適用するという
+考え方は,とてもわかりやすい.素朴には
+\[
+\frac{\dd X(t)}{X(t)} = r(t)\,\dd t + \sigma\,\dd W(t)\ ?
+\]
+としたくなるが,それぞれの国に無リスク金利があること,裁定機会の排除を考えると
+(この講義の水準を越えるので詳細は略),正しくは
+\begin{equation}
+\frac{\dd X(t)}{X(t)} = \bigl(r_d(t) - r_f(t)\bigr)\dd t + \sigma\,\dd W(t)
+\end{equation}
+となる.ここで,添字 $d$ は基準通貨,$f$ は別の通貨,$X(t)$ は基準通貨への
+換算レート,$B_i(t)$ は $i$ 通貨の無リスク資産の時刻 $t$ における価値である.
+こういったモデルを基準にして,考えていくことができる.
+
+\subsection{金利デリバティブへの応用}
+
+金利も確率変動するとみなして,Black-Scholesモデルを適用するという考え方は,
+とてもわかりやすい.では,それは可能か(金利 $=$ 無リスク金利として考える).
+
+\begin{itemize}
+\item 金利自体が市場取引される資産ではない.金利は利子・利息計算や割引計算で
+使用される\emph{指標}に過ぎない.
+\item 金利自体が利回り・収益率である.そのため,金利自身の(瞬間的な)期待
+収益率が(無リスク)金利自身($\mu = r(t)$)とするのはおかしい.
+$\to$ この表現はやや不適切.
+\end{itemize}
+考え方は少し複雑であり,この講義の水準を越えるので略す.
+
+% ---------------- 演習問題 ----------------
+\section{演習問題}
+
+以下の演習問題について,解答例のPDFは配布資料に含まれていなかったため,
+解答・解説は編集者が作成したものである.
+
+\begin{exercise}[問題12-1]
+Black-Scholesの公式でプット・コール・パリティを確認しなさい.
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}BSのコール価格式\eqref{eq:bs-call}とプット価格式
+\eqref{eq:bs-put}の差を計算し,$\Phi(x) + \Phi(-x) = 1$ を使う.
+
+\medskip
+\textbf{解答.}$a_2 = a_1 - \sigma\sqrt{T}$ と書くと,
+\begin{align*}
+V_0^C - V_0^P
+&= \bigl[S\Phi(a_1) - Ke^{-rT}\Phi(a_2)\bigr]
+- \bigl[Ke^{-rT}\Phi(-a_2) - S\Phi(-a_1)\bigr]\\
+&= S\bigl[\Phi(a_1) + \Phi(-a_1)\bigr]
+- Ke^{-rT}\bigl[\Phi(a_2) + \Phi(-a_2)\bigr]\\
+&= S - Ke^{-rT}.
+\end{align*}
+金利一定のもとで $v(0,T) = e^{-rT}$ なので,これは
+\[
+V_0^P = V_0^C - S + K\,v(0,T),
+\]
+すなわちプット・コール・パリティそのものである.$\blacksquare$
+\end{answerbox}
+
+\begin{exercise}[問題12-2]
+Black-Scholesモデルにおけるヨーロピアン・プット・オプションの価格公式
+$V_0^P = V_0^P(S,K,T,\sigma,r)$ の振る舞いを示しなさい.
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}プット・コール・パリティ $V_0^P = V_0^C - S + Ke^{-rT}$ を
+使えば,本文で示したコールの振る舞いから,プットの振る舞いが直ちに得られる.
+
+\medskip
+\textbf{解答.}
+\begin{itemize}
+\item 原資産価格 $S$:$S\to 0$ で $V_0^C\to 0$ より
+$V_0^P \to Ke^{-rT}$(確実に行使され,行使価格の現在価値になる).
+$S\to\infty$ では,$V_0^C - S \to 0$ となるので $V_0^P \to 0$.
+\item 行使価格 $K$:$K\to 0$ で $V_0^P \to S - S = 0$.$K\to\infty$ で
+$V_0^P \approx Ke^{-rT} - S \to \infty$.
+\item 満期 $T$:$T\to 0$ で
+$V_0^P \to \max(S-K,0) - S + K = \max(K-S,\,0)$(本源的価値に収束).
+$T\to\infty$ では $V_0^C\to S$,$Ke^{-rT}\to 0$($r>0$)より $V_0^P \to 0$.
+\item ボラティリティ $\sigma$:$\sigma\to 0$ で
+$V_0^P \to \max(S-Ke^{-rT},0) - S + Ke^{-rT} = \max(Ke^{-rT}-S,\,0)$.
+$\sigma\to\infty$ で $V_0^C\to S$ より $V_0^P \to Ke^{-rT}$
+(プットの価格上限).
+\item 無リスク金利 $r$:$r\to 0$ で $V_0^P \to V_0^P(S,K,T,\sigma,0)$.
+$r\to\infty$ で $V_0^C\to S$,$Ke^{-rT}\to 0$ より $V_0^P\to 0$.
+\end{itemize}
+
+\medskip
+\textbf{ポイント.}コールの価値は $S$ を上限として無限に増え得るのに対し,
+プットの価値は $Ke^{-rT}$ が上限である(受け取れる金額が最大でも $K$ だから).
+また,満期を延ばすとコールは単調に価値が上がるが,プットは
+「受取 $K$ の割引が進む」効果があるため,必ずしも単調ではない(これが
+ヨーロピアン・プットの時間価値が負になり得ることと対応している).
+\end{answerbox}
+
+\begin{exercise}[問題12-3]
+ブラックショールズの公式のうち,ヨーロピアン・コール・オプションの価格式から,
+グリークスを求めなさい.
+(1) デルタ delta,(2) ガンマ gamma,(3) セータ theta,(4) ロー rho,
+(5) ヴェガ vega(or ラムダ lambda).
+\end{exercise}
+
+\begin{answerbox}
+\textbf{考え方.}コール価格式
+$V_0^C = S\Phi(a_1) - Ke^{-rT}\Phi(a_2)$,\ $a_2 = a_1 - \sigma\sqrt{T}$,
+\[
+a_1 = \frac{\log(S/K) + (r+\sigma^2/2)T}{\sigma\sqrt{T}}
+\]
+を各変数で偏微分する.計算を簡潔にする鍵は,標準正規密度
+$\varphi(x) = \Phi'(x) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}$ に関する恒等式
+\begin{equation}
+S\,\varphi(a_1) = Ke^{-rT}\varphi(a_2)
+\tag{$\ast$}
+\end{equation}
+である.($\ast$)は
+$\varphi(a_2) = \varphi(a_1)e^{a_1\sigma\sqrt{T} - \sigma^2T/2}$ と
+$e^{a_1\sigma\sqrt{T}} = (S/K)e^{(r+\sigma^2/2)T}$ を代入すれば確かめられる.
+
+\medskip
+\textbf{(1) デルタ.}$a_1, a_2$ の $S$ 依存性に注意して
+\[
+\Delta = \frac{\partial V_0^C}{\partial S}
+= \Phi(a_1) + S\varphi(a_1)\frac{\partial a_1}{\partial S}
+- Ke^{-rT}\varphi(a_2)\frac{\partial a_2}{\partial S}.
+\]
+$\partial a_1/\partial S = \partial a_2/\partial S = 1/(S\sigma\sqrt{T})$ と
+($\ast$)より後ろの2項は相殺し,
+\[
+\boxed{\Delta = \Phi(a_1)}.
+\]
+
+\textbf{(2) ガンマ.}
+\[
+\Gamma = \frac{\partial\Delta}{\partial S}
+= \varphi(a_1)\frac{\partial a_1}{\partial S}
+= \boxed{\frac{\varphi(a_1)}{S\sigma\sqrt{T}}} > 0.
+\]
+
+\textbf{(3) セータ.}$T$ で偏微分する.
+\[
+\Theta = \frac{\partial V_0^C}{\partial T}
+= S\varphi(a_1)\frac{\partial a_1}{\partial T}
++ rKe^{-rT}\Phi(a_2) - Ke^{-rT}\varphi(a_2)\frac{\partial a_2}{\partial T}.
+\]
+($\ast$)を使うと第1項と第3項は
+$S\varphi(a_1)\bigl(\partial a_1/\partial T - \partial a_2/\partial T\bigr)$ に
+まとまり,$a_1 - a_2 = \sigma\sqrt{T}$ より
+$\partial(a_1-a_2)/\partial T = \sigma/(2\sqrt{T})$ なので,
+\[
+\boxed{\Theta = \frac{\sigma S}{2\sqrt{T}}\,\varphi(a_1)
++ rKe^{-rT}\,\Phi(a_2)} > 0.
+\]
+(本文のセータの式と一致する.)
+
+\textbf{(4) ロー.}
+\[
+\rho = \frac{\partial V_0^C}{\partial r}
+= S\varphi(a_1)\frac{\partial a_1}{\partial r}
++ KTe^{-rT}\Phi(a_2) - Ke^{-rT}\varphi(a_2)\frac{\partial a_2}{\partial r}.
+\]
+$\partial a_1/\partial r = \partial a_2/\partial r = \sqrt{T}/\sigma$ と($\ast$)
+より第1項と第3項は相殺し,
+\[
+\boxed{\rho = KTe^{-rT}\,\Phi(a_2)} > 0.
+\]
+
+\textbf{(5) ベガ.}
+\[
+\nu = \frac{\partial V_0^C}{\partial\sigma}
+= S\varphi(a_1)\frac{\partial a_1}{\partial\sigma}
+- Ke^{-rT}\varphi(a_2)\frac{\partial a_2}{\partial\sigma}
+= S\varphi(a_1)\Bigl(\frac{\partial a_1}{\partial\sigma}
+- \frac{\partial a_2}{\partial\sigma}\Bigr)
+\]
+(2つ目の等号で($\ast$)を使用).$a_1 - a_2 = \sigma\sqrt{T}$ より
+$\partial(a_1-a_2)/\partial\sigma = \sqrt{T}$ なので,
+\[
+\boxed{\nu = S\sqrt{T}\,\varphi(a_1)} > 0.
+\]
+
+\medskip
+\textbf{ポイント.}どの計算でも,恒等式($\ast$)によって「$a_1,a_2$ の中身の
+微分から出てくる項」がすべて相殺される.結果として,デルタは行使確率に似た
+$\Phi(a_1)$,ガンマとベガはATM付近で最大になる $\varphi(a_1)$ 型,ローと
+セータの主要項は行使確率 $\Phi(a_2)$ 型,というきれいな構造になる.符号は
+コールではすべて正である($\Theta>0$ は「満期までの期間 $T$ が長いほど価値が
+高い」ことを表す).
+\end{answerbox}
+
+\section*{講義のまとめにかえて}
+
+本講義では,金融市場の基本(第1〜3章),リスクと効用の考え方(第4章),
+現代ポートフォリオ理論(第5〜7章),デリバティブとその価格付け(第8〜12章)を
+学んだ.価格付けの中心にあるのは「無裁定」と「複製」,そしてそれらから導かれる
+「リスク中立化法」である.講義の構成に挙げられていた「9. 金融リスク管理の基礎」
+(リスク尺度,市場リスクと信用リスク,金融危機と金融規制)は,第4章の
+VaR・ESへの言及,第8章のCDS,第11章付録の信用リスク評価で,その入口に触れて
+いる.

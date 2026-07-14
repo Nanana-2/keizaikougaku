@@ -1,0 +1,601 @@
+% 第6章 現代ポートフォリオ理論(2)(資料6 + Tobin補足 + 資料6補足)
+\chapter{現代ポートフォリオ理論 (2):MarkowitzとTobinの平均分散モデル}
+
+本章では,平均分散モデルによるポートフォリオ選択問題を本格的に扱う.前半は
+リスク性資産のみの場合(Markowitzのポートフォリオ選択問題),後半は無リスク資産が
+存在する場合(Tobinのポートフォリオ選択問題)である.後者では,\textbf{接点
+ポートフォリオ}と\textbf{分離定理}という重要な概念が現れる.
+
+\section{平均分散モデル (1):Markowitzのポートフォリオ選択問題}
+
+\subsection{3資産の投資機会集合}
+
+2資産のポートフォリオが $(\sigma,\mu)$ 平面上に描く曲線は前章で見た
+(講義では Excelファイル「2資産ポートフォリオ2026.xlsx」による数値例も示された).
+これを3資産 A, B, C に拡張しよう(まずは空売りなし,$x_i\geq 0$).
+
+\begin{enumerate}
+\item AとBのポートフォリオとして,曲線AB上の点,例えば E, F を考える.
+\item 次に,EとCのポートフォリオの描く曲線,FとCのポートフォリオの描く曲線を
+考える.どのカーブも,それぞれは2資産の場合と同じ仕組みで描ける.
+\item さまざまな曲線上のさまざまな点をとりながらこの作業を繰り返していくことに
+より,より広い\textbf{投資機会集合}が得られる.空売りなしの場合,太線(包絡線)の
+内部が投資機会集合(実行可能解)である.それぞれのカーブは双曲線である
+(証明は前章の補足を参照).
+\end{enumerate}
+
+\textbf{空売り可能な}(資産の保有量が負でもよい)場合は,基本資産の一方を
+空売りしている投資機会も加わるため,空売り禁止のときよりも領域が拡大する.
+このとき,一番左の境界線より右側がすべて投資機会集合になる.
+
+\subsection{効率的フロンティア}
+
+$(\sigma,\mu)$ 平面上で投資機会集合の左側の境界を考える.
+
+\begin{definition}
+\begin{itemize}
+\item \textbf{大域的最小分散ポートフォリオ}(点M):投資機会集合の中でリスクが
+最小のポートフォリオ.
+\item \textbf{最小分散境界}(曲線LMN):各期待収益率の水準ごとにリスクを最小に
+するポートフォリオの軌跡.「最小分散境界の右側全部」が投資機会集合(実行可能解)
+である.
+\item \textbf{効率的フロンティア}(曲線ML,上側のみ):最小分散境界のうち,
+大域的最小分散ポートフォリオMより上の部分.
+\end{itemize}
+\end{definition}
+
+最小分散境界の下半分は,同じリスクでより高いリターンの点(上半分)が存在するため
+選ぶ理由がなく,効率的でない.
+
+\subsection{記号の定義}
+
+以後で使用する記号を定義する.
+\begin{itemize}
+\item $R_P$:任意のポートフォリオPの収益率(確率変数).
+\item $R_i$:Pに含まれる資産 $i$ の収益率(確率変数).
+\item $r$:無リスク資産の収益率(定数).
+\item 期待値(平均):$\mu_P = \E[R_P]$,\ $\mu_i = \E[R_i]$.
+\item 標準偏差:$\sigma_P = \sqrt{\Var[R_P]}$,\ $\sigma_i = \sqrt{\Var[R_i]}$
+($\sigma_{ii} = \sigma_i^2$).
+\item 共分散:$\sigma_{iP} = C[R_i, R_P] = C[R_P, R_i]$,\
+$\sigma_{ij} = C[R_i,R_j] = C[R_j,R_i]$.
+\item 相関係数:$\rho_{iP} = C[R_i,R_P]/\sqrt{\Var[R_P]\Var[R_i]}$,\
+$\rho_{ij} = C[R_i,R_j]/\sqrt{\Var[R_i]\Var[R_j]}$.
+\item ポートフォリオにおける投資比率:$x_0$(無リスク資産への投資比率),
+$x_i$, $i=1,\dots,n$.
+\end{itemize}
+
+\subsection{平均分散モデルの問題設定}
+
+\begin{keypoint}[平均分散モデルの問題設定]
+分散共分散行列 $\bm{\Sigma}$ は正定値とする.リターンが $\alpha$(一定)のとき,
+リスクが最小となるポートフォリオ(資産構成比率)を求めなさい.
+\end{keypoint}
+
+$\alpha$ の値をいろいろ動かすことで($(\sigma,\mu)$ 平面上で「$\mu=\alpha$
+(一定)」の横線を上下に動かすことに対応),最小分散境界と,そのポートフォリオを
+知ることができる.
+
+$n$ 個のリスク性資産での定式化は次のとおりである(空売り可能な場合,すなわち
+制約条件が最も少ない場合を考える).投資収益率の期待値ベクトルを
+$\bm{\mu} = (\mu_1,\dots,\mu_n)^\top$,分散共分散行列を
+$\bm{\Sigma} = (\sigma_{jk})$ とし,ポートフォリオのリターンを $\mu_p$,分散を
+$\sigma_p^2$ とする.このとき,
+\[
+\mu_p = \sum_{j=1}^n \mu_j x_j = \alpha\ (\text{定数}),\qquad
+\sum_{j=1}^n x_j = 1
+\]
+のもとで
+\[
+\sigma_p^2 = \sum_{j=1}^{n}\sum_{k=1}^{n}\sigma_{jk}x_j x_k\ \to\ \text{最小}
+\]
+となる $\bm{x} = (x_1,\dots,x_n)^\top$(各資産への投資比率ベクトル)を求めよ,
+という問題である.この解は前章の補足(Markowitz)で導出したとおり
+$\hat{\bm{x}}(\alpha) = \bm{g} + \alpha\bm{h}$ であり,最小分散境界は
+$(\sigma,\mu)$ 平面上の双曲線になる.
+
+\subsection{最適ポートフォリオの選択}
+
+最適ポートフォリオは,最小分散境界上にある.では,そのカーブ上のどの点が最適な
+のか.答えは「最小分散境界上で\textbf{期待効用が最大になる点}」であり,これを
+解析的あるいは数値的に求めればよい.以下では図形的な解釈を考える.
+
+$(\sigma,\mu)$ 平面上で期待効用の等高線を描いてみる.等高線上の異なる2点は
+(選択上は)同等であり,この等高線を\textbf{無差別曲線}と呼ぶ.等高線(無差別
+曲線)は $(\sigma,\mu)$ 平面上で凸カーブになる.
+
+\paragraph{無差別曲線の概形(指数効用の場合).}
+指数効用関数 $u(w) = -e^{-aw}$($a>0$)を使用し,$W\sim N(\mu,\sigma^2)$ を
+仮定すると(平均と標準偏差で評価するので正規分布を想定),期待効用は
+\begin{equation}
+\E[u(W)] = -\E[e^{-aW}] = -e^{-a\mu + \frac{a^2}{2}\sigma^2}
+\end{equation}
+となる.指数部をみると,$\sigma$ の二次項の係数はプラスなので,無差別曲線
+($\E[u(W)]=$ 一定の曲線)は $(\sigma,\mu)$ 平面上で(下に)凸である.かつ,
+$\mu$ の一次項の係数はマイナス(指数部の $-a\mu$)なので,$\mu$ が高いほど期待
+効用は高まる.すなわち,効用が高くなると無差別曲線は左上に動く.
+
+期待効用が最大になるのは,\textbf{投資機会集合と無差別曲線の接点}であり,これが
+(その投資家にとっての)最適ポートフォリオである.
+
+\section{平均分散モデル (2):Tobinのポートフォリオ選択問題}
+
+\subsection{無リスク証券がある場合}
+
+これまでと同様に平均分散モデルを使用するが,\textbf{無リスク証券}が存在する場合を
+考える.なお,無リスク証券は1種類しか存在しえない.
+
+\begin{itemize}
+\item[問1.] 無リスク証券は $(\sigma,\mu)$ 平面上のどこにプロットされるか?
+
+\textbf{答}:$\sigma = 0$ なので,縦軸($\mu$軸)上にプロットされる.
+\item[問2.] あるリスク証券と無リスク証券を組み合わせたポートフォリオは,
+$(\sigma,\mu)$ 平面上にどのようにプロットされるか?
+
+\textbf{答}:\textbf{直線}になる.
+\end{itemize}
+
+問2の解答を確認しよう.リスク証券Aへの投資比率を $x$,無リスク証券の収益率を
+$r_F$ とすると,ポートフォリオのリターンは
+\begin{equation}
+\mu_P = \E[\tilde R_P] = \E[x\tilde R_A + (1-x)r_F] = x\mu_A + (1-x)r_F,
+\label{eq:tobin-mu}
+\end{equation}
+分散は
+\begin{equation}
+\sigma_P^2 = \Var[R_P] = \Var[xR_A + (1-x)r_F] = x^2\sigma_A^2
+\qquad\therefore\ \sigma_P = x\sigma_A
+\label{eq:tobin-sigma}
+\end{equation}
+となる.\eqref{eq:tobin-mu}と\eqref{eq:tobin-sigma}から $x$ を消去すると,
+\begin{equation}
+\mu_P = r_F + \frac{\mu_A - r_F}{\sigma_A}\,\sigma_P
+\label{eq:tobin-line}
+\end{equation}
+となり,これは $(\sigma,\mu)$ 平面上の直線を示す.
+
+\subsection{接点ポートフォリオ}
+
+では,効率的フロンティアはどうなるのか.リスク証券Aの位置を,(リスク性資産の)
+投資機会集合内でくまなく動かしてみる.式\eqref{eq:tobin-line}の直線(点F
+(無リスク資産)と点Aを結ぶ直線)が最も左(リスク最小)にくるのは,直線が
+リスク性資産の最小分散境界に\textbf{接する}とき,すなわち「接線FT」のときである.
+
+\begin{definition}[接点ポートフォリオ]
+無リスク資産の点Fからリスク性資産の最小分散境界に引いた接線の接点Tに対応する
+ポートフォリオを\textbf{接点ポートフォリオ} (tangent portfolio) という.
+\end{definition}
+
+\begin{keypoint}
+無リスク資産が存在する場合,
+\begin{itemize}
+\item F:無リスク資産,
+\item T:リスク資産の最適な組み合わせ(接点ポートフォリオ),
+\item \textbf{半直線FT:最適ポートフォリオの集合}(無リスク資産がある場合の
+効率的フロンティア),
+\end{itemize}
+となる.
+\end{keypoint}
+
+投資家ごとの最適ポートフォリオは,\textbf{半直線FTと(効用)無差別曲線の接点}で
+ある.このとき,
+\begin{itemize}
+\item 最適ポートフォリオの構成は,無リスク資産Fと接点ポートフォリオTの
+組み合わせである.
+\item 半直線FT上で点Tより右側の部分は,無リスク資産への投資比率が負,すなわち
+\emph{無リスク金利で借入をして}リスク資産に1を超える比率を投資している状態を
+意味する.
+\end{itemize}
+
+\subsection{分離定理}
+
+\begin{theorem}[分離定理 (separation theorem)]
+無リスク資産が存在するとき,リスク資産の最適な組み合わせ($=$接点ポート
+フォリオ)は,投資家の選好とは独立に決まる.
+\end{theorem}
+
+すなわち,
+\begin{itemize}
+\item 最適ポートフォリオは,接点ポートフォリオTと無リスク資産Fの組み合わせで
+構成される.
+\item 接点ポートフォリオTの組成は,個人の効用とは無関係である.
+\item 効用の役割は,ポートフォリオTと無リスク資産Fの\emph{比率}の決定である.
+投資家のリスク選好は,効用関数を通して,無リスク資産とリスク資産の構成比率に
+関与する.
+\end{itemize}
+
+\subsection{$n$ 個のリスク性資産+無リスク資産での定式化}
+
+投資収益率の期待値ベクトルを $\bm{\mu} = (\mu_1,\dots,\mu_n)^\top$,分散共分散
+行列を $\bm{\Sigma} = (\sigma_{jk})$,無リスク資産の収益率(無リスク金利)を
+$r$,無リスク資産への投資比率を $x_0$ とする.このとき,
+\[
+r x_0 + \sum_{j=1}^n \mu_j x_j = \alpha\ (\text{定数}),\qquad
+x_0 + \sum_{j=1}^n x_j = 1
+\]
+のもとで
+\[
+\sigma_p^2 = \sum_{j=1}^{n}\sum_{k=1}^{n}\sigma_{jk}x_j x_k\ \to\ \text{最小}
+\]
+となる $\bm{x} = (x_0, x_1,\dots,x_n)^\top$ を求めよ,という問題になる
+(空売り可能な場合).この解は次節で導出する.
+
+\subsection*{付録1:さまざまな資産数での定式化}
+
+平均分散モデルによる最適ポートフォリオの具体的な定式化を,資産数ごとに書き
+下しておく.
+
+\paragraph{2つのリスク性資産のとき.}目的関数は
+\[
+\min_{x_1,x_2}\ \sigma_1^2 x_1^2 + 2\sigma_{12}x_1x_2 + \sigma_2^2 x_2^2,
+\]
+制約条件は
+\[
+\mu_1 x_1 + \mu_2 x_2 = \alpha\ (\text{定数}),\qquad x_1 + x_2 = 1.
+\]
+ただし,\emph{この問題は意味をなさない}.なぜならば,($\mu_1\neq\mu_2$ のとき)
+$\alpha$ を与えるだけで $x_1, x_2$ は決まってしまうからである.
+
+\paragraph{2つのリスク性資産+無リスク資産のとき.}目的関数は
+\[
+\min_{x_0,x_1,x_2}\ \sigma_1^2 x_1^2 + 2\sigma_{12}x_1x_2 + \sigma_2^2 x_2^2,
+\]
+制約条件は
+\[
+r x_0 + \mu_1 x_1 + \mu_2 x_2 = \alpha,\qquad x_0 + x_1 + x_2 = 1.
+\]
+
+\paragraph{3つのリスク性資産のとき.}目的関数は
+\[
+\min_{x_1,x_2,x_3}\ \sigma_1^2x_1^2 + \sigma_2^2x_2^2 + \sigma_3^2x_3^2
++ 2(\sigma_{12}x_1x_2 + \sigma_{13}x_1x_3 + \sigma_{23}x_2x_3),
+\]
+制約条件は
+\[
+\mu_1x_1 + \mu_2x_2 + \mu_3x_3 = \alpha,\qquad x_1+x_2+x_3 = 1.
+\]
+無リスク資産を加えた場合は,制約条件を
+$rx_0 + \mu_1x_1 + \mu_2x_2 + \mu_3x_3 = \alpha$,
+$x_0+x_1+x_2+x_3=1$ に変えればよい.
+
+\paragraph{$n$ 個のリスク性資産のとき.}目的関数は
+\[
+\min_{x_1,\dots,x_n}\ \sum_{i=1}^{n}\sigma_i^2 x_i^2
++ 2\sum_{i=1}^{n-1}\sum_{j>i}\sigma_{ij}x_ix_j
+= \min_{x_1,\dots,x_n}\ \sum_{i=1}^n\sum_{j=1}^n \sigma_{ij}x_ix_j,
+\]
+制約条件は $\sum_{i=1}^n \mu_i x_i = \alpha$, $\sum_{i=1}^n x_i = 1$.
+無リスク資産を加えた場合は $rx_0 + \sum_i\mu_ix_i = \alpha$,
+$x_0 + \sum_i x_i = 1$ とする.
+
+\paragraph{$\Sigma$記号・行列表記の確認.}$n=3$ のケースで
+\[
+\sum_{i=1}^{3}\sigma_i^2x_i^2 + 2\sum_{i=1}^{2}\sum_{j>i}\sigma_{ij}x_ix_j
+= \sigma_1^2x_1^2+\sigma_2^2x_2^2+\sigma_3^2x_3^2
++2(\sigma_{12}x_1x_2+\sigma_{13}x_1x_3+\sigma_{23}x_2x_3)
+\]
+であり,また行列・ベクトル表記では($\sigma_{ij}=\sigma_{ji}$ を使って)
+\[
+\bm{x}^\top\bm{\Sigma}\bm{x}
+= (x_1\ x_2\ x_3)
+\begin{pmatrix}\sigma_{11}&\sigma_{12}&\sigma_{13}\\
+\sigma_{21}&\sigma_{22}&\sigma_{23}\\
+\sigma_{31}&\sigma_{32}&\sigma_{33}\end{pmatrix}
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+= \sigma_1^2x_1^2+\sigma_2^2x_2^2+\sigma_3^2x_3^2
++2(\sigma_{12}x_1x_2+\sigma_{23}x_2x_3+\sigma_{13}x_1x_3)
+\]
+となって,上の表現に一致することが確認できる($n>3$ でも同様).まとめると,
+ベクトル・行列を使った定式化は
+\begin{itemize}
+\item $n$ 個のリスク性資産:
+$\min_{\bm{x}}\bm{x}^\top\bm{\Sigma}\bm{x}$,\quad
+制約 $\bm{\mu}^\top\bm{x}=\alpha$, $\bm{e}^\top\bm{x}=1$.
+\item $n$ 個のリスク性資産+無リスク資産:
+$\min_{\bm{x}}\bm{x}^\top\bm{\Sigma}\bm{x}$,\quad
+制約 $rx_0+\bm{\mu}^\top\bm{x}=\alpha$, $x_0+\bm{e}^\top\bm{x}=1$.
+\end{itemize}
+ここで $\bm{x}^\top=(x_1,\dots,x_n)$, $\bm{e}^\top=(1,\dots,1)$,
+$\bm{\mu}^\top=(\mu_1,\dots,\mu_n)$, $\bm{\Sigma}=(\sigma_{ij})$ である.
+
+\section{補足:最小分散ポートフォリオ(Tobin)}
+
+本節は,配布資料「最小分散ポートフォリオ(Tobin)」に基づき,無リスク資産が
+存在する場合(Tobinのポートフォリオ選択問題)の最小分散ポートフォリオを導出する.
+
+\subsection{設定}
+
+$N$ 個のリスク性資産と一つの無リスク資産からなるポートフォリオを考える.資産
+$i$($i=1,\dots,N$)の収益率を確率変数 $R_i$,
+$\bm{R} = (R_1,\dots,R_N)^\top$ を $N$ 次元確率変数ベクトルとし,$\bm{R}$ の
+期待値ベクトル $\bm{\mu}$ と分散共分散行列 $\bm{\Sigma}$ は既知とする.また,
+無リスク資産の収益率 $r$ は定数で既知とする.$\bm{e} = (1,\dots,1)^\top$ と
+すると,平均分散モデルにおける最小分散ポートフォリオ
+$(\hat x_0, \hat{\bm{x}}^\top)$,
+$\hat{\bm{x}} = (\hat x_1,\dots,\hat x_N)^\top$($x_i$ は資産 $i$ への投資比率,
+資産0は無リスク資産)は
+\begin{equation}
+(\hat x_0, \hat{\bm{x}}^\top) = \argmin_{\bm{x}\in\mathcal{R}^N}
+\frac{1}{2}\bm{x}^\top\bm{\Sigma}\bm{x}
+\end{equation}
+で与えられる.ただし,$\alpha$ を定数として,
+\begin{align}
+r\hat x_0 + \bm{\mu}^\top\hat{\bm{x}} &= \alpha,\\
+\hat x_0 + \bm{e}^\top\hat{\bm{x}} &= 1
+\end{align}
+を満たし,$N$ 次実対称行列 $\bm{\Sigma}$ は正定値と仮定する.また,$\bm{\mu}$ と
+$\bm{e}$ は線形独立と仮定する.
+
+\subsection{最小分散ポートフォリオの導出}
+
+Lagrange未定乗数法を用いる.Lagrange未定乗数を $\lambda_1,\lambda_2$ として,
+Lagrange関数を
+\begin{equation}
+L = \frac{1}{2}\bm{x}^\top\bm{\Sigma}\bm{x}
+- \lambda_1(r x_0 + \bm{\mu}^\top\bm{x} - \alpha)
+- \lambda_2(x_0 + \bm{e}^\top\bm{x} - 1)
+\end{equation}
+とすると,求める解は
+\begin{align}
+\frac{\partial L}{\partial x_i}
+&= \sum_{k=1}^{N}\sigma_{ik}x_k - \lambda_1\mu_i - \lambda_2 = 0,
+\qquad i = 1,\dots,N,
+\label{eq:tb-foc-x}\\
+\frac{\partial L}{\partial x_0} &= -\lambda_1 r - \lambda_2 = 0,
+\label{eq:tb-foc-x0}\\
+\frac{\partial L}{\partial\lambda_1}
+&= -(r x_0 + \bm{\mu}^\top\bm{x} - \alpha) = 0,
+\label{eq:tb-c1}\\
+\frac{\partial L}{\partial\lambda_2}
+&= -(x_0 + \bm{e}^\top\bm{x} - 1) = 0
+\label{eq:tb-c2}
+\end{align}
+を満たす.まず,\eqref{eq:tb-foc-x0}より
+\begin{equation}
+\lambda_2 = -r\lambda_1
+\end{equation}
+であることを使い,\eqref{eq:tb-foc-x}を
+\begin{equation}
+\frac{\partial L}{\partial\bm{x}}
+= \bm{\Sigma}\bm{x} - \lambda_1(\bm{\mu} - r\bm{e}) = 0
+\end{equation}
+と書き直すと,$\bm{\Sigma}$ は正定値なので正則,すなわち $\bm{\Sigma}^{-1}$ が
+存在し,最小分散ポートフォリオにおけるリスク性資産への投資比率ベクトル
+\begin{equation}
+\hat{\bm{x}} = \lambda_1\bm{\Sigma}^{-1}(\bm{\mu} - r\bm{e})
+\label{eq:tb-x-lambda}
+\end{equation}
+が得られる.$\lambda_1$ は未知変数なので,\eqref{eq:tb-x-lambda}から具体的な
+最小分散ポートフォリオの構成はまだわからない.
+
+そこで,未知数 $\lambda_1$ を求める.\eqref{eq:tb-x-lambda}を\eqref{eq:tb-c1}と
+\eqref{eq:tb-c2}に代入すると,
+\begin{align}
+r x_0 + \bm{\mu}^\top\hat{\bm{x}} - \alpha
+&= \lambda_1\bm{\mu}^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e}) + rx_0 - \alpha = 0,\\
+x_0 + \bm{e}^\top\hat{\bm{x}} - 1
+&= \lambda_1\bm{e}^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e}) + x_0 - 1 = 0
+\end{align}
+となる.両式より $x_0$ を消去すると,
+\begin{equation}
+\lambda_1(\bm{\mu}^\top - r\bm{e}^\top)\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+- \alpha + r = 0
+\end{equation}
+となるので,
+\begin{equation}
+\lambda_1 = \frac{\alpha - r}
+{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+\end{equation}
+が得られる.これを\eqref{eq:tb-x-lambda}に代入すると,
+\begin{equation}
+\hat{\bm{x}} = (\alpha - r)\,
+\frac{\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+\label{eq:tb-solution}
+\end{equation}
+が得られ,さらに\eqref{eq:tb-c2}より
+\begin{equation}
+\hat x_0 = 1 - \bm{e}^\top\hat{\bm{x}}
+= 1 - (\alpha-r)\frac{\bm{e}^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+= \frac{(\bm{\mu}-\alpha\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+\end{equation}
+が得られる.ここで,$(\bm{\mu}-r\bm{e})$ はリスク性資産の\textbf{期待超過収益率
+ベクトル}である.
+
+\eqref{eq:tb-solution}より,リスク性資産だけに着目すると,最小分散ポートフォリオ
+中のリスク性資産内の資産構成比を示すベクトル
+\begin{equation}
+\frac{\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+\label{eq:tb-risky-comp}
+\end{equation}
+は\textbf{$\alpha$ に依存しない定ベクトル}であり,リスク性資産の構成はこの
+定ベクトルの定数倍として表現されることがわかる.これはMarkowitzの最小分散
+ポートフォリオと全く異なる特徴である.
+
+\begin{remark}
+リスク性資産の構成が $\alpha$ に依存しない定ベクトルの定数倍になっていることから,
+均衡時におけるマーケットクリアリング条件(均衡時にはどの資産も誰かのポート
+フォリオに含まれており,使われずに余っている資産はない)を考えると,この
+定ベクトルが示すものは\textbf{市場ポートフォリオ}でなければならない.
+\end{remark}
+
+以上をMarkowitzの資料と同じ記号を使って記述する.
+\begin{equation}
+a = \bm{\mu}^\top\bm{\Sigma}^{-1}\bm{\mu},\qquad
+b = \bm{\mu}^\top\bm{\Sigma}^{-1}\bm{e} = \bm{e}^\top\bm{\Sigma}^{-1}\bm{\mu},\qquad
+c = \bm{e}^\top\bm{\Sigma}^{-1}\bm{e}
+\end{equation}
+と
+\begin{equation}
+\kappa = (\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+= cr^2 - 2br + a
+\end{equation}
+を定義する.$\bm{\Sigma}$ は正定値なので $\bm{\Sigma}^{-1}$ も正定値になり,
+ゆえに $\kappa > 0$ であり,同様に $a>0$, $c>0$ である.これらを使うと,
+\begin{align}
+\lambda_1 &= \frac{\alpha - r}{cr^2 - 2br + a} = \frac{\alpha-r}{\kappa},\\
+\hat{\bm{x}} &= \frac{\alpha-r}{\kappa}\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e}),
+\label{eq:tb-xhat}\\
+\hat x_0 &= 1 - \frac{(\alpha-r)(b-cr)}{\kappa}
+= \frac{a - b(r+\alpha) + c\alpha r}{\kappa}
+\label{eq:tb-x0hat}
+\end{align}
+となる.
+
+\subsection{最小分散境界}
+
+最小分散ポートフォリオ $(\hat x_0,\hat{\bm{x}}^\top)$ の分散は,
+\eqref{eq:tb-xhat}より
+\begin{align}
+\hat\sigma^2 = \hat{\bm{x}}^\top\bm{\Sigma}\hat{\bm{x}}
+&= \Bigl(\frac{\alpha-r}{\kappa}\Bigr)^2
+\bigl(\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})\bigr)^\top\bm{\Sigma}
+\bigl(\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})\bigr)\notag\\
+&= \Bigl(\frac{\alpha-r}{\kappa}\Bigr)^2
+(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+= \Bigl(\frac{\alpha-r}{\kappa}\Bigr)^2 \kappa
+= \frac{(\alpha-r)^2}{\kappa}
+\end{align}
+なので,
+\begin{equation}
+\alpha = r \pm \sqrt{\kappa}\,\hat\sigma,\qquad \hat\sigma \geq 0
+\label{eq:tb-frontier}
+\end{equation}
+が得られる.\eqref{eq:tb-frontier}は,$(\sigma,\alpha)$ 平面上の最小分散境界は
+\textbf{$\alpha$切片が $r$,傾き $\pm\sqrt{\kappa}$ の2本の半直線}になることを
+示している.この場合の大域的最小分散ポートフォリオは明らかに
+$(1,\bm{0}^\top)^\top$(無リスク資産のみからなるポートフォリオ)で
+$\hat\sigma=0$ であり,\textbf{効率的フロンティア}は
+\begin{equation}
+\alpha = r + \sqrt{\kappa}\,\hat\sigma,\qquad \hat\sigma\geq 0
+\label{eq:tb-eff-frontier}
+\end{equation}
+である.
+
+\subsection{接点ポートフォリオの導出}
+
+\eqref{eq:tb-x0hat}より,最小分散ポートフォリオがリスク性資産だけになる
+($\hat x_0 = 0$)のは
+\begin{equation}
+\kappa = (\alpha - r)(b - cr)
+\label{eq:tb-tangent-cond}
+\end{equation}
+のときで,\eqref{eq:tb-tangent-cond}を\eqref{eq:tb-xhat}に代入すると,そのときの
+ポートフォリオ $(0, \hat{\bm{x}}_T^\top)$ は
+\begin{equation}
+\hat{\bm{x}}_T = \frac{\alpha-r}{(\alpha-r)(b-cr)}\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+= \frac{1}{b-cr}\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+\label{eq:tb-tangent}
+\end{equation}
+で与えられ,そのときの $(\hat\sigma_T, \alpha_T)$ は
+\begin{align}
+\hat\sigma_T &= \sqrt{\hat{\bm{x}}_T^\top\bm{\Sigma}\hat{\bm{x}}_T}
+= \frac{1}{|b-cr|}\sqrt{(\bm{\mu}-r\bm{e})^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})}
+= \frac{\sqrt{cr^2-2rb+a}}{|b-cr|} = \frac{\sqrt{\kappa}}{|b-cr|},\\
+\alpha_T &= \bm{\mu}^\top\hat{\bm{x}}_T
+= \frac{1}{b-cr}\bm{\mu}^\top\bm{\Sigma}^{-1}(\bm{\mu}-r\bm{e})
+= \frac{a - br}{b - cr}
+\end{align}
+である.
+
+このポートフォリオ $(0,\hat{\bm{x}}_T^\top)$($(\hat\sigma,\alpha)$ 平面上では
+点 $(\hat\sigma_T,\alpha_T)$)は,定義からリスク性資産のみを考えた場合の
+最小分散境界(双曲線nRF-MVBと呼ぶ)上にあり,しかも無リスク資産も含めた最小分散
+ポートフォリオでもあるので,最小分散境界\eqref{eq:tb-frontier}は双曲線nRF-MVBの
+\textbf{接線}になる.なぜならば,これらはポートフォリオ $(0,\hat{\bm{x}}_T^\top)$
+を共有するので必ずここが交点(あるいは接点)になるが,もしも最小分散境界
+\eqref{eq:tb-frontier}と双曲線nRF-MVBが接しないで交わるならば,最小分散境界
+\eqref{eq:tb-frontier}の左側に双曲線MVB上の一部があることになり,
+\eqref{eq:tb-frontier}が最小分散境界であることと矛盾するからである.
+
+ポートフォリオ $(0,\hat{\bm{x}}_T^\top)$ の $(\sigma,\alpha)$ 平面上の位置に
+ついて考えると,以下のようになる.ただし,$R^* = b/c$ は双曲線nRF-MVBの頂点
+(大域的最小分散ポートフォリオ)における期待収益率である.
+\begin{enumerate}
+\item $b - cr < 0$ の場合($r > b/c = R^*$ の場合):$\kappa>0$ と
+\eqref{eq:tb-tangent-cond}より $\alpha < r$ なので,該当するポートフォリオ
+$(0,\hat{\bm{x}}_T^\top)$ は効率的フロンティア\eqref{eq:tb-eff-frontier}上に
+なく,傾き $-\sqrt{\kappa}$ の半直線の上にある.
+\item $b - cr > 0$ の場合($r < b/c = R^*$ の場合):$\kappa>0$ より
+$\alpha > r$ なので,該当するポートフォリオ $(0,\hat{\bm{x}}_T^\top)$ は
+効率的フロンティア\eqref{eq:tb-eff-frontier}上にある.
+\end{enumerate}
+
+以下では 2) の $(0,\hat{\bm{x}}_T^\top)$ が効率的フロンティア上にある場合を
+考える.Markowitzの資料(前章)より,$(\sigma,\alpha)$ 平面における最小分散境界
+(双曲線nRF-MVB)上のポートフォリオの接線の傾きは
+\begin{equation}
+m(\hat{\bm{x}}) = \frac{d\,\sigma[R(\hat{\bm{x}})]}{c\,\E[R(\hat{\bm{x}})] - b}
+\end{equation}
+で与えられるが,2) に限定したことで,ポートフォリオ $(0,\hat{\bm{x}}_T^\top)$
+における接線の傾きは
+\begin{equation}
+m(\hat{\bm{x}}_T) = \frac{d\,\hat\sigma_T}{c\alpha_T - b}
+= \frac{d\frac{\sqrt{\kappa}}{b-cr}}{c\frac{a-br}{b-cr} - b}
+= \frac{d\sqrt{\kappa}}{c(a-br) - b(b-cr)}
+= \frac{d\sqrt{\kappa}}{ac - b^2} = \sqrt{\kappa}
+\end{equation}
+となり,\eqref{eq:tb-eff-frontier}の効率的フロンティアの傾きに等しい.
+ポートフォリオ $(0,\hat{\bm{x}}_T^\top)$ は効率的フロンティア上にあり,また,
+ある点における接線は一意に決まる.よって,\eqref{eq:tb-eff-frontier}の効率的
+フロンティアは,双曲線nRF-MVB(リスク性資産のみを考えた場合の最小分散境界)の
+点 $(\hat\sigma_T,\alpha_T)$(ポートフォリオ $(0,\hat{\bm{x}}_T^\top)$ に対応)
+における接線に一致する.
+
+\begin{keypoint}
+このポートフォリオ $(0,\hat{\bm{x}}_T^\top)$ を\textbf{接点ポートフォリオ}
+(tangent portfolio) という.
+\end{keypoint}
+
+\section{補足:市場均衡とゼロベータCAPM(資料6補足より)}
+
+資料6補足では,Markowitzの問題に関する定理のまとめ(前章参照)と,10資産の
+実データ(株価の短い daily data)に基づく数値例が示された.数値例では,
+\begin{itemize}
+\item Markowitzの最小分散境界が $(\sigma,\mu)$ 平面上で双曲線を描くこと,
+および大域的最小分散ポートフォリオの位置,
+\item 最小分散ポートフォリオの組成(各資産への投資比率)が,目標期待収益率を
+横軸にとると各資産とも\emph{直線的に}変化すること
+($\hat{\bm{x}}(\alpha) = \bm{g}+\alpha\bm{h}$ が $\alpha$ の1次式であることの
+現れ),
+\item サンプル・ポートフォリオに対するゼロベータ・ポートフォリオの位置
+(接線と $\mu$ 軸の切片として求まること),
+\item 無リスク資産を加えたときの効率的フロンティア(半直線)と接点ポート
+フォリオの位置,
+\end{itemize}
+が図示された(数値はあくまで例であり,一般的な意味はない).
+
+また,無リスク資産がない場合の議論について,次の重要な補足があった.
+
+\begin{keypoint}[均衡状態と市場ポートフォリオ]
+無リスク資産がない場合,二資産分離定理やゼロ・ベータ・ポートフォリオの議論は,
+任意の最小分散ポートフォリオで成立する(後者は大域的最小分散ポートフォリオでは
+不成立).
+
+ここで,均衡状態を考える.均衡状態において,市場参加者のだれもが効率的
+フロンティア上のポートフォリオ(それらは最小分散ポートフォリオでもある)を
+保有するならば,その総和である市場ポートフォリオの組成は効率的ポートフォリオの
+(投資額による)加重平均ポートフォリオになるので,\textbf{市場ポートフォリオは
+効率的フロンティア上のポートフォリオであり,最小分散ポートフォリオでもある}.
+\end{keypoint}
+
+そこで,市場ポートフォリオに対してゼロ・ベータ・ポートフォリオの理論を適用
+すると,CAPMにおいて無リスク資産の収益率をゼロ・ベータ・ポートフォリオの
+期待収益率で置換した式が成立する.これが\textbf{ゼロ・ベータCAPM}である
+(数式は前章の付録B参照).
+
+ゼロ・ベータCAPMの有難みは次の点にある.
+\begin{itemize}
+\item 実証分析を行うと,無リスク資産がある場合のCAPMの式よりも,ゼロ・ベータ
+CAPMの式の方が市場をよりよく説明できた,とのことである.
+\item そのため,「市場参加者は無リスク金利で無限に貸借可能」という(通常の
+CAPMの)仮定は厳し過ぎたのではないか,と言われている.
+\end{itemize}
+
+\begin{remark}
+本章(資料6)には演習問題は付されていない.MarkowitzモデルとTobinモデルの理解は,
+前章の演習問題および次章のCAPMの議論とあわせて確認してほしい.
+\end{remark}
