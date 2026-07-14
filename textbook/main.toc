@@ -237,62 +237,80 @@
 \contentsline {paragraph}{スワップレート.}{127}{section*.242}%
 \contentsline {section}{\numberline {9.4}演習問題}{128}{section*.243}%
 \contentsline {chapter}{\numberline {第10章}デリバティブの価格付け (2):複製と二項モデル}{131}{section*.244}%
-\contentsline {section}{\numberline {10.1}一期間二項モデル}{131}{section*.245}%
-\contentsline {subsection}{\numberline {10.1.1}設定}{131}{section*.246}%
-\contentsline {subsection}{\numberline {10.1.2}複製ポートフォリオの構成}{132}{section*.247}%
-\contentsline {subsection}{\numberline {10.1.3}無裁定価格とリスク中立確率}{132}{section*.248}%
-\contentsline {section}{\numberline {10.2}数値例}{133}{section*.249}%
-\contentsline {paragraph}{コール・オプションの価格.}{133}{section*.250}%
-\contentsline {paragraph}{プット・オプションの価格.}{134}{section*.251}%
-\contentsline {section}{\numberline {10.3}リスクの市場価格との関係}{134}{section*.252}%
-\contentsline {section}{\numberline {10.4}演習問題}{134}{section*.253}%
-\contentsline {chapter}{\numberline {第11章}デリバティブの価格付け (3):多期間二項モデルとプット・コール・パリティ}{137}{section*.254}%
-\contentsline {section}{\numberline {11.1}多期間二項モデル}{137}{section*.255}%
-\contentsline {subsection}{\numberline {11.1.1}モデルの設定}{137}{section*.256}%
-\contentsline {subsection}{\numberline {11.1.2}二期間二項モデル}{137}{section*.257}%
-\contentsline {paragraph}{$t=1$ の上昇ノードにおける評価.}{137}{section*.258}%
-\contentsline {paragraph}{$t=1$ の下落ノードと $t=0$ の評価.}{139}{section*.259}%
-\contentsline {paragraph}{$t=0$ の価値.}{139}{section*.260}%
-\contentsline {subsection}{\numberline {11.1.3}一般の $n$ 期間への拡張}{139}{section*.261}%
-\contentsline {subsection}{\numberline {11.1.4}CRRの公式(コール・オプション)}{140}{section*.262}%
-\contentsline {subsection}{\numberline {11.1.5}CRRの公式(プット・オプション)}{141}{section*.263}%
-\contentsline {section}{\numberline {11.2}補足:CRR公式の正確な表現(重要!)}{142}{section*.264}%
-\contentsline {paragraph}{割引金利が一定でない場合.}{142}{section*.265}%
-\contentsline {section}{\numberline {11.3}プット・コール・パリティ}{142}{section*.266}%
-\contentsline {subsection}{\numberline {11.3.1}プットとコールのペイオフの関係}{142}{section*.267}%
-\contentsline {subsection}{\numberline {11.3.2}プットオプションの複製}{143}{section*.268}%
-\contentsline {subsection}{\numberline {11.3.3}プット・コール・パリティ}{143}{section*.269}%
-\contentsline {paragraph}{信用リスクとは.}{144}{section*.270}%
-\contentsline {paragraph}{例:割引社債の二項モデル評価.}{144}{section*.271}%
-\contentsline {section}{\numberline {11.4}演習問題}{144}{section*.272}%
-\contentsline {chapter}{\numberline {第12章}ブラック・ショールズ・モデル}{149}{section*.273}%
-\contentsline {section}{\numberline {12.1}ブラック・ショールズ(BS)モデル}{149}{section*.274}%
-\contentsline {subsection}{\numberline {12.1.1}前提}{149}{section*.275}%
-\contentsline {subsection}{\numberline {12.1.2}モデルの定式化}{149}{section*.276}%
-\contentsline {subsection}{\numberline {12.1.3}単純な積分ではうまくいかない}{151}{section*.277}%
-\contentsline {subsection}{\numberline {12.1.4}伊藤の公式}{151}{section*.278}%
-\contentsline {subsection}{\numberline {12.1.5}対数価格の確率微分方程式と $S(T)$ の分布}{152}{section*.279}%
-\contentsline {section}{\numberline {12.2}BSモデルによるオプション価格公式の導出}{153}{section*.280}%
-\contentsline {subsection}{\numberline {12.2.1}方針}{153}{section*.281}%
-\contentsline {subsection}{\numberline {12.2.2}連続時間モデルのリスク中立化法}{153}{section*.282}%
-\contentsline {subsection}{\numberline {12.2.3}コールの価格式の導出}{153}{section*.283}%
-\contentsline {paragraph}{準備:$\log S(T)$ の密度関数.}{154}{section*.284}%
-\contentsline {paragraph}{積分領域の限定.}{154}{section*.285}%
-\contentsline {paragraph}{$I_2$ の計算.}{154}{section*.286}%
-\contentsline {paragraph}{$I_1$ の計算.}{155}{section*.287}%
-\contentsline {paragraph}{Black-Scholesのコール価格式.}{155}{section*.288}%
-\contentsline {subsection}{\numberline {12.2.4}Black-Scholesの公式}{156}{section*.289}%
-\contentsline {paragraph}{プット価格式の導出.}{156}{section*.290}%
-\contentsline {subsection}{\numberline {12.2.5}BS公式による複製ポートフォリオ}{156}{section*.291}%
-\contentsline {subsection}{\numberline {12.2.6}本源的価値と時間価値}{156}{section*.292}%
-\contentsline {subsection}{\numberline {12.2.7}BS公式の振る舞い}{157}{section*.293}%
-\contentsline {section}{\numberline {12.3}デリバティブのリスク管理:グリークス (Greeks)}{157}{section*.294}%
-\contentsline {subsection}{\numberline {12.3.1}リスクヘッジとリスク感応度}{157}{section*.295}%
-\contentsline {subsection}{\numberline {12.3.2}グリークス}{158}{section*.296}%
-\contentsline {subsection}{\numberline {12.3.3}デルタ($\Delta $),ガンマ($\Gamma $)}{158}{section*.297}%
-\contentsline {subsection}{\numberline {12.3.4}セータ($\Theta $)}{159}{section*.298}%
-\contentsline {subsection}{\numberline {12.3.5}ロー($\rho $),ベガ($\mathcal {V}$)}{159}{section*.299}%
-\contentsline {section}{\numberline {12.4}通貨・金利デリバティブへの応用}{160}{section*.300}%
-\contentsline {subsection}{\numberline {12.4.1}通貨デリバティブへの応用}{160}{section*.301}%
-\contentsline {subsection}{\numberline {12.4.2}金利デリバティブへの応用}{160}{section*.302}%
-\contentsline {section}{\numberline {12.5}演習問題}{160}{section*.303}%
+\contentsline {section}{\numberline {10.1}複製と二項モデル (1):Arrow-Debreu証券による複製}{131}{section*.245}%
+\contentsline {subsection}{\numberline {10.1.1}二項モデル}{131}{section*.246}%
+\contentsline {subsection}{\numberline {10.1.2}Arrow-Debreu証券の定義とペイオフ}{132}{section*.247}%
+\contentsline {subsection}{\numberline {10.1.3}AD証券によるデリバティブの複製}{132}{section*.248}%
+\contentsline {subsection}{\numberline {10.1.4}無リスク割引債とAD価格}{133}{section*.249}%
+\contentsline {subsection}{\numberline {10.1.5}市場性資産からのAD価格の推定}{133}{section*.250}%
+\contentsline {section}{\numberline {10.2}複製と二項モデル (2):市場性資産による複製}{134}{section*.251}%
+\contentsline {subsection}{\numberline {10.2.1}リスク性資産と無リスク資産による複製}{134}{section*.252}%
+\contentsline {subsection}{\numberline {10.2.2}ヨーロピアンコールオプションの数値例}{135}{section*.253}%
+\contentsline {subsection}{\numberline {10.2.3}価格式の意味}{136}{section*.254}%
+\contentsline {subsection}{\numberline {10.2.4}リスク中立確率}{136}{section*.255}%
+\contentsline {subsection}{\numberline {10.2.5}リスク中立化法}{136}{section*.256}%
+\contentsline {subsection}{\numberline {10.2.6}なぜ「リスク中立」と呼ばれるのか}{137}{section*.257}%
+\contentsline {paragraph}{(1) この確率のもとでは,すべての資産の期待収益率が無リスク資産の収益率と一致する.}{137}{section*.258}%
+\contentsline {paragraph}{(2) 期待収益率のチェック.}{137}{section*.259}%
+\contentsline {paragraph}{(3) リスク回避的な世界ではありえないこと.}{137}{section*.260}%
+\contentsline {paragraph}{(4) リスク中立化法は「技術」である.}{138}{section*.261}%
+\contentsline {subsection}{\numberline {10.2.7}確実性等価原理との対応関係(Advanced)}{138}{section*.262}%
+\contentsline {subsection}{\numberline {10.2.8}リスクの市場価格を見てみると}{139}{section*.263}%
+\contentsline {subsection}{\numberline {10.2.9}マルチンゲール確率(Advanced:講義ではスキップ)}{139}{section*.264}%
+\contentsline {section}{\numberline {10.3}複製と二項モデル (3):三項モデルと複製可能性(Advanced:講義ではスキップ)}{140}{section*.265}%
+\contentsline {subsection}{\numberline {10.3.1}三項モデルの設定}{140}{section*.266}%
+\contentsline {subsection}{\numberline {10.3.2}複製可能条件}{140}{section*.267}%
+\contentsline {subsection}{\numberline {10.3.3}複製可能条件を満たすとき}{141}{section*.268}%
+\contentsline {subsection}{\numberline {10.3.4}リスク中立確率は一意に決まらない}{141}{section*.269}%
+\contentsline {subsection}{\numberline {10.3.5}3資産による複製:完備化}{142}{section*.270}%
+\contentsline {section}{\numberline {10.4}演習問題}{143}{section*.271}%
+\contentsline {chapter}{\numberline {第11章}デリバティブの価格付け (3):多期間二項モデルとプット・コール・パリティ}{145}{section*.272}%
+\contentsline {section}{\numberline {11.1}多期間二項モデル}{145}{section*.273}%
+\contentsline {subsection}{\numberline {11.1.1}モデルの設定}{145}{section*.274}%
+\contentsline {subsection}{\numberline {11.1.2}二期間二項モデル}{145}{section*.275}%
+\contentsline {paragraph}{$t=1$ の上昇ノードにおける評価.}{145}{section*.276}%
+\contentsline {paragraph}{$t=1$ の下落ノードと $t=0$ の評価.}{147}{section*.277}%
+\contentsline {paragraph}{$t=0$ の価値.}{147}{section*.278}%
+\contentsline {subsection}{\numberline {11.1.3}一般の $n$ 期間への拡張}{147}{section*.279}%
+\contentsline {subsection}{\numberline {11.1.4}CRRの公式(コール・オプション)}{148}{section*.280}%
+\contentsline {subsection}{\numberline {11.1.5}CRRの公式(プット・オプション)}{149}{section*.281}%
+\contentsline {section}{\numberline {11.2}補足:CRR公式の正確な表現(重要!)}{150}{section*.282}%
+\contentsline {paragraph}{割引金利が一定でない場合.}{150}{section*.283}%
+\contentsline {section}{\numberline {11.3}プット・コール・パリティ}{150}{section*.284}%
+\contentsline {subsection}{\numberline {11.3.1}プットとコールのペイオフの関係}{150}{section*.285}%
+\contentsline {subsection}{\numberline {11.3.2}プットオプションの複製}{151}{section*.286}%
+\contentsline {subsection}{\numberline {11.3.3}プット・コール・パリティ}{151}{section*.287}%
+\contentsline {paragraph}{信用リスクとは.}{152}{section*.288}%
+\contentsline {paragraph}{例:割引社債の二項モデル評価.}{152}{section*.289}%
+\contentsline {section}{\numberline {11.4}演習問題}{152}{section*.290}%
+\contentsline {chapter}{\numberline {第12章}ブラック・ショールズ・モデル}{157}{section*.291}%
+\contentsline {section}{\numberline {12.1}ブラック・ショールズ(BS)モデル}{157}{section*.292}%
+\contentsline {subsection}{\numberline {12.1.1}前提}{157}{section*.293}%
+\contentsline {subsection}{\numberline {12.1.2}モデルの定式化}{157}{section*.294}%
+\contentsline {subsection}{\numberline {12.1.3}単純な積分ではうまくいかない}{159}{section*.295}%
+\contentsline {subsection}{\numberline {12.1.4}伊藤の公式}{159}{section*.296}%
+\contentsline {subsection}{\numberline {12.1.5}対数価格の確率微分方程式と $S(T)$ の分布}{160}{section*.297}%
+\contentsline {section}{\numberline {12.2}BSモデルによるオプション価格公式の導出}{161}{section*.298}%
+\contentsline {subsection}{\numberline {12.2.1}方針}{161}{section*.299}%
+\contentsline {subsection}{\numberline {12.2.2}連続時間モデルのリスク中立化法}{161}{section*.300}%
+\contentsline {subsection}{\numberline {12.2.3}コールの価格式の導出}{161}{section*.301}%
+\contentsline {paragraph}{準備:$\log S(T)$ の密度関数.}{162}{section*.302}%
+\contentsline {paragraph}{積分領域の限定.}{162}{section*.303}%
+\contentsline {paragraph}{$I_2$ の計算.}{162}{section*.304}%
+\contentsline {paragraph}{$I_1$ の計算.}{163}{section*.305}%
+\contentsline {paragraph}{Black-Scholesのコール価格式.}{163}{section*.306}%
+\contentsline {subsection}{\numberline {12.2.4}Black-Scholesの公式}{164}{section*.307}%
+\contentsline {paragraph}{プット価格式の導出.}{164}{section*.308}%
+\contentsline {subsection}{\numberline {12.2.5}BS公式による複製ポートフォリオ}{164}{section*.309}%
+\contentsline {subsection}{\numberline {12.2.6}本源的価値と時間価値}{164}{section*.310}%
+\contentsline {subsection}{\numberline {12.2.7}BS公式の振る舞い}{165}{section*.311}%
+\contentsline {section}{\numberline {12.3}デリバティブのリスク管理:グリークス (Greeks)}{165}{section*.312}%
+\contentsline {subsection}{\numberline {12.3.1}リスクヘッジとリスク感応度}{165}{section*.313}%
+\contentsline {subsection}{\numberline {12.3.2}グリークス}{166}{section*.314}%
+\contentsline {subsection}{\numberline {12.3.3}デルタ($\Delta $),ガンマ($\Gamma $)}{166}{section*.315}%
+\contentsline {subsection}{\numberline {12.3.4}セータ($\Theta $)}{167}{section*.316}%
+\contentsline {subsection}{\numberline {12.3.5}ロー($\rho $),ベガ($\mathcal {V}$)}{167}{section*.317}%
+\contentsline {section}{\numberline {12.4}通貨・金利デリバティブへの応用}{168}{section*.318}%
+\contentsline {subsection}{\numberline {12.4.1}通貨デリバティブへの応用}{168}{section*.319}%
+\contentsline {subsection}{\numberline {12.4.2}金利デリバティブへの応用}{168}{section*.320}%
+\contentsline {section}{\numberline {12.5}演習問題}{168}{section*.321}%
