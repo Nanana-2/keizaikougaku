@@ -2,315 +2,269 @@
 \contentsline {section}{\numberline {1.1}金融}{1}{section*.4}%
 \contentsline {subsection}{\numberline {1.1.1}金融とは何か}{1}{section*.5}%
 \contentsline {subsection}{\numberline {1.1.2}直接金融と間接金融}{1}{section*.6}%
-\contentsline {subsection}{\numberline {1.1.3}投資家,金融機関,事業会社}{2}{section*.7}%
+\contentsline {subsection}{\numberline {1.1.3}投資家，金融機関，事業会社}{2}{section*.7}%
 \contentsline {section}{\numberline {1.2}資金調達}{3}{section*.8}%
-\contentsline {subsection}{\numberline {1.2.1}直接金融における資金調達:有価証券}{3}{section*.9}%
+\contentsline {subsection}{\numberline {1.2.1}直接金融における資金調達：有価証券}{3}{section*.9}%
 \contentsline {subsubsection}{\numberline {1.2.1.1}債券}{3}{section*.10}%
 \contentsline {subsubsection}{\numberline {1.2.1.2}株式}{4}{section*.11}%
-\contentsline {subsection}{\numberline {1.2.2}間接金融における資金調達:銀行借入}{4}{section*.12}%
-\contentsline {subsubsection}{\numberline {1.2.2.1}預金:銀行の資金調達}{4}{section*.13}%
+\contentsline {subsection}{\numberline {1.2.2}間接金融における資金調達：銀行借入}{4}{section*.12}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}預金：銀行の資金調達}{5}{section*.13}%
 \contentsline {section}{\numberline {1.3}証券市場}{5}{section*.14}%
 \contentsline {subsection}{\numberline {1.3.1}探索コストの低減}{5}{section*.15}%
-\contentsline {subsection}{\numberline {1.3.2}証券市場の形態}{5}{section*.16}%
+\contentsline {subsection}{\numberline {1.3.2}証券市場の形態}{6}{section*.16}%
 \contentsline {subsection}{\numberline {1.3.3}債券市場}{6}{section*.17}%
-\contentsline {subsection}{\numberline {1.3.4}株式市場}{6}{section*.18}%
+\contentsline {subsection}{\numberline {1.3.4}株式市場}{7}{section*.18}%
 \contentsline {subsubsection}{\numberline {1.3.4.1}東証の市場区分変更}{7}{section*.19}%
-\contentsline {subsection}{\numberline {1.3.5}流動性と証券化}{7}{section*.20}%
-\contentsline {chapter}{\numberline {第2章}キャッシュフローと時間価値}{9}{section*.21}%
-\contentsline {section}{\numberline {2.1}債券}{9}{section*.22}%
-\contentsline {subsection}{\numberline {2.1.1}債券のキーワード}{9}{section*.23}%
-\contentsline {subsection}{\numberline {2.1.2}キャッシュフローによる分類}{9}{section*.24}%
-\contentsline {subsection}{\numberline {2.1.3}発行体による分類}{10}{section*.25}%
-\contentsline {subsection}{\numberline {2.1.4}キャッシュフローの図示}{10}{section*.26}%
-\contentsline {subsection}{\numberline {2.1.5}固定利付債のキャッシュフロー}{10}{section*.27}%
-\contentsline {subsection}{\numberline {2.1.6}変動利付債のキャッシュフロー}{11}{section*.28}%
-\contentsline {section}{\numberline {2.2}時間,価値,利回り}{12}{section*.29}%
-\contentsline {subsection}{\numberline {2.2.1}現在価値の考え方}{12}{section*.30}%
-\contentsline {subsection}{\numberline {2.2.2}利回り}{12}{section*.31}%
-\contentsline {subsection}{\numberline {2.2.3}再投資と現在価値}{12}{section*.32}%
-\contentsline {subsection}{\numberline {2.2.4}利息を再投資しない場合とする場合}{13}{section*.33}%
-\contentsline {paragraph}{利息を再投資しない場合.}{13}{section*.34}%
-\contentsline {paragraph}{利息を再投資する場合.}{13}{section*.35}%
-\contentsline {subsection}{\numberline {2.2.5}単利と複利}{13}{section*.36}%
-\contentsline {subsection}{\numberline {2.2.6}複利による終価と現価}{14}{section*.37}%
-\contentsline {subsection}{\numberline {2.2.7}連続複利}{14}{section*.38}%
-\contentsline {subsection}{\numberline {2.2.8}整理:現価・終価・利回り}{15}{section*.39}%
-\contentsline {subsection}{\numberline {2.2.9}$n$ 年間の現価・終価}{16}{section*.40}%
-\contentsline {section}{\numberline {2.3}確定的なキャッシュフローの価値}{16}{section*.41}%
-\contentsline {subsection}{\numberline {2.3.1}考え方:分解と線形和}{16}{section*.42}%
-\contentsline {subsection}{\numberline {2.3.2}現価,終価,複利利回りの関係}{17}{section*.43}%
-\contentsline {subsection}{\numberline {2.3.3}これらは何をやっているのか}{17}{section*.44}%
-\contentsline {section}{\numberline {2.4}投資の価値評価:将来CFが確定的な場合}{18}{section*.45}%
-\contentsline {subsection}{\numberline {2.4.1}伝統的な投資評価法}{18}{section*.46}%
-\contentsline {subsection}{\numberline {2.4.2}NPV(正味現在価値)法}{19}{section*.47}%
-\contentsline {subsection}{\numberline {2.4.3}IRR(内部収益率)法}{19}{section*.48}%
-\contentsline {subsection}{\numberline {2.4.4}IRR法とNPV法の関係}{20}{section*.49}%
-\contentsline {subsection}{\numberline {2.4.5}NPV法・IRR法で十分か?}{21}{section*.50}%
-\contentsline {section}{\numberline {2.5}演習問題}{22}{section*.51}%
-\contentsline {chapter}{\numberline {第3章}金利の期間構造}{25}{section*.52}%
-\contentsline {section}{\numberline {3.1}最終利回りと債券価格}{25}{section*.53}%
-\contentsline {subsection}{\numberline {3.1.1}証券の現在価値とディスカウントファクター}{26}{section*.54}%
-\contentsline {subsection}{\numberline {3.1.2}最終利回りの定義}{26}{section*.55}%
-\contentsline {subsection}{\numberline {3.1.3}価格から最終利回りを求める}{28}{section*.56}%
-\contentsline {section}{\numberline {3.2}イールドカーブ}{28}{section*.57}%
-\contentsline {section}{\numberline {3.3}ゼロ(クーポン)・レート}{28}{section*.58}%
-\contentsline {subsection}{\numberline {3.3.1}最終利回りは使い難い?}{29}{section*.59}%
-\contentsline {subsection}{\numberline {3.3.2}期間を代表する利回り:ゼロレート}{29}{section*.60}%
-\contentsline {subsection}{\numberline {3.3.3}ゼロレートによる債券価格評価}{29}{section*.61}%
-\contentsline {subsection}{\numberline {3.3.4}ゼロレートとYTMによる価格式の比較}{30}{section*.62}%
-\contentsline {subsection}{\numberline {3.3.5}連続複利における割引関数}{30}{section*.63}%
-\contentsline {section}{\numberline {3.4}フォワード・イールド}{31}{section*.64}%
-\contentsline {subsection}{\numberline {3.4.1}イールド}{31}{section*.65}%
-\contentsline {subsection}{\numberline {3.4.2}運用と運用成果}{31}{section*.66}%
-\contentsline {subsection}{\numberline {3.4.3}フォワード・イールド}{31}{section*.67}%
-\contentsline {subsection}{\numberline {3.4.4}現時点でフォワード・イールドは確定できる}{32}{section*.68}%
-\contentsline {subsection}{\numberline {3.4.5}インプライド・フォワード・イールド}{32}{section*.69}%
-\contentsline {subsection}{\numberline {3.4.6}インプライド・フォワード・イールドの公式(1年複利)}{33}{section*.70}%
-\contentsline {subsection}{\numberline {3.4.7}インプライド・フォワード・イールドの公式(連続複利)}{34}{section*.71}%
-\contentsline {subsection}{\numberline {3.4.8}割引債価格との関係}{35}{section*.72}%
-\contentsline {paragraph}{(1) $t=0$ の場合.}{35}{section*.73}%
-\contentsline {paragraph}{(2) インプライド・フォワード・イールドと割引債価格($t=0$).}{35}{section*.74}%
-\contentsline {paragraph}{(3)(4) $t>0$ の場合.}{35}{section*.75}%
-\contentsline {section}{\numberline {3.5}演習問題}{37}{section*.76}%
-\contentsline {chapter}{\numberline {第4章}リターン,リスクと効用}{43}{section*.77}%
-\contentsline {section}{\numberline {4.1}投資収益率}{43}{section*.78}%
-\contentsline {subsection}{\numberline {4.1.1}算術収益率}{43}{section*.79}%
-\contentsline {subsection}{\numberline {4.1.2}対数収益率}{43}{section*.80}%
-\contentsline {subsection}{\numberline {4.1.3}対数収益率と算術収益率の違い}{44}{section*.81}%
-\contentsline {subsection}{\numberline {4.1.4}収益率の分布}{44}{section*.82}%
-\contentsline {section}{\numberline {4.2}リターン,リスク}{45}{section*.83}%
-\contentsline {subsection}{\numberline {4.2.1}定義}{45}{section*.84}%
-\contentsline {subsection}{\numberline {4.2.2}ボラティリティ}{45}{section*.85}%
-\contentsline {section}{\numberline {4.3}効用,効用関数,期待効用原理}{46}{section*.86}%
-\contentsline {subsection}{\numberline {4.3.1}どちらを選びますか?}{46}{section*.87}%
-\contentsline {subsection}{\numberline {4.3.2}リスク回避的投資家}{46}{section*.88}%
-\contentsline {subsection}{\numberline {4.3.3}効用と効用関数}{47}{section*.89}%
-\contentsline {subsection}{\numberline {4.3.4}期待効用原理}{47}{section*.90}%
-\contentsline {subsection}{\numberline {4.3.5}Jensenの不等式}{47}{section*.91}%
-\contentsline {subsection}{\numberline {4.3.6}効用関数の凹凸とリスク選好}{48}{section*.92}%
-\contentsline {subsection}{\numberline {4.3.7}限界効用逓減の法則}{49}{section*.93}%
-\contentsline {subsection}{\numberline {4.3.8}よく使われるリスク回避的な効用関数}{49}{section*.94}%
-\contentsline {section}{\numberline {4.4}リスク・プレミアム}{50}{section*.95}%
-\contentsline {subsection}{\numberline {4.4.1}リスク・プレミアムとは}{50}{section*.96}%
-\contentsline {subsection}{\numberline {4.4.2}確実性等価原理}{51}{section*.97}%
-\contentsline {paragraph}{考え方A(割引率の調整項としてのリスク・プレミアム).}{51}{section*.98}%
-\contentsline {paragraph}{考え方B(財の調整項としてのリスク・プレミアム).}{51}{section*.99}%
-\contentsline {subsection}{\numberline {4.4.3}効用関数,分布の変換,価格}{53}{section*.100}%
-\contentsline {subsection}{\numberline {4.4.4}Sharpe Ratio(シャープレシオ)}{54}{section*.101}%
-\contentsline {subsection}{\numberline {4.4.5}ファンドのパフォーマンス評価}{54}{section*.102}%
-\contentsline {subsection}{\numberline {4.4.6}インデックス,トラッキング・エラー,IR}{55}{section*.103}%
-\contentsline {section}{\numberline {4.5}演習問題}{55}{section*.104}%
-\contentsline {chapter}{\numberline {第5章}現代ポートフォリオ理論 (1):分散投資と平均分散モデル}{59}{section*.105}%
-\contentsline {section}{\numberline {5.1}投資における時間の推移と収益率}{59}{section*.106}%
-\contentsline {subsection}{\numberline {5.1.1}価格変化と組み替えの考え方}{59}{section*.107}%
-\contentsline {subsection}{\numberline {5.1.2}個別資産とポートフォリオの収益率}{59}{section*.108}%
-\contentsline {section}{\numberline {5.2}分散投資効果の例}{60}{section*.109}%
-\contentsline {subsection}{\numberline {5.2.1}ケース1:独立な収益率}{60}{section*.110}%
-\contentsline {subsection}{\numberline {5.2.2}ケース2:共通成分がある収益率}{61}{section*.111}%
-\contentsline {subsection}{\numberline {5.2.3}システマティック・リスクとアンシステマティック・リスク}{62}{section*.112}%
-\contentsline {section}{\numberline {5.3}個別資産の収益率とポートフォリオ}{62}{section*.113}%
-\contentsline {subsection}{\numberline {5.3.1}ケース1:2つのシナリオ}{62}{section*.114}%
-\contentsline {subsection}{\numberline {5.3.2}なぜリスク量が変わるのか}{63}{section*.115}%
-\contentsline {subsection}{\numberline {5.3.3}共分散と相関係数}{63}{section*.116}%
-\contentsline {subsection}{\numberline {5.3.4}ケース2:4つのシナリオ}{64}{section*.117}%
-\contentsline {subsection}{\numberline {5.3.5}相関とリスクの関係:2資産での確認}{64}{section*.118}%
-\contentsline {subsection}{\numberline {5.3.6}一般の $n$ 資産への拡張}{65}{section*.119}%
-\contentsline {subsection}{\numberline {5.3.7}どのポートフォリオを選ぶべきか:無差別曲線}{65}{section*.120}%
-\contentsline {paragraph}{無差別曲線の概形:指数効用の場合.}{66}{section*.121}%
-\contentsline {paragraph}{最適ポートフォリオの選択.}{66}{section*.122}%
-\contentsline {section}{\numberline {5.4}補足:最小分散ポートフォリオ(Markowitz)}{66}{section*.123}%
-\contentsline {subsection}{\numberline {5.4.1}設定}{67}{section*.124}%
-\contentsline {subsection}{\numberline {5.4.2}最小分散ポートフォリオの導出}{67}{section*.125}%
-\contentsline {subsection}{\numberline {5.4.3}最小分散ポートフォリオの解の意味}{69}{section*.126}%
-\contentsline {subsection}{\numberline {5.4.4}最小分散境界}{69}{section*.127}%
-\contentsline {subsection}{\numberline {5.4.5}大域的最小分散ポートフォリオ}{70}{section*.128}%
-\contentsline {subsection}{\numberline {5.4.6}最小分散ポートフォリオの性質}{70}{section*.129}%
-\contentsline {subsubsection}{\numberline {5.4.6.1}二資産分離定理}{70}{section*.130}%
-\contentsline {subsubsection}{\numberline {5.4.6.2}ポートフォリオ間の共分散}{71}{section*.131}%
-\contentsline {subsubsection}{\numberline {5.4.6.3}ゼロベータポートフォリオ}{71}{section*.133}%
-\contentsline {section}{\numberline {5.5}演習問題}{76}{section*.134}%
-\contentsline {chapter}{\numberline {第6章}現代ポートフォリオ理論 (2):MarkowitzとTobinの平均分散モデル}{79}{section*.135}%
-\contentsline {section}{\numberline {6.1}平均分散モデル (1):Markowitzのポートフォリオ選択問題}{79}{section*.136}%
-\contentsline {subsection}{\numberline {6.1.1}3資産の投資機会集合}{79}{section*.137}%
-\contentsline {subsection}{\numberline {6.1.2}効率的フロンティア}{79}{section*.138}%
-\contentsline {subsection}{\numberline {6.1.3}記号の定義}{80}{section*.139}%
-\contentsline {subsection}{\numberline {6.1.4}平均分散モデルの問題設定}{80}{section*.140}%
-\contentsline {subsection}{\numberline {6.1.5}最適ポートフォリオの選択}{81}{section*.141}%
-\contentsline {paragraph}{無差別曲線の概形(指数効用の場合).}{81}{section*.142}%
-\contentsline {section}{\numberline {6.2}平均分散モデル (2):Tobinのポートフォリオ選択問題}{81}{section*.143}%
-\contentsline {subsection}{\numberline {6.2.1}無リスク証券がある場合}{81}{section*.144}%
-\contentsline {subsection}{\numberline {6.2.2}接点ポートフォリオ}{82}{section*.145}%
-\contentsline {subsection}{\numberline {6.2.3}分離定理}{83}{section*.146}%
-\contentsline {subsection}{\numberline {6.2.4}$n$ 個のリスク性資産+無リスク資産での定式化}{83}{section*.147}%
-\contentsline {paragraph}{2つのリスク性資産のとき.}{83}{section*.148}%
-\contentsline {paragraph}{2つのリスク性資産+無リスク資産のとき.}{84}{section*.149}%
-\contentsline {paragraph}{3つのリスク性資産のとき.}{84}{section*.150}%
-\contentsline {paragraph}{$n$ 個のリスク性資産のとき.}{84}{section*.151}%
-\contentsline {paragraph}{$\Sigma $記号・行列表記の確認.}{84}{section*.152}%
-\contentsline {section}{\numberline {6.3}補足:最小分散ポートフォリオ(Tobin)}{85}{section*.153}%
-\contentsline {subsection}{\numberline {6.3.1}設定}{85}{section*.154}%
-\contentsline {subsection}{\numberline {6.3.2}最小分散ポートフォリオの導出}{85}{section*.155}%
-\contentsline {subsection}{\numberline {6.3.3}最小分散境界}{87}{section*.156}%
-\contentsline {subsection}{\numberline {6.3.4}接点ポートフォリオの導出}{88}{section*.157}%
-\contentsline {section}{\numberline {6.4}補足:市場均衡とゼロベータCAPM(資料6補足より)}{89}{section*.158}%
-\contentsline {chapter}{\numberline {第7章}現代ポートフォリオ理論 (3):CAPMと市場モデル}{91}{section*.159}%
-\contentsline {section}{\numberline {7.1}接点ポートフォリオの性質}{91}{section*.160}%
-\contentsline {subsection}{\numberline {7.1.1}一般に成り立つ関係式}{91}{section*.161}%
-\contentsline {subsection}{\numberline {7.1.2}接点ポートフォリオの分散・共分散の性質}{92}{section*.162}%
-\contentsline {section}{\numberline {7.2}CAPM(資本資産価格モデル)}{93}{section*.163}%
-\contentsline {subsection}{\numberline {7.2.1}仮定}{93}{section*.164}%
-\contentsline {subsection}{\numberline {7.2.2}均衡状態下の接点ポートフォリオ=市場ポートフォリオ}{94}{section*.165}%
-\contentsline {subsection}{\numberline {7.2.3}資本市場線 (CML)}{94}{section*.166}%
-\contentsline {subsection}{\numberline {7.2.4}CAPMの関係式}{95}{section*.167}%
-\contentsline {paragraph}{CAPMの解釈と個別資産のリスク.}{95}{section*.168}%
-\contentsline {subsection}{\numberline {7.2.5}証券市場線とベータ}{95}{section*.169}%
-\contentsline {subsection}{\numberline {7.2.6}CAPMの2つの定理}{96}{section*.170}%
-\contentsline {subsection}{\numberline {7.2.7}ベータの推定}{96}{section*.171}%
-\contentsline {subsection}{\numberline {7.2.8}CAPMと割高・割安分析}{96}{section*.172}%
-\contentsline {subsection}{\numberline {7.2.9}ゼロベータCAPMへの一般化}{97}{section*.173}%
-\contentsline {section}{\numberline {7.3}市場モデルとファクター}{97}{section*.174}%
-\contentsline {subsection}{\numberline {7.3.1}市場モデル,ファクターモデル}{97}{section*.175}%
-\contentsline {subsection}{\numberline {7.3.2}市場モデルの定式化}{98}{section*.176}%
-\contentsline {subsection}{\numberline {7.3.3}回帰分析によるパラメータ推定}{98}{section*.177}%
-\contentsline {subsection}{\numberline {7.3.4}CAPMと市場モデルは全く違う}{99}{section*.178}%
-\contentsline {subsection}{\numberline {7.3.5}CAPMの反例とFama-Frenchの3ファクターモデル}{99}{section*.179}%
-\contentsline {subsection}{\numberline {7.3.6}ファクター投資戦略}{100}{section*.180}%
-\contentsline {section}{\numberline {7.4}インデックス運用,スタイル運用}{100}{section*.181}%
-\contentsline {subsection}{\numberline {7.4.1}インデックス・ファンド}{100}{section*.182}%
-\contentsline {subsection}{\numberline {7.4.2}インデックス・ファンドの定式化}{100}{section*.183}%
-\contentsline {subsection}{\numberline {7.4.3}現代ポートフォリオ理論の最後に}{102}{section*.184}%
-\contentsline {paragraph}{手順1:曲線AMを求める.}{103}{section*.185}%
-\contentsline {paragraph}{手順2:接線の傾きを求める.}{103}{section*.186}%
-\contentsline {paragraph}{手順3:点Mでの一致条件.}{103}{section*.187}%
-\contentsline {section}{\numberline {7.5}演習問題}{104}{section*.188}%
-\contentsline {chapter}{\numberline {第8章}デリバティブ}{107}{section*.191}%
-\contentsline {section}{\numberline {8.1}デリバティブ(金融派生商品)}{107}{section*.192}%
-\contentsline {section}{\numberline {8.2}先渡契約と先物契約}{107}{section*.193}%
-\contentsline {subsection}{\numberline {8.2.1}先渡契約}{107}{section*.194}%
-\contentsline {subsection}{\numberline {8.2.2}先物契約}{108}{section*.195}%
-\contentsline {section}{\numberline {8.3}スワップ}{109}{section*.196}%
-\contentsline {subsection}{\numberline {8.3.1}金利スワップ}{110}{section*.197}%
-\contentsline {paragraph}{変動金利払のキャッシュフローの意味.}{110}{section*.198}%
-\contentsline {paragraph}{金利スワップのキャッシュフローの合成.}{110}{section*.199}%
-\contentsline {subsection}{\numberline {8.3.2}通貨スワップ}{111}{section*.200}%
-\contentsline {subsection}{\numberline {8.3.3}ベーシス・スワップなど}{112}{section*.201}%
-\contentsline {subsection}{\numberline {8.3.4}クレジット・デフォルト・スワップ(CDS)}{112}{section*.202}%
-\contentsline {section}{\numberline {8.4}オプション}{112}{section*.203}%
-\contentsline {subsection}{\numberline {8.4.1}オプションの例}{112}{section*.204}%
-\contentsline {subsection}{\numberline {8.4.2}オプションの定義}{113}{section*.205}%
-\contentsline {subsection}{\numberline {8.4.3}コールとプット,権利行使日}{114}{section*.206}%
-\contentsline {subsection}{\numberline {8.4.4}ITM,OTM,ATM}{114}{section*.207}%
-\contentsline {section}{\numberline {8.5}ペイオフと正味損益}{115}{section*.208}%
-\contentsline {subsection}{\numberline {8.5.1}ペイオフ関数}{115}{section*.209}%
-\contentsline {subsection}{\numberline {8.5.2}正味損益}{116}{section*.210}%
-\contentsline {section}{\numberline {8.6}デリバティブを用いた取引戦略}{116}{section*.211}%
-\contentsline {subsection}{\numberline {8.6.1}ヘッジ}{116}{section*.212}%
-\contentsline {subsection}{\numberline {8.6.2}スプレッド}{117}{section*.213}%
-\contentsline {subsection}{\numberline {8.6.3}コンビネーション}{117}{section*.214}%
-\contentsline {subsection}{\numberline {8.6.4}レバレッジ効果}{118}{section*.215}%
-\contentsline {section}{\numberline {8.7}演習問題}{118}{section*.216}%
-\contentsline {chapter}{\numberline {第9章}デリバティブの価格付け (1):無裁定価格とモデルフリーな価格式}{121}{section*.217}%
-\contentsline {section}{\numberline {9.1}裁定機会と無裁定価格}{121}{section*.218}%
-\contentsline {subsection}{\numberline {9.1.1}金融商品の価格付けとは}{121}{section*.219}%
-\contentsline {subsection}{\numberline {9.1.2}裁定機会}{121}{section*.220}%
-\contentsline {subsection}{\numberline {9.1.3}無裁定価格}{122}{section*.221}%
-\contentsline {subsection}{\numberline {9.1.4}無裁定価格の線形性}{123}{section*.222}%
-\contentsline {subsection}{\numberline {9.1.5}複製と複製ポートフォリオ}{123}{section*.223}%
-\contentsline {paragraph}{「複製」の意味.}{123}{section*.224}%
-\contentsline {subsection}{\numberline {9.1.6}自己充足性}{124}{section*.225}%
-\contentsline {section}{\numberline {9.2}先渡価格}{124}{section*.226}%
-\contentsline {subsection}{\numberline {9.2.1}先渡契約(再確認)}{124}{section*.227}%
-\contentsline {subsection}{\numberline {9.2.2}先渡契約の複製ポートフォリオ}{125}{section*.228}%
-\contentsline {paragraph}{先渡契約のキャッシュフロー.}{125}{section*.229}%
-\contentsline {paragraph}{具体的な複製ポートフォリオ.}{125}{section*.230}%
-\contentsline {subsection}{\numberline {9.2.3}先渡価格の導出}{125}{section*.231}%
-\contentsline {section}{\numberline {9.3}金利スワップの価格付けとスワップレート}{126}{section*.232}%
-\contentsline {subsection}{\numberline {9.3.1}金利スワップ(再確認)}{126}{section*.233}%
-\contentsline {subsection}{\numberline {9.3.2}変動金利による借入}{126}{section*.234}%
-\contentsline {subsection}{\numberline {9.3.3}変動払と変動金利による借換}{126}{section*.235}%
-\contentsline {paragraph}{変動払の複製.}{126}{section*.236}%
-\contentsline {subsection}{\numberline {9.3.4}金利スワップの評価}{127}{section*.237}%
-\contentsline {paragraph}{記号の設定.}{127}{section*.238}%
-\contentsline {paragraph}{変動払の価値.}{127}{section*.239}%
-\contentsline {paragraph}{固定払の価値.}{127}{section*.240}%
-\contentsline {paragraph}{金利スワップの価値.}{127}{section*.241}%
-\contentsline {paragraph}{スワップレート.}{127}{section*.242}%
-\contentsline {section}{\numberline {9.4}演習問題}{128}{section*.243}%
-\contentsline {chapter}{\numberline {第10章}デリバティブの価格付け (2):複製と二項モデル}{131}{section*.244}%
-\contentsline {section}{\numberline {10.1}複製と二項モデル (1):Arrow-Debreu証券による複製}{131}{section*.245}%
-\contentsline {subsection}{\numberline {10.1.1}二項モデル}{131}{section*.246}%
-\contentsline {subsection}{\numberline {10.1.2}Arrow-Debreu証券の定義とペイオフ}{132}{section*.247}%
-\contentsline {subsection}{\numberline {10.1.3}AD証券によるデリバティブの複製}{132}{section*.248}%
-\contentsline {subsection}{\numberline {10.1.4}無リスク割引債とAD価格}{133}{section*.249}%
-\contentsline {subsection}{\numberline {10.1.5}市場性資産からのAD価格の推定}{133}{section*.250}%
-\contentsline {section}{\numberline {10.2}複製と二項モデル (2):市場性資産による複製}{134}{section*.251}%
-\contentsline {subsection}{\numberline {10.2.1}リスク性資産と無リスク資産による複製}{134}{section*.252}%
-\contentsline {subsection}{\numberline {10.2.2}ヨーロピアンコールオプションの数値例}{135}{section*.253}%
-\contentsline {subsection}{\numberline {10.2.3}価格式の意味}{136}{section*.254}%
-\contentsline {subsection}{\numberline {10.2.4}リスク中立確率}{136}{section*.255}%
-\contentsline {subsection}{\numberline {10.2.5}リスク中立化法}{136}{section*.256}%
-\contentsline {subsection}{\numberline {10.2.6}なぜ「リスク中立」と呼ばれるのか}{137}{section*.257}%
-\contentsline {paragraph}{(1) この確率のもとでは,すべての資産の期待収益率が無リスク資産の収益率と一致する.}{137}{section*.258}%
-\contentsline {paragraph}{(2) 期待収益率のチェック.}{137}{section*.259}%
-\contentsline {paragraph}{(3) リスク回避的な世界ではありえないこと.}{137}{section*.260}%
-\contentsline {paragraph}{(4) リスク中立化法は「技術」である.}{138}{section*.261}%
-\contentsline {subsection}{\numberline {10.2.7}確実性等価原理との対応関係(Advanced)}{138}{section*.262}%
-\contentsline {subsection}{\numberline {10.2.8}リスクの市場価格を見てみると}{139}{section*.263}%
-\contentsline {subsection}{\numberline {10.2.9}マルチンゲール確率(Advanced:講義ではスキップ)}{139}{section*.264}%
-\contentsline {section}{\numberline {10.3}複製と二項モデル (3):三項モデルと複製可能性(Advanced:講義ではスキップ)}{140}{section*.265}%
-\contentsline {subsection}{\numberline {10.3.1}三項モデルの設定}{140}{section*.266}%
-\contentsline {subsection}{\numberline {10.3.2}複製可能条件}{140}{section*.267}%
-\contentsline {subsection}{\numberline {10.3.3}複製可能条件を満たすとき}{141}{section*.268}%
-\contentsline {subsection}{\numberline {10.3.4}リスク中立確率は一意に決まらない}{141}{section*.269}%
-\contentsline {subsection}{\numberline {10.3.5}3資産による複製:完備化}{142}{section*.270}%
-\contentsline {section}{\numberline {10.4}演習問題}{143}{section*.271}%
-\contentsline {chapter}{\numberline {第11章}デリバティブの価格付け (3):多期間二項モデルとプット・コール・パリティ}{145}{section*.272}%
-\contentsline {section}{\numberline {11.1}多期間二項モデル}{145}{section*.273}%
-\contentsline {subsection}{\numberline {11.1.1}モデルの設定}{145}{section*.274}%
-\contentsline {subsection}{\numberline {11.1.2}二期間二項モデル}{145}{section*.275}%
-\contentsline {paragraph}{$t=1$ の上昇ノードにおける評価.}{145}{section*.276}%
-\contentsline {paragraph}{$t=1$ の下落ノードと $t=0$ の評価.}{147}{section*.277}%
-\contentsline {paragraph}{$t=0$ の価値.}{147}{section*.278}%
-\contentsline {subsection}{\numberline {11.1.3}一般の $n$ 期間への拡張}{147}{section*.279}%
-\contentsline {subsection}{\numberline {11.1.4}CRRの公式(コール・オプション)}{148}{section*.280}%
-\contentsline {subsection}{\numberline {11.1.5}CRRの公式(プット・オプション)}{149}{section*.281}%
-\contentsline {section}{\numberline {11.2}補足:CRR公式の正確な表現(重要!)}{150}{section*.282}%
-\contentsline {paragraph}{割引金利が一定でない場合.}{150}{section*.283}%
-\contentsline {section}{\numberline {11.3}プット・コール・パリティ}{150}{section*.284}%
-\contentsline {subsection}{\numberline {11.3.1}プットとコールのペイオフの関係}{150}{section*.285}%
-\contentsline {subsection}{\numberline {11.3.2}プットオプションの複製}{151}{section*.286}%
-\contentsline {subsection}{\numberline {11.3.3}プット・コール・パリティ}{151}{section*.287}%
-\contentsline {paragraph}{信用リスクとは.}{152}{section*.288}%
-\contentsline {paragraph}{例:割引社債の二項モデル評価.}{152}{section*.289}%
-\contentsline {section}{\numberline {11.4}演習問題}{152}{section*.290}%
-\contentsline {chapter}{\numberline {第12章}ブラック・ショールズ・モデル}{157}{section*.291}%
-\contentsline {section}{\numberline {12.1}ブラック・ショールズ(BS)モデル}{157}{section*.292}%
-\contentsline {subsection}{\numberline {12.1.1}前提}{157}{section*.293}%
-\contentsline {subsection}{\numberline {12.1.2}モデルの定式化}{157}{section*.294}%
-\contentsline {subsection}{\numberline {12.1.3}単純な積分ではうまくいかない}{159}{section*.295}%
-\contentsline {subsection}{\numberline {12.1.4}伊藤の公式}{159}{section*.296}%
-\contentsline {subsection}{\numberline {12.1.5}対数価格の確率微分方程式と $S(T)$ の分布}{160}{section*.297}%
-\contentsline {section}{\numberline {12.2}BSモデルによるオプション価格公式の導出}{161}{section*.298}%
-\contentsline {subsection}{\numberline {12.2.1}方針}{161}{section*.299}%
-\contentsline {subsection}{\numberline {12.2.2}連続時間モデルのリスク中立化法}{161}{section*.300}%
-\contentsline {subsection}{\numberline {12.2.3}コールの価格式の導出}{161}{section*.301}%
-\contentsline {paragraph}{準備:$\log S(T)$ の密度関数.}{162}{section*.302}%
-\contentsline {paragraph}{積分領域の限定.}{162}{section*.303}%
-\contentsline {paragraph}{$I_2$ の計算.}{162}{section*.304}%
-\contentsline {paragraph}{$I_1$ の計算.}{163}{section*.305}%
-\contentsline {paragraph}{Black-Scholesのコール価格式.}{163}{section*.306}%
-\contentsline {subsection}{\numberline {12.2.4}Black-Scholesの公式}{164}{section*.307}%
-\contentsline {paragraph}{プット価格式の導出.}{164}{section*.308}%
-\contentsline {subsection}{\numberline {12.2.5}BS公式による複製ポートフォリオ}{164}{section*.309}%
-\contentsline {subsection}{\numberline {12.2.6}本源的価値と時間価値}{164}{section*.310}%
-\contentsline {subsection}{\numberline {12.2.7}BS公式の振る舞い}{165}{section*.311}%
-\contentsline {section}{\numberline {12.3}デリバティブのリスク管理:グリークス (Greeks)}{165}{section*.312}%
-\contentsline {subsection}{\numberline {12.3.1}リスクヘッジとリスク感応度}{165}{section*.313}%
-\contentsline {subsection}{\numberline {12.3.2}グリークス}{166}{section*.314}%
-\contentsline {subsection}{\numberline {12.3.3}デルタ($\Delta $),ガンマ($\Gamma $)}{166}{section*.315}%
-\contentsline {subsection}{\numberline {12.3.4}セータ($\Theta $)}{167}{section*.316}%
-\contentsline {subsection}{\numberline {12.3.5}ロー($\rho $),ベガ($\mathcal {V}$)}{167}{section*.317}%
-\contentsline {section}{\numberline {12.4}通貨・金利デリバティブへの応用}{168}{section*.318}%
-\contentsline {subsection}{\numberline {12.4.1}通貨デリバティブへの応用}{168}{section*.319}%
-\contentsline {subsection}{\numberline {12.4.2}金利デリバティブへの応用}{168}{section*.320}%
-\contentsline {section}{\numberline {12.5}演習問題}{168}{section*.321}%
+\contentsline {subsection}{\numberline {1.3.5}流動性と証券化}{8}{section*.20}%
+\contentsline {chapter}{\numberline {第2章}キャッシュフローと時間価値}{11}{section*.21}%
+\contentsline {section}{\numberline {2.1}債券}{11}{section*.22}%
+\contentsline {subsection}{\numberline {2.1.1}債券のキーワード}{11}{section*.23}%
+\contentsline {subsection}{\numberline {2.1.2}キャッシュフローによる分類}{11}{section*.24}%
+\contentsline {subsection}{\numberline {2.1.3}発行体による分類}{12}{section*.25}%
+\contentsline {subsection}{\numberline {2.1.4}キャッシュフローの図示}{12}{section*.26}%
+\contentsline {subsection}{\numberline {2.1.5}固定利付債のキャッシュフロー}{12}{section*.27}%
+\contentsline {subsection}{\numberline {2.1.6}変動利付債のキャッシュフロー}{13}{section*.28}%
+\contentsline {section}{\numberline {2.2}時間，価値，利回り}{14}{section*.29}%
+\contentsline {subsection}{\numberline {2.2.1}現在価値の考え方}{14}{section*.30}%
+\contentsline {subsection}{\numberline {2.2.2}利回り}{15}{section*.31}%
+\contentsline {subsection}{\numberline {2.2.3}再投資と現在価値}{15}{section*.32}%
+\contentsline {subsection}{\numberline {2.2.4}利息を再投資しない場合とする場合}{15}{section*.33}%
+\contentsline {subsection}{\numberline {2.2.5}単利と複利}{16}{section*.34}%
+\contentsline {subsection}{\numberline {2.2.6}複利による終価と現価}{16}{section*.35}%
+\contentsline {subsection}{\numberline {2.2.7}連続複利}{17}{section*.36}%
+\contentsline {subsection}{\numberline {2.2.8}整理：現価・終価・利回り}{17}{section*.37}%
+\contentsline {subsection}{\numberline {2.2.9}$n$ 年間の現価・終価}{19}{section*.38}%
+\contentsline {section}{\numberline {2.3}確定的なキャッシュフローの価値}{19}{section*.39}%
+\contentsline {subsection}{\numberline {2.3.1}考え方：分解と線形和}{19}{section*.40}%
+\contentsline {subsection}{\numberline {2.3.2}現価，終価，複利利回りの関係}{20}{section*.41}%
+\contentsline {subsection}{\numberline {2.3.3}これらは何をやっているのか}{21}{section*.42}%
+\contentsline {section}{\numberline {2.4}投資の価値評価：将来CFが確定的な場合}{22}{section*.43}%
+\contentsline {subsection}{\numberline {2.4.1}伝統的な投資評価法}{22}{section*.44}%
+\contentsline {subsection}{\numberline {2.4.2}NPV(正味現在価値)法}{22}{section*.45}%
+\contentsline {subsection}{\numberline {2.4.3}IRR(内部収益率)法}{22}{section*.46}%
+\contentsline {subsection}{\numberline {2.4.4}IRR法とNPV法の関係}{23}{section*.47}%
+\contentsline {subsection}{\numberline {2.4.5}NPV法・IRR法で十分か?}{25}{section*.48}%
+\contentsline {section}{\numberline {2.5}演習問題}{26}{section*.49}%
+\contentsline {chapter}{\numberline {第3章}金利の期間構造}{29}{section*.50}%
+\contentsline {section}{\numberline {3.1}最終利回りと債券価格}{29}{section*.51}%
+\contentsline {subsection}{\numberline {3.1.1}証券の現在価値とディスカウントファクター}{30}{section*.52}%
+\contentsline {subsection}{\numberline {3.1.2}最終利回りの定義}{30}{section*.53}%
+\contentsline {subsection}{\numberline {3.1.3}価格から最終利回りを求める}{32}{section*.54}%
+\contentsline {section}{\numberline {3.2}イールドカーブ}{32}{section*.55}%
+\contentsline {section}{\numberline {3.3}ゼロ(クーポン)・レート}{33}{section*.56}%
+\contentsline {subsection}{\numberline {3.3.1}最終利回りは使い難い?}{33}{section*.57}%
+\contentsline {subsection}{\numberline {3.3.2}期間を代表する利回り：ゼロレート}{33}{section*.58}%
+\contentsline {subsection}{\numberline {3.3.3}ゼロレートによる債券価格評価}{34}{section*.59}%
+\contentsline {subsection}{\numberline {3.3.4}ゼロレートとYTMによる価格式の比較}{34}{section*.60}%
+\contentsline {subsection}{\numberline {3.3.5}連続複利における割引関数}{35}{section*.61}%
+\contentsline {section}{\numberline {3.4}フォワード・イールド}{35}{section*.62}%
+\contentsline {subsection}{\numberline {3.4.1}イールド}{35}{section*.63}%
+\contentsline {subsection}{\numberline {3.4.2}運用と運用成果}{36}{section*.64}%
+\contentsline {subsection}{\numberline {3.4.3}フォワード・イールド}{36}{section*.65}%
+\contentsline {subsection}{\numberline {3.4.4}現時点でフォワード・イールドは確定できる}{36}{section*.66}%
+\contentsline {subsection}{\numberline {3.4.5}インプライド・フォワード・イールド}{37}{section*.67}%
+\contentsline {subsection}{\numberline {3.4.6}インプライド・フォワード・イールドの公式(1年複利)}{38}{section*.68}%
+\contentsline {subsection}{\numberline {3.4.7}インプライド・フォワード・イールドの公式(連続複利)}{39}{section*.69}%
+\contentsline {subsection}{\numberline {3.4.8}割引債価格との関係}{40}{section*.70}%
+\contentsline {section}{\numberline {3.5}演習問題}{42}{section*.71}%
+\contentsline {chapter}{\numberline {第4章}リターン，リスクと効用}{49}{section*.72}%
+\contentsline {section}{\numberline {4.1}投資収益率}{49}{section*.73}%
+\contentsline {subsection}{\numberline {4.1.1}算術収益率}{49}{section*.74}%
+\contentsline {subsection}{\numberline {4.1.2}対数収益率}{50}{section*.75}%
+\contentsline {subsection}{\numberline {4.1.3}対数収益率と算術収益率の違い}{50}{section*.76}%
+\contentsline {subsection}{\numberline {4.1.4}収益率の分布}{50}{section*.77}%
+\contentsline {section}{\numberline {4.2}リターン，リスク}{51}{section*.78}%
+\contentsline {subsection}{\numberline {4.2.1}定義}{51}{section*.79}%
+\contentsline {subsection}{\numberline {4.2.2}ボラティリティ}{51}{section*.80}%
+\contentsline {section}{\numberline {4.3}効用，効用関数，期待効用原理}{52}{section*.81}%
+\contentsline {subsection}{\numberline {4.3.1}どちらを選びますか?}{52}{section*.82}%
+\contentsline {subsection}{\numberline {4.3.2}リスク回避的投資家}{53}{section*.83}%
+\contentsline {subsection}{\numberline {4.3.3}効用と効用関数}{53}{section*.84}%
+\contentsline {subsection}{\numberline {4.3.4}期待効用原理}{53}{section*.85}%
+\contentsline {subsection}{\numberline {4.3.5}Jensenの不等式}{54}{section*.86}%
+\contentsline {subsection}{\numberline {4.3.6}効用関数の凹凸とリスク選好}{54}{section*.87}%
+\contentsline {subsection}{\numberline {4.3.7}限界効用逓減の法則}{55}{section*.88}%
+\contentsline {subsection}{\numberline {4.3.8}よく使われるリスク回避的な効用関数}{56}{section*.89}%
+\contentsline {section}{\numberline {4.4}リスク・プレミアム}{56}{section*.90}%
+\contentsline {subsection}{\numberline {4.4.1}リスク・プレミアムとは}{57}{section*.91}%
+\contentsline {subsection}{\numberline {4.4.2}確実性等価原理}{57}{section*.92}%
+\contentsline {subsection}{\numberline {4.4.3}効用関数，分布の変換，価格}{60}{section*.93}%
+\contentsline {subsection}{\numberline {4.4.4}Sharpe Ratio(シャープレシオ)}{60}{section*.94}%
+\contentsline {subsection}{\numberline {4.4.5}ファンドのパフォーマンス評価}{61}{section*.95}%
+\contentsline {subsection}{\numberline {4.4.6}インデックス，トラッキング・エラー，IR}{62}{section*.96}%
+\contentsline {section}{\numberline {4.5}演習問題}{62}{section*.97}%
+\contentsline {chapter}{\numberline {第5章}現代ポートフォリオ理論 (1)：分散投資と平均分散モデル}{67}{section*.98}%
+\contentsline {section}{\numberline {5.1}投資における時間の推移と収益率}{67}{section*.99}%
+\contentsline {subsection}{\numberline {5.1.1}価格変化と組み替えの考え方}{67}{section*.100}%
+\contentsline {subsection}{\numberline {5.1.2}個別資産とポートフォリオの収益率}{67}{section*.101}%
+\contentsline {section}{\numberline {5.2}分散投資効果の例}{68}{section*.102}%
+\contentsline {subsection}{\numberline {5.2.1}ケース1：独立な収益率}{68}{section*.103}%
+\contentsline {subsection}{\numberline {5.2.2}ケース2：共通成分がある収益率}{69}{section*.104}%
+\contentsline {subsection}{\numberline {5.2.3}システマティック・リスクとアンシステマティック・リスク}{69}{section*.105}%
+\contentsline {section}{\numberline {5.3}個別資産の収益率とポートフォリオ}{70}{section*.106}%
+\contentsline {subsection}{\numberline {5.3.1}ケース1：2つのシナリオ}{70}{section*.107}%
+\contentsline {subsection}{\numberline {5.3.2}なぜリスク量が変わるのか}{71}{section*.108}%
+\contentsline {subsection}{\numberline {5.3.3}共分散と相関係数}{71}{section*.109}%
+\contentsline {subsection}{\numberline {5.3.4}ケース2：4つのシナリオ}{72}{section*.110}%
+\contentsline {subsection}{\numberline {5.3.5}相関とリスクの関係：2資産での確認}{73}{section*.111}%
+\contentsline {subsection}{\numberline {5.3.6}一般の $n$ 資産への拡張}{73}{section*.112}%
+\contentsline {subsection}{\numberline {5.3.7}どのポートフォリオを選ぶべきか：無差別曲線}{74}{section*.113}%
+\contentsline {section}{\numberline {5.4}補足：最小分散ポートフォリオ(Markowitz)}{75}{section*.114}%
+\contentsline {subsection}{\numberline {5.4.1}設定}{75}{section*.115}%
+\contentsline {subsection}{\numberline {5.4.2}最小分散ポートフォリオの導出}{76}{section*.116}%
+\contentsline {subsection}{\numberline {5.4.3}最小分散ポートフォリオの解の意味}{77}{section*.117}%
+\contentsline {subsection}{\numberline {5.4.4}最小分散境界}{78}{section*.118}%
+\contentsline {subsection}{\numberline {5.4.5}大域的最小分散ポートフォリオ}{78}{section*.119}%
+\contentsline {subsection}{\numberline {5.4.6}最小分散ポートフォリオの性質}{79}{section*.120}%
+\contentsline {subsubsection}{\numberline {5.4.6.1}二資産分離定理}{79}{section*.121}%
+\contentsline {subsubsection}{\numberline {5.4.6.2}ポートフォリオ間の共分散}{79}{section*.122}%
+\contentsline {subsubsection}{\numberline {5.4.6.3}ゼロベータポートフォリオ}{80}{section*.124}%
+\contentsline {section}{\numberline {5.5}演習問題}{84}{section*.125}%
+\contentsline {chapter}{\numberline {第6章}現代ポートフォリオ理論 (2)：MarkowitzとTobinの平均分散モデル}{87}{section*.126}%
+\contentsline {section}{\numberline {6.1}平均分散モデル (1)：Markowitzのポートフォリオ選択問題}{87}{section*.127}%
+\contentsline {subsection}{\numberline {6.1.1}3資産の投資機会集合}{87}{section*.128}%
+\contentsline {subsection}{\numberline {6.1.2}効率的フロンティア}{87}{section*.129}%
+\contentsline {subsection}{\numberline {6.1.3}記号の定義}{88}{section*.130}%
+\contentsline {subsection}{\numberline {6.1.4}平均分散モデルの問題設定}{88}{section*.131}%
+\contentsline {subsection}{\numberline {6.1.5}最適ポートフォリオの選択}{89}{section*.132}%
+\contentsline {section}{\numberline {6.2}平均分散モデル (2)：Tobinのポートフォリオ選択問題}{89}{section*.133}%
+\contentsline {subsection}{\numberline {6.2.1}無リスク証券がある場合}{90}{section*.134}%
+\contentsline {subsection}{\numberline {6.2.2}接点ポートフォリオ}{90}{section*.135}%
+\contentsline {subsection}{\numberline {6.2.3}分離定理}{91}{section*.136}%
+\contentsline {subsection}{\numberline {6.2.4}$n$ 個のリスク性資産+無リスク資産での定式化}{91}{section*.137}%
+\contentsline {section}{\numberline {6.3}補足：最小分散ポートフォリオ(Tobin)}{94}{section*.138}%
+\contentsline {subsection}{\numberline {6.3.1}設定}{94}{section*.139}%
+\contentsline {subsection}{\numberline {6.3.2}最小分散ポートフォリオの導出}{94}{section*.140}%
+\contentsline {subsection}{\numberline {6.3.3}最小分散境界}{96}{section*.141}%
+\contentsline {subsection}{\numberline {6.3.4}接点ポートフォリオの導出}{97}{section*.142}%
+\contentsline {section}{\numberline {6.4}補足：市場均衡とゼロベータCAPM(資料6補足より)}{98}{section*.143}%
+\contentsline {chapter}{\numberline {第7章}現代ポートフォリオ理論 (3)：CAPMと市場モデル}{101}{section*.144}%
+\contentsline {section}{\numberline {7.1}接点ポートフォリオの性質}{101}{section*.145}%
+\contentsline {subsection}{\numberline {7.1.1}一般に成り立つ関係式}{101}{section*.146}%
+\contentsline {subsection}{\numberline {7.1.2}接点ポートフォリオの分散・共分散の性質}{102}{section*.147}%
+\contentsline {section}{\numberline {7.2}CAPM(資本資産価格モデル)}{103}{section*.148}%
+\contentsline {subsection}{\numberline {7.2.1}仮定}{104}{section*.149}%
+\contentsline {subsection}{\numberline {7.2.2}均衡状態下の接点ポートフォリオ=市場ポートフォリオ}{104}{section*.150}%
+\contentsline {subsection}{\numberline {7.2.3}資本市場線 (CML)}{105}{section*.151}%
+\contentsline {subsection}{\numberline {7.2.4}CAPMの関係式}{105}{section*.152}%
+\contentsline {subsection}{\numberline {7.2.5}証券市場線とベータ}{106}{section*.153}%
+\contentsline {subsection}{\numberline {7.2.6}CAPMの2つの定理}{106}{section*.154}%
+\contentsline {subsection}{\numberline {7.2.7}ベータの推定}{107}{section*.155}%
+\contentsline {subsection}{\numberline {7.2.8}CAPMと割高・割安分析}{107}{section*.156}%
+\contentsline {subsection}{\numberline {7.2.9}ゼロベータCAPMへの一般化}{107}{section*.157}%
+\contentsline {section}{\numberline {7.3}市場モデルとファクター}{108}{section*.158}%
+\contentsline {subsection}{\numberline {7.3.1}市場モデル，ファクターモデル}{108}{section*.159}%
+\contentsline {subsection}{\numberline {7.3.2}市場モデルの定式化}{108}{section*.160}%
+\contentsline {subsection}{\numberline {7.3.3}回帰分析によるパラメータ推定}{109}{section*.161}%
+\contentsline {subsection}{\numberline {7.3.4}CAPMと市場モデルは全く違う}{110}{section*.162}%
+\contentsline {subsection}{\numberline {7.3.5}CAPMの反例とFama-Frenchの3ファクターモデル}{110}{section*.163}%
+\contentsline {subsection}{\numberline {7.3.6}ファクター投資戦略}{111}{section*.164}%
+\contentsline {section}{\numberline {7.4}インデックス運用，スタイル運用}{111}{section*.165}%
+\contentsline {subsection}{\numberline {7.4.1}インデックス・ファンド}{111}{section*.166}%
+\contentsline {subsection}{\numberline {7.4.2}インデックス・ファンドの定式化}{111}{section*.167}%
+\contentsline {subsection}{\numberline {7.4.3}現代ポートフォリオ理論の最後に}{113}{section*.168}%
+\contentsline {section}{\numberline {7.5}演習問題}{115}{section*.169}%
+\contentsline {chapter}{\numberline {第8章}デリバティブ}{119}{section*.172}%
+\contentsline {section}{\numberline {8.1}デリバティブ(金融派生商品)}{119}{section*.173}%
+\contentsline {section}{\numberline {8.2}先渡契約と先物契約}{119}{section*.174}%
+\contentsline {subsection}{\numberline {8.2.1}先渡契約}{119}{section*.175}%
+\contentsline {subsection}{\numberline {8.2.2}先物契約}{120}{section*.176}%
+\contentsline {section}{\numberline {8.3}スワップ}{121}{section*.177}%
+\contentsline {subsection}{\numberline {8.3.1}金利スワップ}{122}{section*.178}%
+\contentsline {subsection}{\numberline {8.3.2}通貨スワップ}{123}{section*.179}%
+\contentsline {subsection}{\numberline {8.3.3}ベーシス・スワップなど}{124}{section*.180}%
+\contentsline {subsection}{\numberline {8.3.4}クレジット・デフォルト・スワップ(CDS)}{124}{section*.181}%
+\contentsline {section}{\numberline {8.4}オプション}{125}{section*.182}%
+\contentsline {subsection}{\numberline {8.4.1}オプションの例}{125}{section*.183}%
+\contentsline {subsection}{\numberline {8.4.2}オプションの定義}{126}{section*.184}%
+\contentsline {subsection}{\numberline {8.4.3}コールとプット，権利行使日}{126}{section*.185}%
+\contentsline {subsection}{\numberline {8.4.4}ITM，OTM，ATM}{127}{section*.186}%
+\contentsline {section}{\numberline {8.5}ペイオフと正味損益}{127}{section*.187}%
+\contentsline {subsection}{\numberline {8.5.1}ペイオフ関数}{128}{section*.188}%
+\contentsline {subsection}{\numberline {8.5.2}正味損益}{128}{section*.189}%
+\contentsline {section}{\numberline {8.6}デリバティブを用いた取引戦略}{129}{section*.190}%
+\contentsline {subsection}{\numberline {8.6.1}ヘッジ}{129}{section*.191}%
+\contentsline {subsection}{\numberline {8.6.2}スプレッド}{129}{section*.192}%
+\contentsline {subsection}{\numberline {8.6.3}コンビネーション}{130}{section*.193}%
+\contentsline {subsection}{\numberline {8.6.4}レバレッジ効果}{130}{section*.194}%
+\contentsline {section}{\numberline {8.7}演習問題}{131}{section*.195}%
+\contentsline {chapter}{\numberline {第9章}デリバティブの価格付け (1)：無裁定価格とモデルフリーな価格式}{135}{section*.196}%
+\contentsline {section}{\numberline {9.1}裁定機会と無裁定価格}{135}{section*.197}%
+\contentsline {subsection}{\numberline {9.1.1}金融商品の価格付けとは}{135}{section*.198}%
+\contentsline {subsection}{\numberline {9.1.2}裁定機会}{135}{section*.199}%
+\contentsline {subsection}{\numberline {9.1.3}無裁定価格}{136}{section*.200}%
+\contentsline {subsection}{\numberline {9.1.4}無裁定価格の線形性}{137}{section*.201}%
+\contentsline {subsection}{\numberline {9.1.5}複製と複製ポートフォリオ}{137}{section*.202}%
+\contentsline {subsection}{\numberline {9.1.6}自己充足性}{138}{section*.203}%
+\contentsline {section}{\numberline {9.2}先渡価格}{139}{section*.204}%
+\contentsline {subsection}{\numberline {9.2.1}先渡契約(再確認)}{139}{section*.205}%
+\contentsline {subsection}{\numberline {9.2.2}先渡契約の複製ポートフォリオ}{139}{section*.206}%
+\contentsline {subsection}{\numberline {9.2.3}先渡価格の導出}{140}{section*.207}%
+\contentsline {section}{\numberline {9.3}金利スワップの価格付けとスワップレート}{140}{section*.208}%
+\contentsline {subsection}{\numberline {9.3.1}金利スワップ(再確認)}{140}{section*.209}%
+\contentsline {subsection}{\numberline {9.3.2}変動金利による借入}{141}{section*.210}%
+\contentsline {subsection}{\numberline {9.3.3}変動払と変動金利による借換}{141}{section*.211}%
+\contentsline {subsection}{\numberline {9.3.4}金利スワップの評価}{141}{section*.212}%
+\contentsline {section}{\numberline {9.4}演習問題}{143}{section*.213}%
+\contentsline {chapter}{\numberline {第10章}デリバティブの価格付け (2)：複製と二項モデル}{145}{section*.214}%
+\contentsline {section}{\numberline {10.1}複製と二項モデル (1)：Arrow-Debreu証券による複製}{145}{section*.215}%
+\contentsline {subsection}{\numberline {10.1.1}二項モデル}{145}{section*.216}%
+\contentsline {subsection}{\numberline {10.1.2}Arrow-Debreu証券の定義とペイオフ}{146}{section*.217}%
+\contentsline {subsection}{\numberline {10.1.3}AD証券によるデリバティブの複製}{146}{section*.218}%
+\contentsline {subsection}{\numberline {10.1.4}無リスク割引債とAD価格}{147}{section*.219}%
+\contentsline {subsection}{\numberline {10.1.5}市場性資産からのAD価格の推定}{147}{section*.220}%
+\contentsline {section}{\numberline {10.2}複製と二項モデル (2)：市場性資産による複製}{148}{section*.221}%
+\contentsline {subsection}{\numberline {10.2.1}リスク性資産と無リスク資産による複製}{148}{section*.222}%
+\contentsline {subsection}{\numberline {10.2.2}ヨーロピアンコールオプションの数値例}{149}{section*.223}%
+\contentsline {subsection}{\numberline {10.2.3}価格式の意味}{150}{section*.224}%
+\contentsline {subsection}{\numberline {10.2.4}リスク中立確率}{150}{section*.225}%
+\contentsline {subsection}{\numberline {10.2.5}リスク中立化法}{151}{section*.226}%
+\contentsline {subsection}{\numberline {10.2.6}なぜ「リスク中立」と呼ばれるのか}{151}{section*.227}%
+\contentsline {subsection}{\numberline {10.2.7}確実性等価原理との対応関係(Advanced)}{153}{section*.228}%
+\contentsline {subsection}{\numberline {10.2.8}リスクの市場価格を見てみると}{153}{section*.229}%
+\contentsline {subsection}{\numberline {10.2.9}マルチンゲール確率(Advanced：講義ではスキップ)}{154}{section*.230}%
+\contentsline {section}{\numberline {10.3}複製と二項モデル (3)：三項モデルと複製可能性(Advanced：講義ではスキップ)}{154}{section*.231}%
+\contentsline {subsection}{\numberline {10.3.1}三項モデルの設定}{154}{section*.232}%
+\contentsline {subsection}{\numberline {10.3.2}複製可能条件}{155}{section*.233}%
+\contentsline {subsection}{\numberline {10.3.3}複製可能条件を満たすとき}{155}{section*.234}%
+\contentsline {subsection}{\numberline {10.3.4}リスク中立確率は一意に決まらない}{156}{section*.235}%
+\contentsline {subsection}{\numberline {10.3.5}3資産による複製：完備化}{157}{section*.236}%
+\contentsline {section}{\numberline {10.4}演習問題}{158}{section*.237}%
+\contentsline {chapter}{\numberline {第11章}デリバティブの価格付け (3)：多期間二項モデルとプット・コール・パリティ}{161}{section*.238}%
+\contentsline {section}{\numberline {11.1}多期間二項モデル}{161}{section*.239}%
+\contentsline {subsection}{\numberline {11.1.1}モデルの設定}{161}{section*.240}%
+\contentsline {subsection}{\numberline {11.1.2}二期間二項モデル}{161}{section*.241}%
+\contentsline {subsection}{\numberline {11.1.3}一般の $n$ 期間への拡張}{163}{section*.242}%
+\contentsline {subsection}{\numberline {11.1.4}CRRの公式(コール・オプション)}{164}{section*.243}%
+\contentsline {subsection}{\numberline {11.1.5}CRRの公式(プット・オプション)}{165}{section*.244}%
+\contentsline {section}{\numberline {11.2}補足：CRR公式の正確な表現(重要!)}{166}{section*.245}%
+\contentsline {section}{\numberline {11.3}プット・コール・パリティ}{167}{section*.246}%
+\contentsline {subsection}{\numberline {11.3.1}プットとコールのペイオフの関係}{167}{section*.247}%
+\contentsline {subsection}{\numberline {11.3.2}プットオプションの複製}{167}{section*.248}%
+\contentsline {subsection}{\numberline {11.3.3}プット・コール・パリティ}{167}{section*.249}%
+\contentsline {section}{\numberline {11.4}演習問題}{169}{section*.250}%
+\contentsline {chapter}{\numberline {第12章}ブラック・ショールズ・モデル}{173}{section*.251}%
+\contentsline {section}{\numberline {12.1}ブラック・ショールズ(BS)モデル}{173}{section*.252}%
+\contentsline {subsection}{\numberline {12.1.1}前提}{173}{section*.253}%
+\contentsline {subsection}{\numberline {12.1.2}モデルの定式化}{173}{section*.254}%
+\contentsline {subsection}{\numberline {12.1.3}単純な積分ではうまくいかない}{175}{section*.255}%
+\contentsline {subsection}{\numberline {12.1.4}伊藤の公式}{175}{section*.256}%
+\contentsline {subsection}{\numberline {12.1.5}対数価格の確率微分方程式と $S(T)$ の分布}{176}{section*.257}%
+\contentsline {section}{\numberline {12.2}BSモデルによるオプション価格公式の導出}{177}{section*.258}%
+\contentsline {subsection}{\numberline {12.2.1}方針}{177}{section*.259}%
+\contentsline {subsection}{\numberline {12.2.2}連続時間モデルのリスク中立化法}{177}{section*.260}%
+\contentsline {subsection}{\numberline {12.2.3}コールの価格式の導出}{177}{section*.261}%
+\contentsline {subsection}{\numberline {12.2.4}Black-Scholesの公式}{180}{section*.262}%
+\contentsline {subsection}{\numberline {12.2.5}BS公式による複製ポートフォリオ}{181}{section*.263}%
+\contentsline {subsection}{\numberline {12.2.6}本源的価値と時間価値}{181}{section*.264}%
+\contentsline {subsection}{\numberline {12.2.7}BS公式の振る舞い}{181}{section*.265}%
+\contentsline {section}{\numberline {12.3}デリバティブのリスク管理：グリークス (Greeks)}{182}{section*.266}%
+\contentsline {subsection}{\numberline {12.3.1}リスクヘッジとリスク感応度}{182}{section*.267}%
+\contentsline {subsection}{\numberline {12.3.2}グリークス}{182}{section*.268}%
+\contentsline {subsection}{\numberline {12.3.3}デルタ($\Delta $)，ガンマ($\Gamma $)}{183}{section*.269}%
+\contentsline {subsection}{\numberline {12.3.4}セータ($\Theta $)}{183}{section*.270}%
+\contentsline {subsection}{\numberline {12.3.5}ロー($\rho $)，ベガ($\mathcal {V}$)}{184}{section*.271}%
+\contentsline {section}{\numberline {12.4}通貨・金利デリバティブへの応用}{184}{section*.272}%
+\contentsline {subsection}{\numberline {12.4.1}通貨デリバティブへの応用}{184}{section*.273}%
+\contentsline {subsection}{\numberline {12.4.2}金利デリバティブへの応用}{185}{section*.274}%
+\contentsline {section}{\numberline {12.5}演習問題}{185}{section*.275}%
