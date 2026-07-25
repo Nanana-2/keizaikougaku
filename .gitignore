@@ -22,7 +22,7 @@ Thumbs.db
 *.vrb
 
 # Generated textbook PDFs. Source/reference PDFs live under materials/.
-/textbook/*.pdf
+# /textbook/*.pdf
 
 # Common local build directories
 /build/
